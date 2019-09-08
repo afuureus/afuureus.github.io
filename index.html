@@ -199,7 +199,7 @@
 	}
 	function changecharacter(node) {
 	var imgnode = node.parentNode.parentNode.getElementsByClassName("charicon")[0];
-	imgnode.setAttribute("src", "thumbs/character_" + node.value + "_thumb.png");
+	imgnode.setAttribute("src", "master/thumbs/character_" + node.value + "_thumb.png");
 	}
 	function refreshchar2() {
 	document.getElementById("char2totalhp").textContent=stats[document.getElementById("character2name").value]["stats"][document.getElementById("char2limitbreakvalue").value]["hp"] +Number(document.getElementById("char2weaponhp").value) +Number(document.getElementById("char2maghp").value) +Number(document.getElementById("char2symbolhp").value);

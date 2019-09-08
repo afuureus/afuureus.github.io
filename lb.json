@@ -663,5 +663,15 @@ var stats = {
 			{"hp": 10911,"atk": 436,"def": 410,"spd": 452},
 			{"hp": 11711,"atk": 451,"def": 421,"spd": 466}
 		]
+	},
+"":
+	{
+		"stats": [
+			{"hp":,"atk":,"def":,"spd":},
+			{"hp":,"atk":,"def":,"spd":},
+			{"hp":,"atk":,"def":,"spd":},
+			{"hp":,"atk":,"def":,"spd":},
+			{"hp":,"atk":,"def":,"spd":},
+		]
 	}
 }

@@ -6,7 +6,7 @@
 		font-family: Segoe UI, sans-serif;
 	}
 	.team {
-	width: 1420px;
+	width: 1526px;
 	height: 850px;
 	position: absolute;
 	top: 50px;
@@ -41,6 +41,16 @@
 		border-style: solid;
 		text-align: center;
 		vertical-align: middle;
+	}
+	.magbox {
+		width: 100px;
+		height 400px;
+		border-width: 1px;
+		border-style: solid;
+		text-align: center;
+		vertical-align: middle;
+		border-color: black;
+		background-color: white;
 	}
 	.stattable {
 		margin: 0% 20%;
@@ -132,10 +142,18 @@
 	imgnode.setAttribute("src", "thumbs/character_" + node.value + "_thumb.png");
 	}
 	function refreshcharacter(num) {
-	document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("char" + num + "maghp").value);
-	document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char" + num + "buffatk").value)) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("char" + num + "magatk").value);
-	document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char" + num + "buffdef").value)) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("char" + num + "magdef").value);
-	document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char" + num + "buffspd").value)) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("char" + num + "magspd").value);
+		if (num <= 4) {
+		document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("lawmaghp").value);
+		document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char" + num + "buffatk").value)) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("lawmagatk").value);
+		document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char" + num + "buffdef").value)) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("lawmagdef").value);
+		document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char" + num + "buffspd").value)) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("lawmagspd").value);
+		}
+		if (num >= 5) {
+		document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("chaosmaghp").value);
+		document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char" + num + "buffatk").value)) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("chaosmagatk").value);
+		document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char" + num + "buffdef").value)) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("chaosmagdef").value);
+		document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char" + num + "buffspd").value)) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("chaosmagspd").value);
+		}
 	}
 	</script>
 	<div id="law" class="team">ロウのパーティ
@@ -226,10 +244,9 @@
 						<option value="zora">ZORA</option>
 					</select>
 				</div>
-				
-				<br>
 				<!-- Character Stats -->
 				<table class="stattable">
+				Total Character Stats
 					<tr>
 						<td>
 						<img src="icons/hp.png" class="staticon">
@@ -268,6 +285,7 @@
 					<tr>
 						<td class="subtable">
 							<!-- weapon symbol table -->
+							Weapon Stats
 							<table>
 								<tr>
 									<td>
@@ -312,6 +330,7 @@
 							</table>
 						</td>
 						<td class="subtable">
+						Soul Stats
 							<!-- soul symbol table -->
 							<table>
 								<tr>
@@ -359,51 +378,7 @@
 					</tr>
 					<tr>
 						<td class="subtable">
-							<!-- mag stat table -->
-							<table>
-								<tr>
-									<td>
-										<img src="icons/hp.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1maghp" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/atk.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1magatk" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/def.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1magdef" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/spd.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1magspd" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td class="subtable">
+						Buff %
 							<!-- buff table -->
 							<table>
 								<tr>
@@ -529,9 +504,9 @@
 						<option value="zora">ZORA</option>
 					</select>
 					</div>
-					<br>
 					<!-- Character Stats -->
 					<table class="stattable">
+						Total Character Stats					
 						<tr>
 							<td>
 							<img src="icons/hp.png" class="staticon">
@@ -571,6 +546,7 @@
 							<td class="subtable">
 								<!-- weapon symbol table -->
 								<table>
+								Weapon Stats
 									<tr>
 										<td>
 											<img src="icons/hp.png" class="substaticon">
@@ -616,6 +592,7 @@
 							<td class="subtable">
 								<!-- soul symbol table -->
 								<table>
+								Soul Stats
 									<tr>
 										<td>
 											<img src="icons/hp.png" class="substaticon">
@@ -661,53 +638,9 @@
 						</tr>
 						<tr>
 							<td class="subtable">
-								<!-- mag stat table -->
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2maghp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2magatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2magdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2magspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
 								<!-- buff table -->
 								<table>
+								Buff %
 									<tr>
 										<td>
 											<img src="icons/atkbuff.png" class="substaticon2">
@@ -831,9 +764,9 @@
 						<option value="zora">ZORA</option>
 					</select>
 					</div>
-					<br>
 					<!-- Character Stats -->
 					<table class="stattable">
+					Total Character Stats
 						<tr>
 							<td>
 							<img src="icons/hp.png" class="staticon">
@@ -873,6 +806,7 @@
 							<td class="subtable">
 								<!-- weapon symbol table -->
 								<table>
+								Weapon Stats
 									<tr>
 										<td>
 											<img src="icons/hp.png" class="substaticon">
@@ -918,6 +852,7 @@
 							<td class="subtable">
 								<!-- soul symbol table -->
 								<table>
+								Soul Stats
 									<tr>
 										<td>
 											<img src="icons/hp.png" class="substaticon">
@@ -963,53 +898,9 @@
 						</tr>
 						<tr>
 							<td class="subtable">
-								<!-- mag stat table -->
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3maghp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3magatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3magdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3magspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
 								<!-- buff table -->
 								<table>
+								Buff %
 									<tr>
 										<td>
 											<img src="icons/atkbuff.png" class="substaticon2">
@@ -1133,9 +1024,9 @@
 						<option value="zora">ZORA</option>
 					</select>
 					</div>
-					<br>
 					<!-- Character Stats -->
 					<table class="stattable">
+					Total Character Stats
 						<tr>
 							<td>
 							<img src="icons/hp.png" class="staticon">
@@ -1174,6 +1065,7 @@
 						<tr>
 							<td class="subtable">
 								<!-- weapon symbol table -->
+								Weapon Stats
 								<table>
 									<tr>
 										<td>
@@ -1220,6 +1112,7 @@
 							<td class="subtable">
 								<!-- soul symbol table -->
 								<table>
+								Soul Stats
 									<tr>
 										<td>
 											<img src="icons/hp.png" class="substaticon">
@@ -1265,53 +1158,9 @@
 						</tr>
 						<tr>
 							<td class="subtable">
-								<!-- mag stat table -->
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4maghp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4magatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4magdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4magspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
 								<!-- buff table -->
 								<table>
+								Buff %
 									<tr>
 										<td>
 											<img src="icons/atkbuff.png" class="substaticon2">
@@ -1349,13 +1198,59 @@
 				</br>
 			</div>
 		</td>
+		<td>
+			<div id="lawcharbox" class="magbox">
+				Mag Stats
+				<table>
+					<tr>
+						<td>
+							<img src="icons/hp.png" class="substaticon">
+							</img>
+						</td>
+						<td>
+							<input type="number" id="lawmaghp" class="stattableinput">
+							</input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="icons/atk.png" class="substaticon">
+							</img>
+						</td>
+						<td>
+							<input type="number" id="lawmagatk" class="stattableinput">
+							</input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="icons/def.png" class="substaticon">
+							</img>
+						</td>
+						<td>
+							<input type="number" id="lawmagdef" class="stattableinput">
+							</input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="icons/spd.png" class="substaticon">
+							</img>
+						</td>
+						<td>
+							<input type="number" id="lawmagspd" class="stattableinput">
+							</input>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</td>
 	</tr></table>
 	</div>
 	
 	<!-- CHAOS PARTY -->
 	
 	<div id="chaos" class="inactive_team team">カオスのパーティ
-		<!-- Table to create rows -->
 	<table><tr>
 										<!-- Character Five Starts Here -->
 		<td>
@@ -1443,9 +1338,9 @@
 						<option value="zora">ZORA</option>
 					</select>
 					</div>
-					<br>
 					<!-- Character Stats -->
 					<table class="stattable">
+					Total Character Stats
 						<tr>
 							<td>
 							<img src="icons/hp.png" class="staticon">
@@ -1484,6 +1379,7 @@
 						<tr>
 							<td class="subtable">
 								<!-- weapon symbol table -->
+								Weapon Stats
 								<table>
 									<tr>
 										<td>
@@ -1529,6 +1425,7 @@
 							</td>
 							<td class="subtable">
 								<!-- soul symbol table -->
+								Soul Stats
 								<table>
 									<tr>
 										<td>
@@ -1575,52 +1472,8 @@
 						</tr>
 						<tr>
 							<td class="subtable">
-								<!-- mag stat table -->
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5maghp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5magatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5magdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5magspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
 								<!-- buff table -->
+								Buff %
 								<table>
 									<tr>
 										<td>
@@ -1745,9 +1598,9 @@
 						<option value="zora">ZORA</option>
 					</select>
 					</div>
-					<br>
 					<!-- Character Stats -->
 					<table class="stattable">
+					Total Character Stats
 						<tr>
 							<td>
 							<img src="icons/hp.png" class="staticon">
@@ -1786,6 +1639,7 @@
 						<tr>
 							<td class="subtable">
 								<!-- weapon symbol table -->
+								Weapon Stats
 								<table>
 									<tr>
 										<td>
@@ -1831,6 +1685,7 @@
 							</td>
 							<td class="subtable">
 								<!-- soul symbol table -->
+								Soul Stats
 								<table>
 									<tr>
 										<td>
@@ -1877,52 +1732,8 @@
 						</tr>
 						<tr>
 							<td class="subtable">
-								<!-- mag stat table -->
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6maghp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6magatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6magdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6magspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
 								<!-- buff table -->
+								Buff %
 								<table>
 									<tr>
 										<td>
@@ -2047,9 +1858,9 @@
 						<option value="zora">ZORA</option>
 					</select>
 					</div>
-					<br>
 					<!-- Character Stats -->
 					<table class="stattable">
+					Total Character Stats
 						<tr>
 							<td>
 							<img src="icons/hp.png" class="staticon">
@@ -2088,6 +1899,7 @@
 						<tr>
 							<td class="subtable">
 								<!-- weapon symbol table -->
+								Weapon Stats
 								<table>
 									<tr>
 										<td>
@@ -2133,6 +1945,7 @@
 							</td>
 							<td class="subtable">
 								<!-- soul symbol table -->
+								Soul Stats
 								<table>
 									<tr>
 										<td>
@@ -2179,52 +1992,8 @@
 						</tr>
 						<tr>
 							<td class="subtable">
-								<!-- mag stat table -->
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7maghp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7magatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7magdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7magspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
 								<!-- buff table -->
+								Buff %
 								<table>
 									<tr>
 										<td>
@@ -2349,9 +2118,9 @@
 						<option value="zora">ZORA</option>
 					</select>
 					</div>
-					<br>
 					<!-- Character Stats -->
 					<table class="stattable">
+					Total Character Stats
 						<tr>
 							<td>
 							<img src="icons/hp.png" class="staticon">
@@ -2390,6 +2159,7 @@
 						<tr>
 							<td class="subtable">
 								<!-- weapon symbol table -->
+								Weapon Stats
 								<table>
 									<tr>
 										<td>
@@ -2435,6 +2205,7 @@
 							</td>
 							<td class="subtable">
 								<!-- soul symbol table -->
+								Soul Stats
 								<table>
 									<tr>
 										<td>
@@ -2481,52 +2252,8 @@
 						</tr>
 						<tr>
 							<td class="subtable">
-								<!-- mag stat table -->
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8maghp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8magatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8magdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8magspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
 								<!-- buff table -->
+								Buff%
 								<table>
 									<tr>
 										<td>
@@ -2563,6 +2290,53 @@
 						</tr>
 					</table>
 				</br>
+			</div>
+		</td>
+		<td>
+			<div id="lawcharbox" class="magbox">
+				Mag Stats
+				<table>
+					<tr>
+						<td>
+							<img src="icons/hp.png" class="substaticon">
+							</img>
+						</td>
+						<td>
+							<input type="number" id="chaosmaghp" class="stattableinput">
+							</input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="icons/atk.png" class="substaticon">
+							</img>
+						</td>
+						<td>
+							<input type="number" id="chaosmagatk" class="stattableinput">
+							</input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="icons/def.png" class="substaticon">
+							</img>
+						</td>
+						<td>
+							<input type="number" id="chaosmagdef" class="stattableinput">
+							</input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="icons/spd.png" class="substaticon">
+							</img>
+						</td>
+						<td>
+							<input type="number" id="chaosmagspd" class="stattableinput">
+							</input>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</td>
 	</tr></table>

@@ -185,70 +185,22 @@
    <script src="lb.json">   
    </script>
    <script>
-	var baseStats = {
-	"hp": 12000,
-	"atk": 499,
-	"def": 462,
-	"spd": 459,
-	};
-	function refreshchar1() {
-	document.getElementById("char1totalhp").textContent=stats[document.getElementById("character1name").value]["stats"][document.getElementById("char1limitbreakvalue").value]["hp"] +Number(document.getElementById("char1weaponhp").value) +Number(document.getElementById("char1maghp").value) +Number(document.getElementById("char1symbolhp").value);
-	document.getElementById("char1totalatk").textContent=stats[document.getElementById("character1name").value]["stats"][document.getElementById("char1limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char1buffatk").value)) +Number(document.getElementById("char1symbolatk").value) +Number(document.getElementById("char1magatk").value) +Number(document.getElementById("char1weaponatk").value);
-	document.getElementById("char1totaldef").textContent=stats[document.getElementById("character1name").value]["stats"][document.getElementById("char1limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char1buffdef").value)) +Number(document.getElementById("char1weapondef").value) +Number(document.getElementById("char1symboldef").value) +Number(document.getElementById("char1magdef").value);
-	document.getElementById("char1totalspd").textContent=stats[document.getElementById("character1name").value]["stats"][document.getElementById("char1limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char1buffspd").value)) +Number(document.getElementById("char1symbolspd").value) +Number(document.getElementById("char1magspd").value) +Number(document.getElementById("char1weaponspd").value);
-	}
 	function changecharacter(node) {
 	var imgnode = node.parentNode.parentNode.getElementsByClassName("charicon")[0];
 	imgnode.setAttribute("src", "thumbs/character_" + node.value + "_thumb.png");
 	}
-	function refreshchar2() {
-	document.getElementById("char2totalhp").textContent=stats[document.getElementById("character2name").value]["stats"][document.getElementById("char2limitbreakvalue").value]["hp"] +Number(document.getElementById("char2weaponhp").value) +Number(document.getElementById("char2maghp").value) +Number(document.getElementById("char2symbolhp").value);
-	document.getElementById("char2totalatk").textContent=stats[document.getElementById("character2name").value]["stats"][document.getElementById("char2limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char2buffatk").value)) +Number(document.getElementById("char2symbolatk").value) +Number(document.getElementById("char2magatk").value) +Number(document.getElementById("char2weaponatk").value);
-	document.getElementById("char2totaldef").textContent=stats[document.getElementById("character2name").value]["stats"][document.getElementById("char2limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char2buffdef").value)) +Number(document.getElementById("char2weapondef").value) +Number(document.getElementById("char2symboldef").value) +Number(document.getElementById("char2magdef").value);
-	document.getElementById("char2totalspd").textContent=stats[document.getElementById("character2name").value]["stats"][document.getElementById("char2limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char2buffspd").value)) +Number(document.getElementById("char2symbolspd").value) +Number(document.getElementById("char2magspd").value) +Number(document.getElementById("char2weaponspd").value);
-	}
-	function refreshchar3() {
-	document.getElementById("char3totalhp").textContent=stats[document.getElementById("character3name").value]["stats"][document.getElementById("char3limitbreakvalue").value]["hp"] +Number(document.getElementById("char3weaponhp").value) +Number(document.getElementById("char3maghp").value) +Number(document.getElementById("char3symbolhp").value);
-	document.getElementById("char3totalatk").textContent=stats[document.getElementById("character3name").value]["stats"][document.getElementById("char3limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char3buffatk").value)) +Number(document.getElementById("char3symbolatk").value) +Number(document.getElementById("char3magatk").value) +Number(document.getElementById("char3weaponatk").value);
-	document.getElementById("char3totaldef").textContent=stats[document.getElementById("character3name").value]["stats"][document.getElementById("char3limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char3buffdef").value)) +Number(document.getElementById("char3weapondef").value) +Number(document.getElementById("char3symboldef").value) +Number(document.getElementById("char3magdef").value);
-	document.getElementById("char3totalspd").textContent=stats[document.getElementById("character3name").value]["stats"][document.getElementById("char3limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char3buffspd").value)) +Number(document.getElementById("char3symbolspd").value) +Number(document.getElementById("char3magspd").value) +Number(document.getElementById("char3weaponspd").value);
-	}
-	function refreshchar4() {
-	document.getElementById("char4totalhp").textContent=stats[document.getElementById("character4name").value]["stats"][document.getElementById("char4limitbreakvalue").value]["hp"] +Number(document.getElementById("char4weaponhp").value) +Number(document.getElementById("char4maghp").value) +Number(document.getElementById("char4symbolhp").value);
-	document.getElementById("char4totalatk").textContent=stats[document.getElementById("character4name").value]["stats"][document.getElementById("char4limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char4buffatk").value)) +Number(document.getElementById("char4symbolatk").value) +Number(document.getElementById("char4magatk").value) +Number(document.getElementById("char4weaponatk").value);
-	document.getElementById("char4totaldef").textContent=stats[document.getElementById("character4name").value]["stats"][document.getElementById("char4limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char4buffdef").value)) +Number(document.getElementById("char4weapondef").value) +Number(document.getElementById("char4symboldef").value) +Number(document.getElementById("char4magdef").value);
-	document.getElementById("char4totalspd").textContent=stats[document.getElementById("character4name").value]["stats"][document.getElementById("char4limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char4buffspd").value)) +Number(document.getElementById("char4symbolspd").value) +Number(document.getElementById("char4magspd").value) +Number(document.getElementById("char4weaponspd").value);
-	}
-	function refreshchar5() {
-	document.getElementById("char5totalhp").textContent=stats[document.getElementById("character5name").value]["stats"][document.getElementById("char5limitbreakvalue").value]["hp"] +Number(document.getElementById("char5weaponhp").value) +Number(document.getElementById("char5maghp").value) +Number(document.getElementById("char5symbolhp").value);
-	document.getElementById("char5totalatk").textContent=stats[document.getElementById("character5name").value]["stats"][document.getElementById("char5limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char5buffatk").value)) +Number(document.getElementById("char5symbolatk").value) +Number(document.getElementById("char5magatk").value) +Number(document.getElementById("char5weaponatk").value);
-	document.getElementById("char5totaldef").textContent=stats[document.getElementById("character5name").value]["stats"][document.getElementById("char5limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char5buffdef").value)) +Number(document.getElementById("char5weapondef").value) +Number(document.getElementById("char5symboldef").value) +Number(document.getElementById("char5magdef").value);
-	document.getElementById("char5totalspd").textContent=stats[document.getElementById("character5name").value]["stats"][document.getElementById("char5limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char5buffspd").value)) +Number(document.getElementById("char5symbolspd").value) +Number(document.getElementById("char5magspd").value) +Number(document.getElementById("char5weaponspd").value);
-	}
-	function refreshchar6() {
-	document.getElementById("char6totalhp").textContent=stats[document.getElementById("character6name").value]["stats"][document.getElementById("char6limitbreakvalue").value]["hp"] +Number(document.getElementById("char6weaponhp").value) +Number(document.getElementById("char6maghp").value) +Number(document.getElementById("char6symbolhp").value);
-	document.getElementById("char6totalatk").textContent=stats[document.getElementById("character6name").value]["stats"][document.getElementById("char6limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char6buffatk").value)) +Number(document.getElementById("char6symbolatk").value) +Number(document.getElementById("char6magatk").value) +Number(document.getElementById("char6weaponatk").value);
-	document.getElementById("char6totaldef").textContent=stats[document.getElementById("character6name").value]["stats"][document.getElementById("char6limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char6buffdef").value)) +Number(document.getElementById("char6weapondef").value) +Number(document.getElementById("char6symboldef").value) +Number(document.getElementById("char6magdef").value);
-	document.getElementById("char6totalspd").textContent=stats[document.getElementById("character6name").value]["stats"][document.getElementById("char6limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char6buffspd").value)) +Number(document.getElementById("char6symbolspd").value) +Number(document.getElementById("char6magspd").value) +Number(document.getElementById("char6weaponspd").value);
-	}
-	function refreshchar7() {
-	document.getElementById("char7totalhp").textContent=stats[document.getElementById("character7name").value]["stats"][document.getElementById("char7limitbreakvalue").value]["hp"] +Number(document.getElementById("char7weaponhp").value) +Number(document.getElementById("char7maghp").value) +Number(document.getElementById("char7symbolhp").value);
-	document.getElementById("char7totalatk").textContent=stats[document.getElementById("character7name").value]["stats"][document.getElementById("char7limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char7buffatk").value)) +Number(document.getElementById("char7symbolatk").value) +Number(document.getElementById("char7magatk").value) +Number(document.getElementById("char7weaponatk").value);
-	document.getElementById("char7totaldef").textContent=stats[document.getElementById("character7name").value]["stats"][document.getElementById("char7limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char7buffdef").value)) +Number(document.getElementById("char7weapondef").value) +Number(document.getElementById("char7symboldef").value) +Number(document.getElementById("char7magdef").value);
-	document.getElementById("char7totalspd").textContent=stats[document.getElementById("character7name").value]["stats"][document.getElementById("char7limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char7buffspd").value)) +Number(document.getElementById("char7symbolspd").value) +Number(document.getElementById("char7magspd").value) +Number(document.getElementById("char7weaponspd").value);
-	}
-	function refreshchar8() {
-	document.getElementById("char8totalhp").textContent=stats[document.getElementById("character8name").value]["stats"][document.getElementById("char8limitbreakvalue").value]["hp"] +Number(document.getElementById("char8weaponhp").value) +Number(document.getElementById("char8maghp").value) +Number(document.getElementById("char8symbolhp").value);
-	document.getElementById("char8totalatk").textContent=stats[document.getElementById("character8name").value]["stats"][document.getElementById("char8limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char8buffatk").value)) +Number(document.getElementById("char8symbolatk").value) +Number(document.getElementById("char8magatk").value) +Number(document.getElementById("char8weaponatk").value);
-	document.getElementById("char8totaldef").textContent=stats[document.getElementById("character8name").value]["stats"][document.getElementById("char8limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char8buffdef").value)) +Number(document.getElementById("char8weapondef").value) +Number(document.getElementById("char8symboldef").value) +Number(document.getElementById("char8magdef").value);
-	document.getElementById("char8totalspd").textContent=stats[document.getElementById("character8name").value]["stats"][document.getElementById("char8limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char8buffspd").value)) +Number(document.getElementById("char8symbolspd").value) +Number(document.getElementById("char8magspd").value) +Number(document.getElementById("char8weaponspd").value);
+	function refreshcharacter(num) {
+	document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("char" + num + "maghp").value);
+	document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char" + num + "buffatk").value)) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("char" + num + "magatk").value);
+	document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char" + num + "buffdef").value)) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("char" + num + "magdef").value);
+	document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char" + num + "buffspd").value)) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("char" + num + "magspd").value);
 	}
 	</script>
 	<div id="law" class="team">ロウのパーティ
 	<!-- Table to create rows -->
 	<table><tr>
 		<td>
-			<button onclick="refreshchar1()">
+			<button onclick="refreshcharacter(1)">
 			Refresh Stats
 			</button>
 			<div id="char1box" class="test">
@@ -551,7 +503,7 @@
 			</td>
 							<!-- Character Two Starts Here -->
 			<td>
-			<button onclick="refreshchar2()">
+			<button onclick="refreshcharacter(2)">
 			Refresh Stats
 			</button>
 			<div id="char2box" class="test">
@@ -853,7 +805,7 @@
 		</td>
 								<!-- Character Three Starts Here -->
 		<td>
-			<button onclick="refreshchar3()">
+			<button onclick="refreshcharacter(3)">
 			Refresh Stats
 			</button>
 			<div id="char3box" class="test">
@@ -1155,7 +1107,7 @@
 		</td>
 							<!-- Character Four Starts Here -->
 			<td>
-			<button onclick="refreshchar4()">
+			<button onclick="refreshcharacter(4)">
 			Refresh Stats
 			</button>
 			<div id="char4box" class="test">
@@ -1465,7 +1417,7 @@
 	<table><tr>
 										<!-- Character Five Starts Here -->
 		<td>
-			<button onclick="refreshchar5()">
+			<button onclick="refreshcharacter(5)">
 			Refresh Stats
 			</button>
 			<div id="char5box" class="test">
@@ -1767,7 +1719,7 @@
 		</td>
 										<!-- Character Six Starts Here -->
 		<td>
-			<button onclick="refreshchar6()">
+			<button onclick="refreshcharacter(6)">
 			Refresh Stats
 			</button>
 			<div id="char6box" class="test">
@@ -2069,7 +2021,7 @@
 		</td>
 										<!-- Character Seven Starts Here -->
 		<td>
-			<button onclick="refreshchar7()">
+			<button onclick="refreshcharacter(7)">
 			Refresh Stats
 			</button>
 			<div id="char7box" class="test">
@@ -2371,7 +2323,7 @@
 		</td>
 										<!-- Character Eight Starts Here -->
 		<td>
-			<button onclick="refreshchar8()">
+			<button onclick="refreshcharacter(8)">
 			Refresh Stats
 			</button>
 			<div id="char8box" class="test">

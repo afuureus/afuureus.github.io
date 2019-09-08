@@ -1,5 +1,5 @@
 var stats = { 
-"ABEILLE":
+"abeille":
 	{
 		"stats": [
 			{"hp": 8080,"atk": 426,"def": 426,"spd": 426},
@@ -9,7 +9,7 @@ var stats = {
 			{"hp": 10830,"atk": 456,"def": 468,"spd": 466}
 		]
 	},
-"AMANE":{
+"amane":{
 		"stats": [
 			{"hp": 8021,"atk": 371,"def": 388,"spd": 444},
 			{"hp": 8381,"atk": 375,"def": 392,"spd": 450},
@@ -18,7 +18,7 @@ var stats = {
 			{"hp": 9821,"atk": 391,"def": 408,"spd": 474}
 		]
 	},
-"ANNAMARIE":
+"annamarie":
 	{
 		"stats": [
 			{"hp": 10604,"atk": 422,"def": 403,"spd": 426},
@@ -28,7 +28,7 @@ var stats = {
 			{"hp": 13904,"atk": 462,"def": 463,"spd": 476}
 		]
 	},
-"ASTRAEA":
+"astraea":
 	{
 		"stats": [
 			{"hp": 9572,"atk": 422,"def": 439,"spd": 426},
@@ -38,7 +38,7 @@ var stats = {
 			{"hp": 12872,"atk": 462,"def": 499,"spd": 476}
 		]
 	},
-"BARNABAS":
+"barnabas":
 	{
 		"stats": [
 			{"hp": 10604,"atk": 403,"def": 494,"spd": 391},
@@ -48,7 +48,7 @@ var stats = {
 			{"hp": 13904,"atk": 443,"def": 554,"spd": 441}
 		]
 	},
-"BERNHARDT":
+"bernhardt":
 	{
 		"stats": [
 			{"hp": 8540,"atk": 426,"def": 391,"spd": 444},
@@ -58,7 +58,7 @@ var stats = {
 			{"hp": 11290,"atk": 456,"def": 433,"spd": 484}
 		]
 	},
-"BOOZER":
+"boozer":
 	{
 		"stats": [
 			{"hp": 7610,"atk": 421,"def": 404,"spd": 391},
@@ -68,7 +68,7 @@ var stats = {
 			{"hp": 9410,"atk": 441,"def": 424,"spd": 421}
 		]
 	},
-"DUNCAN":
+"duncan":
 	{
 		"stats": [
 			{ "hp": 9001,"atk": 426,"def": 426,"spd": 391},
@@ -78,7 +78,7 @@ var stats = {
 			{ "hp": 11501,"atk": 461,"def": 461,"spd": 431}
 		]
 	},
-"EMIL":
+"emil":
 	{
 		"stats": [
 			{"hp": 8021,"atk": 388,"def": 404,"spd": 409},
@@ -88,7 +88,7 @@ var stats = {
 			{"hp": 10021,"atk": 404,"def": 428,"spd": 439}
 		]
 	},
-"EMMA":
+"emma":
 	{
 		"stats": [
 			{"hp": 7610,"atk": 404,"def": 371,"spd": 444},
@@ -98,7 +98,7 @@ var stats = {
 			{"hp": 9610,"atk": 420,"def": 395,"spd": 474}
 		]
 	},
-"EREN":
+"eren":
 	{
 		"stats": [
 			{ "hp": 9461,"atk": 426,"def": 426,"spd": 409},
@@ -108,7 +108,7 @@ var stats = {
 			{ "hp": 12461,"atk": 476,"def": 506,"spd": 459}
 		]
 	},
-"EREN-1.9.0":
+"eren-1.9.0":
 	{
 		"stats": [
 			{ "hp": 10881,"atk": 436,"def": 436,"spd": 419},
@@ -118,7 +118,7 @@ var stats = {
 			{ "hp": 13881,"atk": 486,"def": 516,"spd": 469}
 		]
 	},
-"FURAMI":
+"furami":
 	{
 		"stats": [
 			{ "hp": 7610,"atk": 388,"def": 404,"spd": 426},
@@ -128,7 +128,7 @@ var stats = {
 			{ "hp": 9410,"atk": 408,"def": 424,"spd": 456}
 		]
 	},
-"FURAMI-SU":
+"furami-su":
 	{
 		"stats": [
 			{ "hp": 10604,"atk": 428,"def": 448,"spd": 436},
@@ -138,7 +138,7 @@ var stats = {
 			{ "hp": 13072,"atk": 478,"def": 498,"spd": 486}
 		]
 	},
-"GENE":
+"gene":
 	{
 		"stats": [
 			{"hp": 10089,"atk": 439,"def": 439,"spd": 391},
@@ -148,7 +148,7 @@ var stats = {
 			{"hp": 13389,"atk": 479,"def": 499,"spd": 441}
 		]
 	},
-"GENE-1.9.0":
+"gene-1.9.0":
 	{
 		"stats": [
 			{"hp": 11789,"atk": 477,"def": 487,"spd": 440},
@@ -158,7 +158,7 @@ var stats = {
 			{"hp": 15089,"atk": 517,"def": 547,"spd": 490}
 		]
 	},
-"GERDA":
+"gerda":
 	{
 		"stats": [
 			{ "hp": 10089,"atk": 422,"def": 439,"spd": 409},
@@ -168,7 +168,7 @@ var stats = {
 			{ "hp": 13089,"atk": 472,"def": 489,"spd": 459}
 		]
 	},
-"GUSTAV":
+"gustav":
 	{
 		"stats": [
 			{ "hp": 9572,"atk": 439,"def": 403,"spd": 444},
@@ -178,7 +178,7 @@ var stats = {
 			{ "hp": 12272,"atk": 499,"def": 443,"spd": 494}
 		]
 	},
-"HERMINA":
+"hermina":
 	{
 		"stats": [
 			{"hp": 8080,"atk": 418,"def": 409,"spd": 426},
@@ -188,7 +188,7 @@ var stats = {
 			{"hp": 10830,"atk": 448,"def": 451,"spd": 466}
 		]
 	},
-"JASPER":
+"jasper":
 	{
 		"stats": [
 			{"hp": 9572,"atk": 458,"def": 439,"spd": 391},
@@ -198,7 +198,7 @@ var stats = {
 			{"hp": 12272,"atk": 518,"def": 479,"spd": 441}
 		]
 	},
-"KAEMPFER":
+"kaempfer":
 	{
 		"stats": [
 			{"hp": 8021,"atk": 388,"def": 404,"spd": 409},
@@ -208,7 +208,7 @@ var stats = {
 			{"hp": 9641,"atk": 412,"def": 420,"spd": 439}
 		]
 	},
-"KARIN":
+"karin":
 	{
 		"stats": [
 			{ "hp": 7200,"atk": 404,"def": 404,"spd": 426},
@@ -218,7 +218,7 @@ var stats = {
 			{ "hp": 9200,"atk": 420,"def": 428,"spd": 456}
 		]
 	},
-"KIBAKI":
+"kibaki":
 	{
 		"stats": [
 			{ "hp": 9001,"atk": 391,"def": 409,"spd": 444},
@@ -228,7 +228,7 @@ var stats = {
 			{ "hp": 11251,"atk": 429,"def": 439,"spd": 488}
 		]
 	},
-"KILLION":
+"killion":
 	{
 		"stats": [
 			{"hp": 9001,"atk": 391,"def": 409,"spd": 444},
@@ -238,7 +238,7 @@ var stats = {
 			{"hp": 11251,"atk": 433,"def": 439,"spd": 484}
 		]
 	},
-"KYRA":
+"kyra":
 	{
 		"stats": [
 			{ "hp": 9461,"atk": 391,"def": 479,"spd": 391},
@@ -248,7 +248,7 @@ var stats = {
 			{ "hp": 11711,"atk": 433,"def": 509,"spd": 431}
 		]
 	},
-"LANA":
+"lana":
 	{
 		"stats": [
 			{"hp": 8021,"atk": 404,"def": 404,"spd": 391},
@@ -258,7 +258,7 @@ var stats = {
 			{"hp": 10021,"atk": 420,"def": 428,"spd": 421}
 		]
 	},
-"LEVI":
+"levi":
 	{
 		"stats": [
 			{"hp": 9001,"atk": 462,"def": 418,"spd": 454},
@@ -268,7 +268,7 @@ var stats = {
 			{"hp": 11701,"atk": 517,"def": 458,"spd": 509}
 		]
 	},
-"LEVI-1.9.0":
+"levi-1.9.0":
 	{
 		"stats": [
 			{"hp": 10221,"atk": 473,"def": 426,"spd": 465},
@@ -278,7 +278,7 @@ var stats = {
 			{"hp": 12141,"atk": 528,"def": 466,"spd": 520}
 		]
 	},
-"LYCAON":
+"lycaon":
 	{
 		"stats": [
 			{ "hp": 8540,"atk": 444,"def": 426,"spd": 391},
@@ -288,7 +288,7 @@ var stats = {
 			{ "hp": 10790,"atk": 486,"def": 456,"spd": 431}
 		]
 	},
-"LILIMO":
+"lilimo":
 	{
 		"stats": [
 			{"hp": 9219,"atk": 429,"def": 429,"spd": 391},
@@ -298,7 +298,7 @@ var stats = {
 			{"hp": 12519,"atk": 469,"def": 489,"spd": 441}
 		]
 	},
-"MADOC":
+"madoc":
 	{
 		"stats": [
 			{"hp": 7200,"atk": 404,"def": 404,"spd": 426},
@@ -308,7 +308,7 @@ var stats = {
 			{"hp": 8820,"atk": 428,"def": 420,"spd": 456}
 		]
 	},
-"MELDER":
+"melder":
 	{
 		"stats": [
 			{"hp": 10089,"atk": 439,"def": 422,"spd": 409},
@@ -318,7 +318,7 @@ var stats = {
 			{"hp": 13089,"atk": 489,"def": 472,"spd": 459}
 		]
 	},
-"MELISSA":
+"melissa":
 	{
 		"stats": [
 			{"hp": 8080,"atk": 426,"def": 426,"spd": 426},
@@ -328,7 +328,7 @@ var stats = {
 			{"hp": 10580,"atk": 461,"def": 461,"spd": 466}
 		]
 	},
-"MESSARA":
+"messara":
 	{
 		"stats": [
 			{"hp": 9056,"atk": 476,"def": 403,"spd": 426},
@@ -338,7 +338,7 @@ var stats = {
 			{"hp": 12056,"atk": 526,"def": 453,"spd": 476}
 		]
 	},
-"MESSARA-1.9.0":
+"messara-1.9.0":
 	{
 		"stats": [
 			{"hp": 12176,"atk": 485,"def": 449,"spd": 495},
@@ -348,7 +348,7 @@ var stats = {
 			{"hp": 15176,"atk": 535,"def": 499,"spd": 545}
 		]
 	},
-"MIKASA":
+"mikasa":
 	{
 		"stats": [
 			{"hp": 8540,"atk": 451,"def": 426,"spd": 426},
@@ -358,7 +358,7 @@ var stats = {
 			{"hp": 11240,"atk": 511,"def": 466,"spd": 476}
 		]
 	},
-"MIKASA-1.9.0":
+"mikasa-1.9.0":
 	{
 		"stats": [
 			{"hp": 9740,"atk": 463,"def": 434,"spd": 436},
@@ -368,7 +368,7 @@ var stats = {
 			{"hp": 12440,"atk": 523,"def": 474,"spd": 486}
 		]
 	},
-"NADIA":
+"nadia":
 	{
 		"stats": [
 			{"hp": 8080,"atk": 418,"def": 409,"spd": 426},
@@ -378,7 +378,7 @@ var stats = {
 			{"hp": 10580,"atk": 453,"def": 444,"spd": 466}
 		]
 	},
-"NICOLE":
+"nicole":
 	{
 		"stats": [
 			{"hp": 9732,"atk": 462,"def": 439,"spd": 429},
@@ -388,7 +388,7 @@ var stats = {
 			{"hp": 13032,"atk": 502,"def": 499,"spd": 479}
 		]
 	},
-"POPOPURIN":
+"popopurin":
 	{
 		"stats": [
 			{"hp": 9001,"atk": 409,"def": 426,"spd": 409},
@@ -398,7 +398,7 @@ var stats = {
 			{"hp": 11501,"atk": 444,"def": 461,"spd": 449}
 		]
 	},
-"QUNA":
+"quna":
 	{
 		"stats": [
 			{"hp": 8746,"atk": 412,"def": 429,"spd": 426},
@@ -408,7 +408,7 @@ var stats = {
 			{"hp": 11746,"atk": 462,"def": 479,"spd": 476}
 		]
 	},
-"RACHEL":
+"rachel":
 	{
 		"stats": [
 			{"hp": 7610,"atk": 421,"def": 404,"spd": 391},
@@ -418,7 +418,7 @@ var stats = {
 			{"hp": 9230,"atk": 445,"def": 420,"spd": 421}
 		]
 	},
-"RAINER":
+"rainer":
 	{
 		"stats": [
 			{"hp": 8540,"atk": 444,"def": 426,"spd": 391},
@@ -428,7 +428,7 @@ var stats = {
 			{"hp": 11040,"atk": 479,"def": 461,"spd": 431}
 		]
 	},
-"RIZE":
+"rize":
 	{
 		"stats": [
 			{"hp": 10604,"atk": 422,"def": 403,"spd": 426},
@@ -438,7 +438,7 @@ var stats = {
 			{"hp": 13904,"atk": 462,"def": 463,"spd": 476}
 		]
 	},
-"ROGIA": 
+"rogia": 
 	{
 		"stats": [
 			{ "hp": 10089,"atk": 439,"def": 422,"spd": 409},
@@ -448,7 +448,7 @@ var stats = {
 			{ "hp": 12789,"atk": 499,"def": 462,"spd": 459}
 		]
 	},
-"ROSALINDE":
+"rosalinde":
 	{
 		"stats": [
 			{ "hp": 10604,"atk": 403,"def": 494,"spd": 391},
@@ -458,7 +458,7 @@ var stats = {
 			{ "hp": 13304,"atk": 463,"def": 534,"spd": 441}
 		]
 	},
-"ROSALINDE-XMAS":
+"rosalinde-xmas":
 	{
 		"stats": [
 			{ "hp": 10544,"atk": 408,"def": 489,"spd": 394},
@@ -468,7 +468,7 @@ var stats = {
 			{ "hp": 13244,"atk": 468,"def": 529,"spd": 444}
 		]
 	},
-"ROXANNE":
+"roxanne":
 	{
 		"stats": [
 			{"hp": 9572,"atk": 439,"def": 403,"spd": 444},
@@ -478,7 +478,7 @@ var stats = {
 			{"hp": 12272,"atk": 479,"def": 458,"spd": 499}
 		]
 	},
-"SANDRA":
+"sandra":
 	{
 		"stats": [
 			{ "hp": 9001,"atk": 391,"def": 409,"spd": 444},
@@ -488,7 +488,7 @@ var stats = {
 			{ "hp": 11501,"atk": 426,"def": 444,"spd": 484}
 		]
 	},
-"SASHA":
+"sasha":
 	{
 		"stats": [
 			{"hp": 8431,"atk": 371,"def": 454,"spd": 391},
@@ -498,7 +498,7 @@ var stats = {
 			{"hp": 10431,"atk": 387,"def": 478,"spd": 421}
 		]
 	},
-"SCHENCK":
+"schenck":
 	{
 		"stats": [
 			{"hp": 7200,"atk": 404,"def": 404,"spd": 426},
@@ -508,7 +508,7 @@ var stats = {
 			{"hp": 9000,"atk": 424,"def": 424,"spd": 456}
 		]
 	},
-"STELLA":
+"stella":
 	{
 		"stats": [
 			{"hp": 10604,"atk": 422,"def": 439,"spd": 391},
@@ -518,7 +518,7 @@ var stats = {
 			{"hp": 13904,"atk": 462,"def": 499,"spd": 441}
 		]
 	},
-"STELLA-NY":
+"stella-ny":
 	{
 		"stats": [
 			{"hp": 10664,"atk": 417,"def": 444,"spd": 388},
@@ -528,7 +528,7 @@ var stats = {
 			{"hp": 13964,"atk": 457,"def": 504,"spd": 438}
 		]
 	},
-"STELLA-SU":
+"stella-su":
 	{
 		"stats": [
 			{"hp": 10704,"atk": 431,"def": 444,"spd": 422},
@@ -538,7 +538,7 @@ var stats = {
 			{"hp": 14004,"atk": 471,"def": 504,"spd": 472}
 		]
 	},
-"SVEN":
+"sven":
 	{
 		"stats": [
 			{ "hp": 10289,"atk": 442,"def": 439,"spd": 429},
@@ -548,7 +548,7 @@ var stats = {
 			{ "hp": 12989,"atk": 482,"def": 494,"spd": 484}
 		]
 	},
-"TANYA":
+"tanya":
 	{
 		"stats": [
 			{"hp": 8021,"atk": 404,"def": 404,"spd": 391},
@@ -558,7 +558,7 @@ var stats = {
 			{"hp": 9641,"atk": 428,"def": 420,"spd": 421}
 		]
 	},
-"TORBJORN":
+"torbjorn":
 	{
 		"stats": [
 			{"hp": 8080,"atk": 426,"def": 426,"spd": 426},
@@ -568,7 +568,7 @@ var stats = {
 			{"hp": 10330,"atk": 468,"def": 456,"spd": 466}
 		]
 	},
-"TOTONOTTO":
+"totonotto":
 	{
 		"stats": [
 			{"hp": 9056,"atk": 430,"def": 422,"spd": 426},
@@ -578,7 +578,7 @@ var stats = {
 			{"hp": 12356,"atk": 470,"def": 482,"spd": 476}
 		]
 	},
-"TSUBAKURO":
+"tsubakuro":
 	{
 		"stats": [
 			{"hp": 9001,"atk": 391,"def": 409,"spd": 444},
@@ -588,7 +588,7 @@ var stats = {
 			{"hp": 11751,"atk": 421,"def": 451,"spd": 484}
 		]
 	},
-"TYROL":
+"tyrol":
 	{
 		"stats": [
 			{ "hp": 8540,"atk": 426,"def": 391,"spd": 444},
@@ -598,7 +598,7 @@ var stats = {
 			{ "hp": 11040,"atk": 461,"def": 426,"spd": 484}
 		]
 	},
-"ULY":
+"uly":
 	{
 		"stats": [
 			{"hp": 8502,"atk": 415,"def": 415,"spd": 391},
@@ -606,7 +606,7 @@ var stats = {
 			{"hp": 10001,"atk": 440,"def": 440,"spd": 407}
 		]
 	},
-"ULY-1.9.0":
+"uly-1.9.0":
 	{
 		"stats": [
 			{"hp": 8502,"atk": 415,"def": 415,"spd": 391},
@@ -614,7 +614,7 @@ var stats = {
 			{"hp": 12751,"atk": 468,"def": 467,"spd": 430}
 		]
 	},
-"WALTER":
+"walter":
 	{
 		"stats": [
 			{"hp": 9461,"atk": 391,"def": 479,"spd": 391},
@@ -624,7 +624,7 @@ var stats = {
 			{"hp": 11961,"atk": 426,"def": 514,"spd": 431}
 		]
 	},
-"WOLFF":
+"wolff":
 	{
 		"stats": [
 			{"hp": 8540,"atk": 426,"def": 391,"spd": 444},
@@ -634,7 +634,7 @@ var stats = {
 			{"hp": 10790,"atk": 468,"def": 421,"spd": 484}
 		]
 	},
-"WYNDIS":
+"wyndis":
 	{
 		"stats": [
 			{"hp": 9056,"atk": 439,"def": 439,"spd": 426},
@@ -644,7 +644,7 @@ var stats = {
 			{"hp": 11756,"atk": 494,"def": 479,"spd": 481}
 		]
 	},
-"WYNDIS-SU":
+"wyndis-su":
 	{
 		"stats": [
 			{"hp": 9456,"atk": 456,"def": 442,"spd": 436},
@@ -654,7 +654,7 @@ var stats = {
 			{"hp": 12156,"atk": 511,"def": 482,"spd": 491}
 		]
 	},
-"ZORA":
+"zora":
 	{
 		"stats": [
 			{"hp": 9461,"atk": 409,"def": 391,"spd": 426},

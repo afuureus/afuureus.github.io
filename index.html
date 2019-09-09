@@ -143,16 +143,16 @@
 	}
 	function refreshcharacter(num) {
 		if (num <= 4) {
-		document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("lawmaghp").value);
-		document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char" + num + "buffatk").value)) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("lawmagatk").value);
-		document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char" + num + "buffdef").value)) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("lawmagdef").value);
-		document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char" + num + "buffspd").value)) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("lawmagspd").value);
+		document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("char" + num + "destinyhp").value) +Number(document.getElementById("lawmaghp").value);
+		document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char" + num + "buffatk").value)) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("char" + num + "destinyatk").value) +Number(document.getElementById("lawmagatk").value);
+		document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char" + num + "buffdef").value)) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("char" + num + "destinydef").value) +Number(document.getElementById("lawmagdef").value);
+		document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char" + num + "buffspd").value)) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("char" + num + "destinyspd").value) +Number(document.getElementById("lawmagspd").value);
 		}
 		if (num >= 5) {
-		document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("chaosmaghp").value);
-		document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char" + num + "buffatk").value)) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("chaosmagatk").value);
-		document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char" + num + "buffdef").value)) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("chaosmagdef").value);
-		document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char" + num + "buffspd").value)) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("chaosmagspd").value);
+		document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("char" + num + "destinyhp").value) +Number(document.getElementById("chaosmaghp").value);
+		document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *(1+Number(document.getElementById("char" + num + "buffatk").value)) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("char" + num + "destinyatk").value) +Number(document.getElementById("chaosmagatk").value);
+		document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *(1+Number(document.getElementById("char" + num + "buffdef").value)) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("char" + num + "destinydef").value) +Number(document.getElementById("chaosmagdef").value);
+		document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *(1+Number(document.getElementById("char" + num + "buffspd").value)) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("char" + num + "destinyspd").value) +Number(document.getElementById("chaosmagspd").value);
 		}
 	}
 	</script>
@@ -378,6 +378,52 @@
 					</tr>
 					<tr>
 						<td class="subtable">
+							<!-- DB table -->
+							Destiny Bonus
+							<table>
+								<tr>
+									<td>
+										<img src="icons/hp.png" class="substaticon">
+										</img>
+									</td>
+									<td>
+										<input type="number" id="char1destinyhp" class="stattableinput">
+										</input>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<img src="icons/atk.png" class="substaticon">
+										</img>
+									</td>
+									<td>
+										<input type="number" id="char1destinyatk" class="stattableinput">
+										</input>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<img src="icons/def.png" class="substaticon">
+										</img>
+									</td>
+									<td>
+										<input type="number" id="char1destinydef" class="stattableinput">
+										</input>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<img src="icons/spd.png" class="substaticon">
+										</img>
+									</td>
+									<td>
+										<input type="number" id="char1destinyspd" class="stattableinput">
+										</input>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td class="subtable">
 						Buff %
 							<!-- buff table -->
 							<table>
@@ -409,6 +455,11 @@
 									<td>
 										<input type="number" id="char1buffspd" class="stattableinput">
 										</input>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									 
 									</td>
 								</tr>
 							</table>
@@ -638,6 +689,52 @@
 						</tr>
 						<tr>
 							<td class="subtable">
+								<!-- DB table -->
+								Destiny Bonus
+								<table>
+									<tr>
+										<td>
+											<img src="icons/hp.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char2destinyhp" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/atk.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char2destinyatk" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/def.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char2destinydef" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/spd.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char2destinyspd" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="subtable">
 								<!-- buff table -->
 								<table>
 								Buff %
@@ -669,6 +766,11 @@
 										<td>
 											<input type="number" id="char2buffspd" class="stattableinput">
 											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+									 
 										</td>
 									</tr>
 								</table>
@@ -898,6 +1000,52 @@
 						</tr>
 						<tr>
 							<td class="subtable">
+								<!-- DB table -->
+								Destiny Bonus
+								<table>
+									<tr>
+										<td>
+											<img src="icons/hp.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char3destinyhp" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/atk.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char3destinyatk" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/def.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char3destinydef" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/spd.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char3destinyspd" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="subtable">
 								<!-- buff table -->
 								<table>
 								Buff %
@@ -929,6 +1077,11 @@
 										<td>
 											<input type="number" id="char3buffspd" class="stattableinput">
 											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+									 
 										</td>
 									</tr>
 								</table>
@@ -1158,6 +1311,52 @@
 						</tr>
 						<tr>
 							<td class="subtable">
+								<!-- DB table -->
+								Destiny Bonus
+								<table>
+									<tr>
+										<td>
+											<img src="icons/hp.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char4destinyhp" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/atk.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char4destinyatk" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/def.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char4destinydef" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/spd.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char4destinyspd" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="subtable">
 								<!-- buff table -->
 								<table>
 								Buff %
@@ -1189,6 +1388,11 @@
 										<td>
 											<input type="number" id="char4buffspd" class="stattableinput">
 											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+									 
 										</td>
 									</tr>
 								</table>
@@ -1472,6 +1676,52 @@
 						</tr>
 						<tr>
 							<td class="subtable">
+								<!-- DB table -->
+								Destiny Bonus
+								<table>
+									<tr>
+										<td>
+											<img src="icons/hp.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char5destinyhp" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/atk.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char5destinyatk" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/def.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char5destinydef" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/spd.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char5destinyspd" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="subtable">
 								<!-- buff table -->
 								Buff %
 								<table>
@@ -1503,6 +1753,11 @@
 										<td>
 											<input type="number" id="char5buffspd" class="stattableinput">
 											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+									 
 										</td>
 									</tr>
 								</table>
@@ -1732,6 +1987,52 @@
 						</tr>
 						<tr>
 							<td class="subtable">
+								<!-- DB table -->
+								Destiny Bonus
+								<table>
+									<tr>
+										<td>
+											<img src="icons/hp.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char6destinyhp" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/atk.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char6destinyatk" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/def.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char6destinydef" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/spd.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char6destinyspd" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="subtable">
 								<!-- buff table -->
 								Buff %
 								<table>
@@ -1763,6 +2064,11 @@
 										<td>
 											<input type="number" id="char6buffspd" class="stattableinput">
 											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+									 
 										</td>
 									</tr>
 								</table>
@@ -1992,6 +2298,52 @@
 						</tr>
 						<tr>
 							<td class="subtable">
+								<!-- DB table -->
+								Destiny Bonus
+								<table>
+									<tr>
+										<td>
+											<img src="icons/hp.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char7destinyhp" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/atk.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char7destinyatk" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/def.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char7destinydef" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/spd.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char7destinyspd" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="subtable">
 								<!-- buff table -->
 								Buff %
 								<table>
@@ -2023,6 +2375,11 @@
 										<td>
 											<input type="number" id="char7buffspd" class="stattableinput">
 											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+									 
 										</td>
 									</tr>
 								</table>
@@ -2252,6 +2609,52 @@
 						</tr>
 						<tr>
 							<td class="subtable">
+								<!-- DB table -->
+								Destiny Bonus
+								<table>
+									<tr>
+										<td>
+											<img src="icons/hp.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char8destinyhp" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/atk.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char8destinyatk" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/def.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char8destinydef" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="icons/spd.png" class="substaticon">
+											</img>
+										</td>
+										<td>
+											<input type="number" id="char8destinyspd" class="stattableinput">
+											</input>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="subtable">
 								<!-- buff table -->
 								Buff%
 								<table>
@@ -2283,6 +2686,11 @@
 										<td>
 											<input type="number" id="char8buffspd" class="stattableinput">
 											</input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+									 
 										</td>
 									</tr>
 								</table>

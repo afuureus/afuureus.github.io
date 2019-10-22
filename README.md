@@ -11,8 +11,8 @@ Here's a simulator that I created that allows you to effectively build teams in 
   1. Select the characters via the drop down menu to start.
   2. Beside the character name is a drop down menu for the current limit break value of the character.
   3. Enter in the bonus stats from your Weapon Symbol, Soul Symbol, Mag respectively.
-  4. In the fourth box (bottom right), enter in a decimal value of the total amount of buffs applied to the respective stats.
-     (EG; Gerda soul gives .25 speed)
+  4. In the fourth box (bottom right), enter in a whole number value of the total amount of buffs applied to the respective stats.
+     (EG; Gerda soul is entered as 25)
   5. Hit the Refresh Stats button.
 
 ## MIT License

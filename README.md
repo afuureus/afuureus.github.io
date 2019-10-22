@@ -6,6 +6,8 @@ Here's a simulator that I created that allows you to effectively build teams in 
 
  - [WhyYouHere / Bumped.org](https://bumped.org/idola/idola-character-database/) for the character database and thumbnail images.
  - [KinoMyu](https://github.com/KinoMyu) for helping with the project.
+ - Special mentions to Lina and [Kiyazasu](https://github.com/Kiyazasu) for specific testing of gameplay features.
+ - Thank you to PS Fleet and Azelyra's Community Discord for testing the tool and providing feedback.
 
 ## How to Use
   1. Select the characters via the drop down menu to start.

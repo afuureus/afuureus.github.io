@@ -5,10 +5,21 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" href="css/styles.css" />
   <script type="text/javascript" src="js/lb.js" defer></script>
+  <script type="text/javascript" src="js/serialize.js" defer></script>
   <script type="text/javascript" src="js/scripts.js" defer></script>
 </head>
 
 <body>
+  <div id="save-panel">
+    <div id="save-name" class="save-name-container hidden"></div>
+    <div id="save-name-input-container" class="save-name-container"><input type="text" id="save-name-input" autocomplete="off" /></div>
+    <select id="save-select">
+      <option value="" selected>Create new</option>
+    </select>
+    <button id="save-button" onclick="save()">Save</button>
+    <button id="load-button" onclick="load()" disabled>Load</button>
+    <button id="delete-button" onclick="deleteSave()" disabled>Delete</button>
+  </div>
   <div id="law" class="team">ロウのパーティ
     <!-- Table to create rows -->
     <table>

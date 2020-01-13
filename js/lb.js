@@ -1,4 +1,4 @@
-var stats = {
+var characterStats = {
   "abeille":
   {
     "stats": [

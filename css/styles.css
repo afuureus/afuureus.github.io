@@ -148,3 +148,26 @@ td {
   border-color: black;
   border-style: solid;
 }
+
+#save-panel {
+  box-sizing: border-box;
+  position: absolute;
+  left: 70%;
+  padding: 0.5rem;
+  background: white;
+  border: 1px solid black;
+  z-index: 3;
+}
+
+#save-name-input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.save-name-container {
+  height: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}

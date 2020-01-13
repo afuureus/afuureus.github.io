@@ -1,5 +1,3 @@
-const STATS = ["hp", "atk", "def", "spd"];
-
 function changeCharacter(event) {
   var imgNode = event.target.parentNode.parentNode.getElementsByClassName("charicon")[0];
   imgNode.setAttribute("src", "thumbs/character_" + event.target.value + "_thumb.png");
@@ -18,6 +16,9 @@ function getTeam(num) {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
+  const stats = ["hp", "atk", "def", "spd"];
+  const fields = ["weapon", "symbol", "destiny"];
+
   for (let num = 1; num <= 8; num++) {
     const nameNode = document.getElementById("character" + num + "name");
     const limitbreakvalueNode = document.getElementById("char" + num + "limitbreakvalue");
@@ -25,9 +26,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
     nameNode.addEventListener("change", changeCharacter);
 
-    for (const status of STATS) {
+    for (const status of stats) {
       const totalNode = document.getElementById("char" + num + "total" + status);
-      const fieldNodes = ["weapon", "symbol", "destiny"].map(function (field) {
+      const fieldNodes = fields.map(function (field) {
         return document.getElementById("char" + num + field + status);
       });
       const buffNode = document.getElementById("char" + num + "buff" + status);

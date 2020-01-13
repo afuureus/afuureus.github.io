@@ -1,2745 +1,2684 @@
 <!DOCTYPE html>
 <html>
-   <head>
-	<style>
-	body {
-		font-family: Segoe UI, sans-serif;
-	}
-	.team {
-	width: 1526px;
-	height: 850px;
-	position: absolute;
-	top: 50px;
-	left: 50px;
-	transition: all 0.3s;
-	border-width: 1px;
-	border-style: solid;
-	}
-	#law {
-	background-color: white;
-	border-color: black;
-	}
-	#chaos {
-	background-color: gray;
-	border-color: black;
-	}
-	.inactive_team {
-	z-index:-1;
-	opacity: 0.5;
-	transform: translate(-50px, -50px);
-	}
-	#swap_button {
-	z-index: 2;
-	position: absolute;
-	top: 40px;
-	left: 210px;
-	}
-	.test {
-		width: 346px;
-		height: 800px;
-		border-width: 1px;
-		border-style: solid;
-		text-align: center;
-		vertical-align: middle;
-	}
-	.magbox {
-		width: 100px;
-		height 400px;
-		border-width: 1px;
-		border-style: solid;
-		text-align: center;
-		vertical-align: middle;
-		border-color: black;
-		background-color: white;
-	}
-	.stattable {
-		margin: 0% 20%;
-		border-width: 1px;
-		border-color: black;
-		border-style: solid;
-		background-color: white;
-		opacity: 0.9;
-	}
-	.helltable {
-		margin: 0% 20%;
-	}
-	.subtable {
-		border-width: 1px;
-		border-color: black;
-		border-style: solid;
-		background-color: white;
-		opacity: 0.9;
-	}
-	.stattableinput {
-		width:  40px;
-		text-align: center;
-		vertical-align: middle;
-	}
-	.name {
-		width: 60%;
-		height: 3%;
-		margin: 0% 20%;
-		border-width: 1px;
-		border-style: solid;
-		text-align: center;
-		font-weight: 650;
-		vertical-align: middle;
-		opacity: 0.9;
-		background-color: white;
-	}
-	.staticon {
-		width: 30px;
-		height: 30px;
-	}
-	.charicon {
-		width: 40%;
-		border-color: black;
-		border-style: solid;
-		border-width: 2px;
-	}
-	.testtd {
-		width: 5000px;
-	}
-	.substaticon {
-		width: 30px;
-		height: 30px;
-	}
-	.substaticon2{
-		width: 30px;
-		height: 30px;
-	}
-	#lawcharbox {
-		background-color: white;
-		border-color: black;
-		background-image: url("bg/ui_card_bg_01.png");
-	}
-	#chaoscharbox {
-		background-color: white;
-		border-color: black;
-		background-image: url("bg/ui_card_bg_02.png");
-	}
-	#charname {
-		background-color: white;
-		border-color: black;
-	}
-	tr td:first-child {
-		width:1%;
-		white-space:nowrap;
-	}
-	td {
-		border-width: 0px;
-		border-color: black;
-		border-style: solid;
-	}
-</style>
-   </head>
-   <body>
-   <script src="lb.json">   
-   </script>
-   <script>
-	function changecharacter(node) {
-	var imgnode = node.parentNode.parentNode.getElementsByClassName("charicon")[0];
-	imgnode.setAttribute("src", "thumbs/character_" + node.value + "_thumb.png");
-	}
-	function refreshcharacter(num) {
-		if (num <= 4) {
-		document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("char" + num + "destinyhp").value) +Number(document.getElementById("lawmaghp").value);
-		document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *((Number(document.getElementById("char" + num + "buffatk").value)+100)/100) +(Number(document.getElementById("char" + num + "destinyatk").value) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("lawmagatk").value)) *((Number(document.getElementById("char" + num + "buffatk").value)+100)/100);
-		document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *((Number(document.getElementById("char" + num + "buffdef").value)+100)/100) +(Number(document.getElementById("char" + num + "destinydef").value) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("lawmagdef").value)) *((Number(document.getElementById("char" + num + "buffdef").value)+100)/100);
-		document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *((Number(document.getElementById("char" + num + "buffspd").value)+100)/100) +(Number(document.getElementById("char" + num + "destinyspd").value) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("lawmagspd").value)) *((Number(document.getElementById("char" + num + "buffspd").value)+100)/100);
-		}
-		if (num >= 5) {
-		document.getElementById("char" + num + "totalhp").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"] +Number(document.getElementById("char" + num + "weaponhp").value) +Number(document.getElementById("char" + num + "symbolhp").value) +Number(document.getElementById("char" + num + "destinyhp").value) +Number(document.getElementById("chaosmaghp").value);
-		document.getElementById("char" + num + "totalatk").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"] *((Number(document.getElementById("char" + num + "buffatk").value)+100)/100) +(Number(document.getElementById("char" + num + "destinyatk").value) +Number(document.getElementById("char" + num + "weaponatk").value) +Number(document.getElementById("char" + num + "symbolatk").value) +Number(document.getElementById("chaosmagatk").value)) *((Number(document.getElementById("char" + num + "buffatk").value)+100)/100);
-		document.getElementById("char" + num + "totaldef").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"] *((Number(document.getElementById("char" + num + "buffdef").value)+100)/100) +(Number(document.getElementById("char" + num + "destinydef").value) +Number(document.getElementById("char" + num + "weapondef").value) +Number(document.getElementById("char" + num + "symboldef").value) +Number(document.getElementById("chaosmagdef").value)) *((Number(document.getElementById("char" + num + "buffdef").value)+100)/100);
-		document.getElementById("char" + num + "totalspd").textContent=stats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"] *((Number(document.getElementById("char" + num + "buffspd").value)+100)/100) +(Number(document.getElementById("char" + num + "destinyspd").value) +Number(document.getElementById("char" + num + "weaponspd").value) +Number(document.getElementById("char" + num + "symbolspd").value) +Number(document.getElementById("chaosmagspd").value)) *((Number(document.getElementById("char" + num + "buffspd").value)+100)/100);
-		}
-	}
-	</script>
-	<div id="law" class="team">ロウのパーティ
-	<!-- Table to create rows -->
-	<table><tr>
-		<td>
-			<button onclick="refreshcharacter(1)">
-			Refresh Stats
-			</button>
-			<div id="lawcharbox" class="test">
-				</br>
-				<img src="thumbs/character_none_thumb.png" class="charicon">
-				</img>
-				<select id="char1limitbreakvalue">
-					<option value=0>+0</option>
-					<option value=1>+1</option>
-					<option value=2>+2</option>
-					<option value=3>+3</option>
-					<option value=4>+4</option>
-				</select>
-				<div id="charname" class="name">
-					<select id="character1name" onchange="changecharacter(this);">
-						<option value="none"></option>
-						<option value="abeille">ABEILLE</option>
-						<option value="amane">AMANE</option>
-						<option value="annamarie">ANNAMARIE</option>
-						<option value="astraea">ASTRAEA</option><option value="astraea-ex">ASTRAEA-EX</option>
-						<option value="barnabas">BARNABAS</option>
-						<option value="bernhardt">BERNHARDT</option>
-						<option value="boozer">BOOZER</option>
-						<option value="clemence">CLEMENCE</option>
-						<option value="duncan">DUNCAN</option>
-						<option value="emil">EMIL</option>
-						<option value="emma">EMMA</option>				
-						<option value="eren">EREN</option>
-						<option value="furami">FURAMI</option><option value="furami-su">FURAMI-SU</option>
-						<option value="gene">GENE</option>
-						<option value="gerda">GERDA</option><option value="gerda-xmas">GERDA-XMAS</option>
-						<option value="gustav">GUSTAV</option>
-						<option value="hermina">HERMINA</option>
-						<option value="jasper">JASPER</option><option value="jasper-ex">JASPER-EX</option>
-						<option value="kaempfer">KAEMPFER</option>
-						<option value="karin">KARIN</option><option value="karin-hw">KARIN-HW</option>
-						<option value="kibaki">KIBAKI</option><option value="kibaki-ex">KIBAKI-EX</option>
-						<option value="killion">KILLION</option>
-						<option value="knut">KNUT</option>
-						<option value="kyra">KYRA</option>
-						<option value="lana">LANA</option>
-						<option value="levi">LEVI</option>
-						<option value="lilimo">LILIMO</option>
-						<option value="luther">LUTHER</option>
-						<option value="lycaon">LYCAON</option>
-						<option value="madoc">MADOC</option>
-						<option value="matoi">MATOI</option>
-						<option value="melder">MELDER</option>
-						<option value="melissa">MELISSA</option>
-						<option value="messara">MESSARA</option>
-						<option value="mikasa">MIKASA</option>
-						<option value="mint">MINT</option>
-						<option value="nadia">NADIA</option>
-						<option value="nicole">NICOLE</option>
-						<option value="popopurin">POPOPURIN</option>
-						<option value="quna">QUNA</option>
-						<option value="rachel">RACHEL</option>
-						<option value="rainer">RAINER</option>
-						<option value="rize">RIZE</option>
-						<option value="rogia">ROGIA</option>
-						<option value="rosalinde">ROSALINDE</option><option value="rosalinde-ny">ROSALINDE-NY</option><option value="rosalinde-xmas">ROSALINDE-XMAS</option>
-						<option value="roxanne">ROXANNE</option>
-						<option value="sandra">SANDRA</option>
-						<option value="sasha">SASHA</option>
-						<option value="schenck">SCHENCK</option>
-						<option value="shannon">SHANNON</option>
-						<option value="siegmund">SIEGMUND</option>
-						<option value="stella">STELLA</option><option value="stella-ex">STELLA-EX</option><option value="stella-m">STELLA-M</option><option value="stella-ny">STELLA-NY</option><option value="stella-su">STELLA-SU</option>
-						<option value="sven">SVEN</option>
-						<option value="tanya">TANYA</option>
-						<option value="torbjorn">TORBJORN</option>
-						<option value="totonotto">TOTONOTTO</option>
-						<option value="tsubakuro">TSUBAKURO</option>
-						<option value="tyrol">TYROL</option>
-						<option value="uly">ULY</option>
-						<option value="walter">WALTER</option>
-						<option value="wolff">WOLFF</option>
-						<option value="wyndis">WYNDIS</option><option value="wyndis-ex">WYNDIS-EX</option><option value="wyndis-su">WYNDIS-SU</option>
-						<option value="zora">ZORA</option>
-					</select>
-				</div>
-				<!-- Character Stats -->
-				<table class="stattable">
-				Total Character Stats
-					<tr>
-						<td>
-						<img src="icons/hp.png" class="staticon">
-						</img>
-						</td>
-						<td class="testtd" id="char1totalhp">
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<img src="icons/atk.png" class="staticon">
-						</img>
-						</td>
-						<td id="char1totalatk">
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<img src="icons/def.png" class="staticon">
-						</img>
-						</td>
-						<td id="char1totaldef">
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<img src="icons/spd.png" class="staticon">
-						</img>
-						</td>
-						<td id="char1totalspd">
-						</td>
-					</tr>
-				</table>
-				</br>
-				<table class="helltable">
-					<tr>
-						<td class="subtable">
-							<!-- weapon symbol table -->
-							Weapon Stats
-							<table>
-								<tr>
-									<td>
-										<img src="icons/hp.png" class="substaticon">
-										</img>
-									</td>
-									<td class="testtd">
-										<input type="number" id="char1weaponhp" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/atk.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1weaponatk" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/def.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1weapondef" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/spd.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1weaponspd" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td class="subtable">
-						Soul Stats
-							<!-- soul symbol table -->
-							<table>
-								<tr>
-									<td>
-										<img src="icons/hp.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1symbolhp" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/atk.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1symbolatk" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/def.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1symboldef" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/spd.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1symbolspd" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-					<tr>
-						<td class="subtable">
-							<!-- DB table -->
-							Destiny Bonus
-							<table>
-								<tr>
-									<td>
-										<img src="icons/hp.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1destinyhp" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/atk.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1destinyatk" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/def.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1destinydef" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/spd.png" class="substaticon">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1destinyspd" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td class="subtable">
-						Buff %
-							<!-- buff table -->
-							<table>
-								<tr>
-									<td>
-										<img src="icons/atkbuff.png" class="substaticon2">
-										</img>
-									</td>
-									<td class="testtd">
-										<input type="number" id="char1buffatk" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/defbuff.png" class="substaticon2">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1buffdef" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="icons/spdbuff.png" class="substaticon2">
-										</img>
-									</td>
-									<td>
-										<input type="number" id="char1buffspd" class="stattableinput">
-										</input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-									 
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-				</br>
-			</div>
-			</td>
-							<!-- Character Two Starts Here -->
-			<td>
-			<button onclick="refreshcharacter(2)">
-			Refresh Stats
-			</button>
-			<div id="lawcharbox" class="test">
-				</br>
-				<img src="thumbs/character_none_thumb.png" class="charicon">
-				</img>
-				<select id="char2limitbreakvalue">
-					<option value=0>+0</option>
-					<option value=1>+1</option>
-					<option value=2>+2</option>
-					<option value=3>+3</option>
-					<option value=4>+4</option>
-				</select>
-				<div id="charname" class="name">
-					<select id="character2name" onchange="changecharacter(this);">
-						<option value="none"></option>
-						<option value="abeille">ABEILLE</option>
-						<option value="amane">AMANE</option>
-						<option value="annamarie">ANNAMARIE</option>
-						<option value="astraea">ASTRAEA</option><option value="astraea-ex">ASTRAEA-EX</option>
-						<option value="barnabas">BARNABAS</option>
-						<option value="bernhardt">BERNHARDT</option>
-						<option value="boozer">BOOZER</option>
-						<option value="clemence">CLEMENCE</option>
-						<option value="duncan">DUNCAN</option>
-						<option value="emil">EMIL</option>
-						<option value="emma">EMMA</option>				
-						<option value="eren">EREN</option>
-						<option value="furami">FURAMI</option><option value="furami-su">FURAMI-SU</option>
-						<option value="gene">GENE</option>
-						<option value="gerda">GERDA</option><option value="gerda-xmas">GERDA-XMAS</option>
-						<option value="gustav">GUSTAV</option>
-						<option value="hermina">HERMINA</option>
-						<option value="jasper">JASPER</option><option value="jasper-ex">JASPER-EX</option>
-						<option value="kaempfer">KAEMPFER</option>
-						<option value="karin">KARIN</option><option value="karin-hw">KARIN-HW</option>
-						<option value="kibaki">KIBAKI</option><option value="kibaki-ex">KIBAKI-EX</option>
-						<option value="killion">KILLION</option>
-						<option value="knut">KNUT</option>
-						<option value="kyra">KYRA</option>
-						<option value="lana">LANA</option>
-						<option value="levi">LEVI</option>
-						<option value="lilimo">LILIMO</option>
-						<option value="luther">LUTHER</option>
-						<option value="lycaon">LYCAON</option>
-						<option value="madoc">MADOC</option>
-						<option value="matoi">MATOI</option>
-						<option value="melder">MELDER</option>
-						<option value="melissa">MELISSA</option>
-						<option value="messara">MESSARA</option>
-						<option value="mikasa">MIKASA</option>
-						<option value="mint">MINT</option>
-						<option value="nadia">NADIA</option>
-						<option value="nicole">NICOLE</option>
-						<option value="popopurin">POPOPURIN</option>
-						<option value="quna">QUNA</option>
-						<option value="rachel">RACHEL</option>
-						<option value="rainer">RAINER</option>
-						<option value="rize">RIZE</option>
-						<option value="rogia">ROGIA</option>
-						<option value="rosalinde">ROSALINDE</option><option value="rosalinde-ny">ROSALINDE-NY</option><option value="rosalinde-xmas">ROSALINDE-XMAS</option>
-						<option value="roxanne">ROXANNE</option>
-						<option value="sandra">SANDRA</option>
-						<option value="sasha">SASHA</option>
-						<option value="schenck">SCHENCK</option>
-						<option value="shannon">SHANNON</option>
-						<option value="siegmund">SIEGMUND</option>
-						<option value="stella">STELLA</option><option value="stella-ex">STELLA-EX</option><option value="stella-m">STELLA-M</option><option value="stella-ny">STELLA-NY</option><option value="stella-su">STELLA-SU</option>
-						<option value="sven">SVEN</option>
-						<option value="tanya">TANYA</option>
-						<option value="torbjorn">TORBJORN</option>
-						<option value="totonotto">TOTONOTTO</option>
-						<option value="tsubakuro">TSUBAKURO</option>
-						<option value="tyrol">TYROL</option>
-						<option value="uly">ULY</option>
-						<option value="walter">WALTER</option>
-						<option value="wolff">WOLFF</option>
-						<option value="wyndis">WYNDIS</option><option value="wyndis-ex">WYNDIS-EX</option><option value="wyndis-su">WYNDIS-SU</option>
-						<option value="zora">ZORA</option>
-					</select>
-					</div>
-					<!-- Character Stats -->
-					<table class="stattable">
-						Total Character Stats					
-						<tr>
-							<td>
-							<img src="icons/hp.png" class="staticon">
-							</img>
-							</td>
-							<td class="testtd" id="char2totalhp">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/atk.png" class="staticon">
-							</img>
-							</td>
-							<td id="char2totalatk">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/def.png" class="staticon">
-							</img>
-							</td>
-							<td id="char2totaldef">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/spd.png" class="staticon">
-							</img>
-							</td>
-							<td id="char2totalspd">
-							</td>
-						</tr>
-					</table>
-					</br>
-					<table class="helltable">
-						<tr>
-							<td class="subtable">
-								<!-- weapon symbol table -->
-								<table>
-								Weapon Stats
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char2weaponhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2weaponatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2weapondef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2weaponspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- soul symbol table -->
-								<table>
-								Soul Stats
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2symbolhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2symbolatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2symboldef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2symbolspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td class="subtable">
-								<!-- DB table -->
-								Destiny Bonus
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2destinyhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2destinyatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2destinydef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2destinyspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- buff table -->
-								<table>
-								Buff %
-									<tr>
-										<td>
-											<img src="icons/atkbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char2buffatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/defbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2buffdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spdbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char2buffspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-									 
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</br>
-			</div>
-		</td>
-								<!-- Character Three Starts Here -->
-		<td>
-			<button onclick="refreshcharacter(3)">
-			Refresh Stats
-			</button>
-			<div id="lawcharbox" class="test">
-				</br>
-				<img src="thumbs/character_none_thumb.png" class="charicon">
-				</img>
-				<select id="char3limitbreakvalue">
-					<option value=0>+0</option>
-					<option value=1>+1</option>
-					<option value=2>+2</option>
-					<option value=3>+3</option>
-					<option value=4>+4</option>
-				</select>
-				<div id="charname" class="name">
-					<select id="character3name" onchange="changecharacter(this);">
-						<option value="none"></option>
-						<option value="abeille">ABEILLE</option>
-						<option value="amane">AMANE</option>
-						<option value="annamarie">ANNAMARIE</option>
-						<option value="astraea">ASTRAEA</option><option value="astraea-ex">ASTRAEA-EX</option>
-						<option value="barnabas">BARNABAS</option>
-						<option value="bernhardt">BERNHARDT</option>
-						<option value="boozer">BOOZER</option>
-						<option value="clemence">CLEMENCE</option>
-						<option value="duncan">DUNCAN</option>
-						<option value="emil">EMIL</option>
-						<option value="emma">EMMA</option>				
-						<option value="eren">EREN</option>
-						<option value="furami">FURAMI</option><option value="furami-su">FURAMI-SU</option>
-						<option value="gene">GENE</option>
-						<option value="gerda">GERDA</option><option value="gerda-xmas">GERDA-XMAS</option>
-						<option value="gustav">GUSTAV</option>
-						<option value="hermina">HERMINA</option>
-						<option value="jasper">JASPER</option><option value="jasper-ex">JASPER-EX</option>
-						<option value="kaempfer">KAEMPFER</option>
-						<option value="karin">KARIN</option><option value="karin-hw">KARIN-HW</option>
-						<option value="kibaki">KIBAKI</option><option value="kibaki-ex">KIBAKI-EX</option>
-						<option value="killion">KILLION</option>
-						<option value="knut">KNUT</option>
-						<option value="kyra">KYRA</option>
-						<option value="lana">LANA</option>
-						<option value="levi">LEVI</option>
-						<option value="lilimo">LILIMO</option>
-						<option value="luther">LUTHER</option>
-						<option value="lycaon">LYCAON</option>
-						<option value="madoc">MADOC</option>
-						<option value="matoi">MATOI</option>
-						<option value="melder">MELDER</option>
-						<option value="melissa">MELISSA</option>
-						<option value="messara">MESSARA</option>
-						<option value="mikasa">MIKASA</option>
-						<option value="mint">MINT</option>
-						<option value="nadia">NADIA</option>
-						<option value="nicole">NICOLE</option>
-						<option value="popopurin">POPOPURIN</option>
-						<option value="quna">QUNA</option>
-						<option value="rachel">RACHEL</option>
-						<option value="rainer">RAINER</option>
-						<option value="rize">RIZE</option>
-						<option value="rogia">ROGIA</option>
-						<option value="rosalinde">ROSALINDE</option><option value="rosalinde-ny">ROSALINDE-NY</option><option value="rosalinde-xmas">ROSALINDE-XMAS</option>
-						<option value="roxanne">ROXANNE</option>
-						<option value="sandra">SANDRA</option>
-						<option value="sasha">SASHA</option>
-						<option value="schenck">SCHENCK</option>
-						<option value="shannon">SHANNON</option>
-						<option value="siegmund">SIEGMUND</option>
-						<option value="stella">STELLA</option><option value="stella-ex">STELLA-EX</option><option value="stella-m">STELLA-M</option><option value="stella-ny">STELLA-NY</option><option value="stella-su">STELLA-SU</option>
-						<option value="sven">SVEN</option>
-						<option value="tanya">TANYA</option>
-						<option value="torbjorn">TORBJORN</option>
-						<option value="totonotto">TOTONOTTO</option>
-						<option value="tsubakuro">TSUBAKURO</option>
-						<option value="tyrol">TYROL</option>
-						<option value="uly">ULY</option>
-						<option value="walter">WALTER</option>
-						<option value="wolff">WOLFF</option>
-						<option value="wyndis">WYNDIS</option><option value="wyndis-ex">WYNDIS-EX</option><option value="wyndis-su">WYNDIS-SU</option>
-						<option value="zora">ZORA</option>
-					</select>
-					</div>
-					<!-- Character Stats -->
-					<table class="stattable">
-					Total Character Stats
-						<tr>
-							<td>
-							<img src="icons/hp.png" class="staticon">
-							</img>
-							</td>
-							<td class="testtd" id="char3totalhp">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/atk.png" class="staticon">
-							</img>
-							</td>
-							<td id="char3totalatk">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/def.png" class="staticon">
-							</img>
-							</td>
-							<td id="char3totaldef">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/spd.png" class="staticon">
-							</img>
-							</td>
-							<td id="char3totalspd">
-							</td>
-						</tr>
-					</table>
-					</br>
-					<table class="helltable">
-						<tr>
-							<td class="subtable">
-								<!-- weapon symbol table -->
-								<table>
-								Weapon Stats
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char3weaponhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3weaponatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3weapondef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3weaponspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- soul symbol table -->
-								<table>
-								Soul Stats
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3symbolhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3symbolatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3symboldef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3symbolspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td class="subtable">
-								<!-- DB table -->
-								Destiny Bonus
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3destinyhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3destinyatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3destinydef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3destinyspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- buff table -->
-								<table>
-								Buff %
-									<tr>
-										<td>
-											<img src="icons/atkbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char3buffatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/defbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3buffdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spdbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char3buffspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-									 
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</br>
-			</div>
-		</td>
-							<!-- Character Four Starts Here -->
-			<td>
-			<button onclick="refreshcharacter(4)">
-			Refresh Stats
-			</button>
-			<div id="lawcharbox" class="test">
-				</br>
-				<img src="thumbs/character_none_thumb.png" class="charicon">
-				</img>
-				<select id="char4limitbreakvalue">
-					<option value=0>+0</option>
-					<option value=1>+1</option>
-					<option value=2>+2</option>
-					<option value=3>+3</option>
-					<option value=4>+4</option>
-				</select>
-				<div id="charname" class="name">
-					<select id="character4name" onchange="changecharacter(this);">
-						<option value="none"></option>
-						<option value="abeille">ABEILLE</option>
-						<option value="amane">AMANE</option>
-						<option value="annamarie">ANNAMARIE</option>
-						<option value="astraea">ASTRAEA</option><option value="astraea-ex">ASTRAEA-EX</option>
-						<option value="barnabas">BARNABAS</option>
-						<option value="bernhardt">BERNHARDT</option>
-						<option value="boozer">BOOZER</option>
-						<option value="clemence">CLEMENCE</option>
-						<option value="duncan">DUNCAN</option>
-						<option value="emil">EMIL</option>
-						<option value="emma">EMMA</option>				
-						<option value="eren">EREN</option>
-						<option value="furami">FURAMI</option><option value="furami-su">FURAMI-SU</option>
-						<option value="gene">GENE</option>
-						<option value="gerda">GERDA</option><option value="gerda-xmas">GERDA-XMAS</option>
-						<option value="gustav">GUSTAV</option>
-						<option value="hermina">HERMINA</option>
-						<option value="jasper">JASPER</option><option value="jasper-ex">JASPER-EX</option>
-						<option value="kaempfer">KAEMPFER</option>
-						<option value="karin">KARIN</option><option value="karin-hw">KARIN-HW</option>
-						<option value="kibaki">KIBAKI</option><option value="kibaki-ex">KIBAKI-EX</option>
-						<option value="killion">KILLION</option>
-						<option value="knut">KNUT</option>
-						<option value="kyra">KYRA</option>
-						<option value="lana">LANA</option>
-						<option value="levi">LEVI</option>
-						<option value="lilimo">LILIMO</option>
-						<option value="luther">LUTHER</option>
-						<option value="lycaon">LYCAON</option>
-						<option value="madoc">MADOC</option>
-						<option value="matoi">MATOI</option>
-						<option value="melder">MELDER</option>
-						<option value="melissa">MELISSA</option>
-						<option value="messara">MESSARA</option>
-						<option value="mikasa">MIKASA</option>
-						<option value="mint">MINT</option>
-						<option value="nadia">NADIA</option>
-						<option value="nicole">NICOLE</option>
-						<option value="popopurin">POPOPURIN</option>
-						<option value="quna">QUNA</option>
-						<option value="rachel">RACHEL</option>
-						<option value="rainer">RAINER</option>
-						<option value="rize">RIZE</option>
-						<option value="rogia">ROGIA</option>
-						<option value="rosalinde">ROSALINDE</option><option value="rosalinde-ny">ROSALINDE-NY</option><option value="rosalinde-xmas">ROSALINDE-XMAS</option>
-						<option value="roxanne">ROXANNE</option>
-						<option value="sandra">SANDRA</option>
-						<option value="sasha">SASHA</option>
-						<option value="schenck">SCHENCK</option>
-						<option value="shannon">SHANNON</option>
-						<option value="siegmund">SIEGMUND</option>
-						<option value="stella">STELLA</option><option value="stella-ex">STELLA-EX</option><option value="stella-m">STELLA-M</option><option value="stella-ny">STELLA-NY</option><option value="stella-su">STELLA-SU</option>
-						<option value="sven">SVEN</option>
-						<option value="tanya">TANYA</option>
-						<option value="torbjorn">TORBJORN</option>
-						<option value="totonotto">TOTONOTTO</option>
-						<option value="tsubakuro">TSUBAKURO</option>
-						<option value="tyrol">TYROL</option>
-						<option value="uly">ULY</option>
-						<option value="walter">WALTER</option>
-						<option value="wolff">WOLFF</option>
-						<option value="wyndis">WYNDIS</option><option value="wyndis-ex">WYNDIS-EX</option><option value="wyndis-su">WYNDIS-SU</option>
-						<option value="zora">ZORA</option>
-					</select>
-					</div>
-					<!-- Character Stats -->
-					<table class="stattable">
-					Total Character Stats
-						<tr>
-							<td>
-							<img src="icons/hp.png" class="staticon">
-							</img>
-							</td>
-							<td class="testtd" id="char4totalhp">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/atk.png" class="staticon">
-							</img>
-							</td>
-							<td id="char4totalatk">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/def.png" class="staticon">
-							</img>
-							</td>
-							<td id="char4totaldef">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/spd.png" class="staticon">
-							</img>
-							</td>
-							<td id="char4totalspd">
-							</td>
-						</tr>
-					</table>
-					</br>
-					<table class="helltable">
-						<tr>
-							<td class="subtable">
-								<!-- weapon symbol table -->
-								Weapon Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char4weaponhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4weaponatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4weapondef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4weaponspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- soul symbol table -->
-								<table>
-								Soul Stats
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4symbolhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4symbolatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4symboldef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4symbolspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td class="subtable">
-								<!-- DB table -->
-								Destiny Bonus
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4destinyhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4destinyatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4destinydef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4destinyspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- buff table -->
-								<table>
-								Buff %
-									<tr>
-										<td>
-											<img src="icons/atkbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char4buffatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/defbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4buffdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spdbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char4buffspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-									 
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</br>
-			</div>
-		</td>
-		<td>
-			<div id="lawcharbox" class="magbox">
-				Mag Stats
-				<table>
-					<tr>
-						<td>
-							<img src="icons/hp.png" class="substaticon">
-							</img>
-						</td>
-						<td>
-							<input type="number" id="lawmaghp" class="stattableinput">
-							</input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="icons/atk.png" class="substaticon">
-							</img>
-						</td>
-						<td>
-							<input type="number" id="lawmagatk" class="stattableinput">
-							</input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="icons/def.png" class="substaticon">
-							</img>
-						</td>
-						<td>
-							<input type="number" id="lawmagdef" class="stattableinput">
-							</input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="icons/spd.png" class="substaticon">
-							</img>
-						</td>
-						<td>
-							<input type="number" id="lawmagspd" class="stattableinput">
-							</input>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</td>
-	</tr></table>
-	</div>
-	
-	<!-- CHAOS PARTY -->
-	
-	<div id="chaos" class="inactive_team team">カオスのパーティ
-	<table><tr>
-										<!-- Character Five Starts Here -->
-		<td>
-			<button onclick="refreshcharacter(5)">
-			Refresh Stats
-			</button>
-			<div id="chaoscharbox" class="test">
-				</br>
-				<img src="thumbs/character_none_thumb.png" class="charicon">
-				</img>
-				<select id="char5limitbreakvalue">
-					<option value=0>+0</option>
-					<option value=1>+1</option>
-					<option value=2>+2</option>
-					<option value=3>+3</option>
-					<option value=4>+4</option>
-				</select>
-				<div id="charname" class="name">
-					<select id="character5name" onchange="changecharacter(this);">
-						<option value="none"></option>
-						<option value="abeille">ABEILLE</option>
-						<option value="amane">AMANE</option>
-						<option value="annamarie">ANNAMARIE</option>
-						<option value="astraea">ASTRAEA</option><option value="astraea-ex">ASTRAEA-EX</option>
-						<option value="barnabas">BARNABAS</option>
-						<option value="bernhardt">BERNHARDT</option>
-						<option value="boozer">BOOZER</option>
-						<option value="clemence">CLEMENCE</option>
-						<option value="duncan">DUNCAN</option>
-						<option value="emil">EMIL</option>
-						<option value="emma">EMMA</option>				
-						<option value="eren">EREN</option>
-						<option value="furami">FURAMI</option><option value="furami-su">FURAMI-SU</option>
-						<option value="gene">GENE</option>
-						<option value="gerda">GERDA</option><option value="gerda-xmas">GERDA-XMAS</option>
-						<option value="gustav">GUSTAV</option>
-						<option value="hermina">HERMINA</option>
-						<option value="jasper">JASPER</option><option value="jasper-ex">JASPER-EX</option>
-						<option value="kaempfer">KAEMPFER</option>
-						<option value="karin">KARIN</option><option value="karin-hw">KARIN-HW</option>
-						<option value="kibaki">KIBAKI</option><option value="kibaki-ex">KIBAKI-EX</option>
-						<option value="killion">KILLION</option>
-						<option value="knut">KNUT</option>
-						<option value="kyra">KYRA</option>
-						<option value="lana">LANA</option>
-						<option value="levi">LEVI</option>
-						<option value="lilimo">LILIMO</option>
-						<option value="luther">LUTHER</option>
-						<option value="lycaon">LYCAON</option>
-						<option value="madoc">MADOC</option>
-						<option value="matoi">MATOI</option>
-						<option value="melder">MELDER</option>
-						<option value="melissa">MELISSA</option>
-						<option value="messara">MESSARA</option>
-						<option value="mikasa">MIKASA</option>
-						<option value="mint">MINT</option>
-						<option value="nadia">NADIA</option>
-						<option value="nicole">NICOLE</option>
-						<option value="popopurin">POPOPURIN</option>
-						<option value="quna">QUNA</option>
-						<option value="rachel">RACHEL</option>
-						<option value="rainer">RAINER</option>
-						<option value="rize">RIZE</option>
-						<option value="rogia">ROGIA</option>
-						<option value="rosalinde">ROSALINDE</option><option value="rosalinde-ny">ROSALINDE-NY</option><option value="rosalinde-xmas">ROSALINDE-XMAS</option>
-						<option value="roxanne">ROXANNE</option>
-						<option value="sandra">SANDRA</option>
-						<option value="sasha">SASHA</option>
-						<option value="schenck">SCHENCK</option>
-						<option value="shannon">SHANNON</option>
-						<option value="siegmund">SIEGMUND</option>
-						<option value="stella">STELLA</option><option value="stella-ex">STELLA-EX</option><option value="stella-m">STELLA-M</option><option value="stella-ny">STELLA-NY</option><option value="stella-su">STELLA-SU</option>
-						<option value="sven">SVEN</option>
-						<option value="tanya">TANYA</option>
-						<option value="torbjorn">TORBJORN</option>
-						<option value="totonotto">TOTONOTTO</option>
-						<option value="tsubakuro">TSUBAKURO</option>
-						<option value="tyrol">TYROL</option>
-						<option value="uly">ULY</option>
-						<option value="walter">WALTER</option>
-						<option value="wolff">WOLFF</option>
-						<option value="wyndis">WYNDIS</option><option value="wyndis-ex">WYNDIS-EX</option><option value="wyndis-su">WYNDIS-SU</option>
-						<option value="zora">ZORA</option>
-					</select>
-					</div>
-					<!-- Character Stats -->
-					<table class="stattable">
-					Total Character Stats
-						<tr>
-							<td>
-							<img src="icons/hp.png" class="staticon">
-							</img>
-							</td>
-							<td class="testtd" id="char5totalhp">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/atk.png" class="staticon">
-							</img>
-							</td>
-							<td id="char5totalatk">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/def.png" class="staticon">
-							</img>
-							</td>
-							<td id="char5totaldef">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/spd.png" class="staticon">
-							</img>
-							</td>
-							<td id="char5totalspd">
-							</td>
-						</tr>
-					</table>
-					</br>
-					<table class="helltable">
-						<tr>
-							<td class="subtable">
-								<!-- weapon symbol table -->
-								Weapon Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char5weaponhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5weaponatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5weapondef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5weaponspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- soul symbol table -->
-								Soul Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5symbolhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5symbolatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5symboldef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5symbolspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td class="subtable">
-								<!-- DB table -->
-								Destiny Bonus
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5destinyhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5destinyatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5destinydef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5destinyspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- buff table -->
-								Buff %
-								<table>
-									<tr>
-										<td>
-											<img src="icons/atkbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char5buffatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/defbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5buffdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spdbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char5buffspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-									 
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</br>
-			</div>
-		</td>
-										<!-- Character Six Starts Here -->
-		<td>
-			<button onclick="refreshcharacter(6)">
-			Refresh Stats
-			</button>
-			<div id="chaoscharbox" class="test">
-				</br>
-				<img src="thumbs/character_none_thumb.png" class="charicon">
-				</img>
-				<select id="char6limitbreakvalue">
-					<option value=0>+0</option>
-					<option value=1>+1</option>
-					<option value=2>+2</option>
-					<option value=3>+3</option>
-					<option value=4>+4</option>
-				</select>
-				<div id="charname" class="name">
-					<select id="character6name" onchange="changecharacter(this);">
-						<option value="none"></option>
-						<option value="abeille">ABEILLE</option>
-						<option value="amane">AMANE</option>
-						<option value="annamarie">ANNAMARIE</option>
-						<option value="astraea">ASTRAEA</option><option value="astraea-ex">ASTRAEA-EX</option>
-						<option value="barnabas">BARNABAS</option>
-						<option value="bernhardt">BERNHARDT</option>
-						<option value="boozer">BOOZER</option>
-						<option value="clemence">CLEMENCE</option>
-						<option value="duncan">DUNCAN</option>
-						<option value="emil">EMIL</option>
-						<option value="emma">EMMA</option>				
-						<option value="eren">EREN</option>
-						<option value="furami">FURAMI</option><option value="furami-su">FURAMI-SU</option>
-						<option value="gene">GENE</option>
-						<option value="gerda">GERDA</option><option value="gerda-xmas">GERDA-XMAS</option>
-						<option value="gustav">GUSTAV</option>
-						<option value="hermina">HERMINA</option>
-						<option value="jasper">JASPER</option><option value="jasper-ex">JASPER-EX</option>
-						<option value="kaempfer">KAEMPFER</option>
-						<option value="karin">KARIN</option><option value="karin-hw">KARIN-HW</option>
-						<option value="kibaki">KIBAKI</option><option value="kibaki-ex">KIBAKI-EX</option>
-						<option value="killion">KILLION</option>
-						<option value="knut">KNUT</option>
-						<option value="kyra">KYRA</option>
-						<option value="lana">LANA</option>
-						<option value="levi">LEVI</option>
-						<option value="lilimo">LILIMO</option>
-						<option value="luther">LUTHER</option>
-						<option value="lycaon">LYCAON</option>
-						<option value="madoc">MADOC</option>
-						<option value="matoi">MATOI</option>
-						<option value="melder">MELDER</option>
-						<option value="melissa">MELISSA</option>
-						<option value="messara">MESSARA</option>
-						<option value="mikasa">MIKASA</option>
-						<option value="mint">MINT</option>
-						<option value="nadia">NADIA</option>
-						<option value="nicole">NICOLE</option>
-						<option value="popopurin">POPOPURIN</option>
-						<option value="quna">QUNA</option>
-						<option value="rachel">RACHEL</option>
-						<option value="rainer">RAINER</option>
-						<option value="rize">RIZE</option>
-						<option value="rogia">ROGIA</option>
-						<option value="rosalinde">ROSALINDE</option><option value="rosalinde-ny">ROSALINDE-NY</option><option value="rosalinde-xmas">ROSALINDE-XMAS</option>
-						<option value="roxanne">ROXANNE</option>
-						<option value="sandra">SANDRA</option>
-						<option value="sasha">SASHA</option>
-						<option value="schenck">SCHENCK</option>
-						<option value="shannon">SHANNON</option>
-						<option value="siegmund">SIEGMUND</option>
-						<option value="stella">STELLA</option><option value="stella-ex">STELLA-EX</option><option value="stella-m">STELLA-M</option><option value="stella-ny">STELLA-NY</option><option value="stella-su">STELLA-SU</option>
-						<option value="sven">SVEN</option>
-						<option value="tanya">TANYA</option>
-						<option value="torbjorn">TORBJORN</option>
-						<option value="totonotto">TOTONOTTO</option>
-						<option value="tsubakuro">TSUBAKURO</option>
-						<option value="tyrol">TYROL</option>
-						<option value="uly">ULY</option>
-						<option value="walter">WALTER</option>
-						<option value="wolff">WOLFF</option>
-						<option value="wyndis">WYNDIS</option><option value="wyndis-ex">WYNDIS-EX</option><option value="wyndis-su">WYNDIS-SU</option>
-						<option value="zora">ZORA</option>
-					</select>
-					</div>
-					<!-- Character Stats -->
-					<table class="stattable">
-					Total Character Stats
-						<tr>
-							<td>
-							<img src="icons/hp.png" class="staticon">
-							</img>
-							</td>
-							<td class="testtd" id="char6totalhp">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/atk.png" class="staticon">
-							</img>
-							</td>
-							<td id="char6totalatk">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/def.png" class="staticon">
-							</img>
-							</td>
-							<td id="char6totaldef">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/spd.png" class="staticon">
-							</img>
-							</td>
-							<td id="char6totalspd">
-							</td>
-						</tr>
-					</table>
-					</br>
-					<table class="helltable">
-						<tr>
-							<td class="subtable">
-								<!-- weapon symbol table -->
-								Weapon Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char6weaponhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6weaponatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6weapondef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6weaponspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- soul symbol table -->
-								Soul Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6symbolhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6symbolatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6symboldef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6symbolspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td class="subtable">
-								<!-- DB table -->
-								Destiny Bonus
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6destinyhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6destinyatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6destinydef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6destinyspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- buff table -->
-								Buff %
-								<table>
-									<tr>
-										<td>
-											<img src="icons/atkbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char6buffatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/defbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6buffdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spdbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char6buffspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-									 
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</br>
-			</div>
-		</td>
-										<!-- Character Seven Starts Here -->
-		<td>
-			<button onclick="refreshcharacter(7)">
-			Refresh Stats
-			</button>
-			<div id="chaoscharbox" class="test">
-				</br>
-				<img src="thumbs/character_none_thumb.png" class="charicon">
-				</img>
-				<select id="char7limitbreakvalue">
-					<option value=0>+0</option>
-					<option value=1>+1</option>
-					<option value=2>+2</option>
-					<option value=3>+3</option>
-					<option value=4>+4</option>
-				</select>
-				<div id="charname" class="name">
-					<select id="character7name" onchange="changecharacter(this);">
-						<option value="none"></option>
-						<option value="abeille">ABEILLE</option>
-						<option value="amane">AMANE</option>
-						<option value="annamarie">ANNAMARIE</option>
-						<option value="astraea">ASTRAEA</option><option value="astraea-ex">ASTRAEA-EX</option>
-						<option value="barnabas">BARNABAS</option>
-						<option value="bernhardt">BERNHARDT</option>
-						<option value="boozer">BOOZER</option>
-						<option value="clemence">CLEMENCE</option>
-						<option value="duncan">DUNCAN</option>
-						<option value="emil">EMIL</option>
-						<option value="emma">EMMA</option>				
-						<option value="eren">EREN</option>
-						<option value="furami">FURAMI</option><option value="furami-su">FURAMI-SU</option>
-						<option value="gene">GENE</option>
-						<option value="gerda">GERDA</option><option value="gerda-xmas">GERDA-XMAS</option>
-						<option value="gustav">GUSTAV</option>
-						<option value="hermina">HERMINA</option>
-						<option value="jasper">JASPER</option><option value="jasper-ex">JASPER-EX</option>
-						<option value="kaempfer">KAEMPFER</option>
-						<option value="karin">KARIN</option><option value="karin-hw">KARIN-HW</option>
-						<option value="kibaki">KIBAKI</option><option value="kibaki-ex">KIBAKI-EX</option>
-						<option value="killion">KILLION</option>
-						<option value="knut">KNUT</option>
-						<option value="kyra">KYRA</option>
-						<option value="lana">LANA</option>
-						<option value="levi">LEVI</option>
-						<option value="lilimo">LILIMO</option>
-						<option value="luther">LUTHER</option>
-						<option value="lycaon">LYCAON</option>
-						<option value="madoc">MADOC</option>
-						<option value="matoi">MATOI</option>
-						<option value="melder">MELDER</option>
-						<option value="melissa">MELISSA</option>
-						<option value="messara">MESSARA</option>
-						<option value="mikasa">MIKASA</option>
-						<option value="mint">MINT</option>
-						<option value="nadia">NADIA</option>
-						<option value="nicole">NICOLE</option>
-						<option value="popopurin">POPOPURIN</option>
-						<option value="quna">QUNA</option>
-						<option value="rachel">RACHEL</option>
-						<option value="rainer">RAINER</option>
-						<option value="rize">RIZE</option>
-						<option value="rogia">ROGIA</option>
-						<option value="rosalinde">ROSALINDE</option><option value="rosalinde-ny">ROSALINDE-NY</option><option value="rosalinde-xmas">ROSALINDE-XMAS</option>
-						<option value="roxanne">ROXANNE</option>
-						<option value="sandra">SANDRA</option>
-						<option value="sasha">SASHA</option>
-						<option value="schenck">SCHENCK</option>
-						<option value="shannon">SHANNON</option>
-						<option value="siegmund">SIEGMUND</option>
-						<option value="stella">STELLA</option><option value="stella-ex">STELLA-EX</option><option value="stella-m">STELLA-M</option><option value="stella-ny">STELLA-NY</option><option value="stella-su">STELLA-SU</option>
-						<option value="sven">SVEN</option>
-						<option value="tanya">TANYA</option>
-						<option value="torbjorn">TORBJORN</option>
-						<option value="totonotto">TOTONOTTO</option>
-						<option value="tsubakuro">TSUBAKURO</option>
-						<option value="tyrol">TYROL</option>
-						<option value="uly">ULY</option>
-						<option value="walter">WALTER</option>
-						<option value="wolff">WOLFF</option>
-						<option value="wyndis">WYNDIS</option><option value="wyndis-ex">WYNDIS-EX</option><option value="wyndis-su">WYNDIS-SU</option>
-						<option value="zora">ZORA</option>
-					</select>
-					</div>
-					<!-- Character Stats -->
-					<table class="stattable">
-					Total Character Stats
-						<tr>
-							<td>
-							<img src="icons/hp.png" class="staticon">
-							</img>
-							</td>
-							<td class="testtd" id="char7totalhp">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/atk.png" class="staticon">
-							</img>
-							</td>
-							<td id="char7totalatk">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/def.png" class="staticon">
-							</img>
-							</td>
-							<td id="char7totaldef">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/spd.png" class="staticon">
-							</img>
-							</td>
-							<td id="char7totalspd">
-							</td>
-						</tr>
-					</table>
-					</br>
-					<table class="helltable">
-						<tr>
-							<td class="subtable">
-								<!-- weapon symbol table -->
-								Weapon Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char7weaponhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7weaponatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7weapondef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7weaponspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- soul symbol table -->
-								Soul Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7symbolhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7symbolatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7symboldef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7symbolspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td class="subtable">
-								<!-- DB table -->
-								Destiny Bonus
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7destinyhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7destinyatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7destinydef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7destinyspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- buff table -->
-								Buff %
-								<table>
-									<tr>
-										<td>
-											<img src="icons/atkbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char7buffatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/defbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7buffdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spdbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char7buffspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-									 
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</br>
-			</div>
-		</td>
-										<!-- Character Eight Starts Here -->
-		<td>
-			<button onclick="refreshcharacter(8)">
-			Refresh Stats
-			</button>
-			<div id="chaoscharbox" class="test">
-				</br>
-				<img src="thumbs/character_none_thumb.png" class="charicon">
-				</img>
-				<select id="char8limitbreakvalue">
-					<option value=0>+0</option>
-					<option value=1>+1</option>
-					<option value=2>+2</option>
-					<option value=3>+3</option>
-					<option value=4>+4</option>
-				</select>
-				<div id="charname" class="name">
-					<select id="character8name" onchange="changecharacter(this);">
-						<option value="none"></option>
-						<option value="abeille">ABEILLE</option>
-						<option value="amane">AMANE</option>
-						<option value="annamarie">ANNAMARIE</option>
-						<option value="astraea">ASTRAEA</option><option value="astraea-ex">ASTRAEA-EX</option>
-						<option value="barnabas">BARNABAS</option>
-						<option value="bernhardt">BERNHARDT</option>
-						<option value="boozer">BOOZER</option>
-						<option value="clemence">CLEMENCE</option>
-						<option value="duncan">DUNCAN</option>
-						<option value="emil">EMIL</option>
-						<option value="emma">EMMA</option>				
-						<option value="eren">EREN</option>
-						<option value="furami">FURAMI</option><option value="furami-su">FURAMI-SU</option>
-						<option value="gene">GENE</option>
-						<option value="gerda">GERDA</option><option value="gerda-xmas">GERDA-XMAS</option>
-						<option value="gustav">GUSTAV</option>
-						<option value="hermina">HERMINA</option>
-						<option value="jasper">JASPER</option><option value="jasper-ex">JASPER-EX</option>
-						<option value="kaempfer">KAEMPFER</option>
-						<option value="karin">KARIN</option><option value="karin-hw">KARIN-HW</option>
-						<option value="kibaki">KIBAKI</option><option value="kibaki-ex">KIBAKI-EX</option>
-						<option value="killion">KILLION</option>
-						<option value="knut">KNUT</option>
-						<option value="kyra">KYRA</option>
-						<option value="lana">LANA</option>
-						<option value="levi">LEVI</option>
-						<option value="lilimo">LILIMO</option>
-						<option value="luther">LUTHER</option>
-						<option value="lycaon">LYCAON</option>
-						<option value="madoc">MADOC</option>
-						<option value="matoi">MATOI</option>
-						<option value="melder">MELDER</option>
-						<option value="melissa">MELISSA</option>
-						<option value="messara">MESSARA</option>
-						<option value="mikasa">MIKASA</option>
-						<option value="mint">MINT</option>
-						<option value="nadia">NADIA</option>
-						<option value="nicole">NICOLE</option>
-						<option value="popopurin">POPOPURIN</option>
-						<option value="quna">QUNA</option>
-						<option value="rachel">RACHEL</option>
-						<option value="rainer">RAINER</option>
-						<option value="rize">RIZE</option>
-						<option value="rogia">ROGIA</option>
-						<option value="rosalinde">ROSALINDE</option><option value="rosalinde-ny">ROSALINDE-NY</option><option value="rosalinde-xmas">ROSALINDE-XMAS</option>
-						<option value="roxanne">ROXANNE</option>
-						<option value="sandra">SANDRA</option>
-						<option value="sasha">SASHA</option>
-						<option value="schenck">SCHENCK</option>
-						<option value="shannon">SHANNON</option>
-						<option value="siegmund">SIEGMUND</option>
-						<option value="stella">STELLA</option><option value="stella-ex">STELLA-EX</option><option value="stella-m">STELLA-M</option><option value="stella-ny">STELLA-NY</option><option value="stella-su">STELLA-SU</option>
-						<option value="sven">SVEN</option>
-						<option value="tanya">TANYA</option>
-						<option value="torbjorn">TORBJORN</option>
-						<option value="totonotto">TOTONOTTO</option>
-						<option value="tsubakuro">TSUBAKURO</option>
-						<option value="tyrol">TYROL</option>
-						<option value="uly">ULY</option>
-						<option value="walter">WALTER</option>
-						<option value="wolff">WOLFF</option>
-						<option value="wyndis">WYNDIS</option><option value="wyndis-ex">WYNDIS-EX</option><option value="wyndis-su">WYNDIS-SU</option>
-						<option value="zora">ZORA</option>
-					</select>
-					</div>
-					<!-- Character Stats -->
-					<table class="stattable">
-					Total Character Stats
-						<tr>
-							<td>
-							<img src="icons/hp.png" class="staticon">
-							</img>
-							</td>
-							<td class="testtd" id="char8totalhp">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/atk.png" class="staticon">
-							</img>
-							</td>
-							<td id="char8totalatk">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/def.png" class="staticon">
-							</img>
-							</td>
-							<td id="char8totaldef">
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<img src="icons/spd.png" class="staticon">
-							</img>
-							</td>
-							<td id="char8totalspd">
-							</td>
-						</tr>
-					</table>
-					</br>
-					<table class="helltable">
-						<tr>
-							<td class="subtable">
-								<!-- weapon symbol table -->
-								Weapon Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char8weaponhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8weaponatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8weapondef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8weaponspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- soul symbol table -->
-								Soul Stats
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8symbolhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8symbolatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8symboldef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8symbolspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td class="subtable">
-								<!-- DB table -->
-								Destiny Bonus
-								<table>
-									<tr>
-										<td>
-											<img src="icons/hp.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8destinyhp" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/atk.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8destinyatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/def.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8destinydef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spd.png" class="substaticon">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8destinyspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td class="subtable">
-								<!-- buff table -->
-								Buff%
-								<table>
-									<tr>
-										<td>
-											<img src="icons/atkbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td class="testtd">
-											<input type="number" id="char8buffatk" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/defbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8buffdef" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="icons/spdbuff.png" class="substaticon2">
-											</img>
-										</td>
-										<td>
-											<input type="number" id="char8buffspd" class="stattableinput">
-											</input>
-										</td>
-									</tr>
-									<tr>
-										<td>
-									 
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</br>
-			</div>
-		</td>
-		<td>
-			<div id="lawcharbox" class="magbox">
-				Mag Stats
-				<table>
-					<tr>
-						<td>
-							<img src="icons/hp.png" class="substaticon">
-							</img>
-						</td>
-						<td>
-							<input type="number" id="chaosmaghp" class="stattableinput">
-							</input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="icons/atk.png" class="substaticon">
-							</img>
-						</td>
-						<td>
-							<input type="number" id="chaosmagatk" class="stattableinput">
-							</input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="icons/def.png" class="substaticon">
-							</img>
-						</td>
-						<td>
-							<input type="number" id="chaosmagdef" class="stattableinput">
-							</input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="icons/spd.png" class="substaticon">
-							</img>
-						</td>
-						<td>
-							<input type="number" id="chaosmagspd" class="stattableinput">
-							</input>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</td>
-	</tr></table>
-	</div>
-	<button id="swap_button" onclick="swap()">Change</button>
-   </body>
-   <script>
-function swap()
-{
-document.getElementById("law").classList.toggle("inactive_team");
-document.getElementById("chaos").classList.toggle("inactive_team");
-}
-</script>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="text/javascript" src="js/lb.js" defer></script>
+  <script type="text/javascript" src="js/scripts.js" defer></script>
+</head>
+
+<body>
+  <div id="law" class="team">ロウのパーティ
+    <!-- Table to create rows -->
+    <table>
+      <tr>
+        <td>
+          <div id="lawcharbox" class="test">
+            </br>
+            <img src="thumbs/character_none_thumb.png" class="charicon">
+            </img>
+            <select id="char1limitbreakvalue">
+              <option value=0>+0</option>
+              <option value=1>+1</option>
+              <option value=2>+2</option>
+              <option value=3>+3</option>
+              <option value=4>+4</option>
+            </select>
+            <div id="charname" class="name">
+              <select id="character1name">
+                <option value="none"></option>
+                <option value="abeille">ABEILLE</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
+              </select>
+            </div>
+            <!-- Character Stats -->
+            <table class="stattable">
+              Total Character Stats
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="staticon">
+                  </img>
+                </td>
+                <td class="testtd" id="char1totalhp">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char1totalatk">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char1totaldef">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char1totalspd">
+                </td>
+              </tr>
+            </table>
+            </br>
+            <table class="helltable">
+              <tr>
+                <td class="subtable">
+                  <!-- weapon symbol table -->
+                  Weapon Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char1weaponhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1weaponatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1weapondef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1weaponspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  Soul Stats
+                  <!-- soul symbol table -->
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1symbolhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1symbolatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1symboldef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1symbolspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="subtable">
+                  <!-- DB table -->
+                  Destiny Bonus
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1destinyhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1destinyatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1destinydef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1destinyspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  Buff %
+                  <!-- buff table -->
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/atkbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char1buffatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/defbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1buffdef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spdbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char1buffspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </br>
+          </div>
+        </td>
+        <!-- Character Two Starts Here -->
+        <td>
+          <div id="lawcharbox" class="test">
+            </br>
+            <img src="thumbs/character_none_thumb.png" class="charicon">
+            </img>
+            <select id="char2limitbreakvalue">
+              <option value=0>+0</option>
+              <option value=1>+1</option>
+              <option value=2>+2</option>
+              <option value=3>+3</option>
+              <option value=4>+4</option>
+            </select>
+            <div id="charname" class="name">
+              <select id="character2name">
+                <option value="none"></option>
+                <option value="abeille">ABEILLE</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
+              </select>
+            </div>
+            <!-- Character Stats -->
+            <table class="stattable">
+              Total Character Stats
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="staticon">
+                  </img>
+                </td>
+                <td class="testtd" id="char2totalhp">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char2totalatk">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char2totaldef">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char2totalspd">
+                </td>
+              </tr>
+            </table>
+            </br>
+            <table class="helltable">
+              <tr>
+                <td class="subtable">
+                  <!-- weapon symbol table -->
+                  <table>
+                    Weapon Stats
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char2weaponhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2weaponatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2weapondef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2weaponspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- soul symbol table -->
+                  <table>
+                    Soul Stats
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2symbolhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2symbolatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2symboldef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2symbolspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="subtable">
+                  <!-- DB table -->
+                  Destiny Bonus
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2destinyhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2destinyatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2destinydef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2destinyspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- buff table -->
+                  <table>
+                    Buff %
+                    <tr>
+                      <td>
+                        <img src="icons/atkbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char2buffatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/defbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2buffdef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spdbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char2buffspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </br>
+          </div>
+        </td>
+        <!-- Character Three Starts Here -->
+        <td>
+          <div id="lawcharbox" class="test">
+            </br>
+            <img src="thumbs/character_none_thumb.png" class="charicon">
+            </img>
+            <select id="char3limitbreakvalue">
+              <option value=0>+0</option>
+              <option value=1>+1</option>
+              <option value=2>+2</option>
+              <option value=3>+3</option>
+              <option value=4>+4</option>
+            </select>
+            <div id="charname" class="name">
+              <select id="character3name">
+                <option value="none"></option>
+                <option value="abeille">ABEILLE</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
+              </select>
+            </div>
+            <!-- Character Stats -->
+            <table class="stattable">
+              Total Character Stats
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="staticon">
+                  </img>
+                </td>
+                <td class="testtd" id="char3totalhp">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char3totalatk">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char3totaldef">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char3totalspd">
+                </td>
+              </tr>
+            </table>
+            </br>
+            <table class="helltable">
+              <tr>
+                <td class="subtable">
+                  <!-- weapon symbol table -->
+                  <table>
+                    Weapon Stats
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char3weaponhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3weaponatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3weapondef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3weaponspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- soul symbol table -->
+                  <table>
+                    Soul Stats
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3symbolhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3symbolatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3symboldef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3symbolspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="subtable">
+                  <!-- DB table -->
+                  Destiny Bonus
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3destinyhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3destinyatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3destinydef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3destinyspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- buff table -->
+                  <table>
+                    Buff %
+                    <tr>
+                      <td>
+                        <img src="icons/atkbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char3buffatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/defbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3buffdef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spdbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char3buffspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </br>
+          </div>
+        </td>
+        <!-- Character Four Starts Here -->
+        <td>
+          <div id="lawcharbox" class="test">
+            </br>
+            <img src="thumbs/character_none_thumb.png" class="charicon">
+            </img>
+            <select id="char4limitbreakvalue">
+              <option value=0>+0</option>
+              <option value=1>+1</option>
+              <option value=2>+2</option>
+              <option value=3>+3</option>
+              <option value=4>+4</option>
+            </select>
+            <div id="charname" class="name">
+              <select id="character4name">
+                <option value="none"></option>
+                <option value="abeille">ABEILLE</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
+              </select>
+            </div>
+            <!-- Character Stats -->
+            <table class="stattable">
+              Total Character Stats
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="staticon">
+                  </img>
+                </td>
+                <td class="testtd" id="char4totalhp">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char4totalatk">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char4totaldef">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char4totalspd">
+                </td>
+              </tr>
+            </table>
+            </br>
+            <table class="helltable">
+              <tr>
+                <td class="subtable">
+                  <!-- weapon symbol table -->
+                  Weapon Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char4weaponhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4weaponatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4weapondef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4weaponspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- soul symbol table -->
+                  <table>
+                    Soul Stats
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4symbolhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4symbolatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4symboldef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4symbolspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="subtable">
+                  <!-- DB table -->
+                  Destiny Bonus
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4destinyhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4destinyatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4destinydef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4destinyspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- buff table -->
+                  <table>
+                    Buff %
+                    <tr>
+                      <td>
+                        <img src="icons/atkbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char4buffatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/defbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4buffdef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spdbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char4buffspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </br>
+          </div>
+        </td>
+        <td>
+          <div id="lawcharbox" class="magbox">
+            Mag Stats
+            <table>
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="substaticon">
+                  </img>
+                </td>
+                <td>
+                  <input type="number" id="lawmaghp" class="stattableinput">
+                  </input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="substaticon">
+                  </img>
+                </td>
+                <td>
+                  <input type="number" id="lawmagatk" class="stattableinput">
+                  </input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="substaticon">
+                  </img>
+                </td>
+                <td>
+                  <input type="number" id="lawmagdef" class="stattableinput">
+                  </input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="substaticon">
+                  </img>
+                </td>
+                <td>
+                  <input type="number" id="lawmagspd" class="stattableinput">
+                  </input>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- CHAOS PARTY -->
+
+  <div id="chaos" class="inactive_team team">カオスのパーティ
+    <table>
+      <tr>
+        <!-- Character Five Starts Here -->
+        <td>
+          <div id="chaoscharbox" class="test">
+            </br>
+            <img src="thumbs/character_none_thumb.png" class="charicon">
+            </img>
+            <select id="char5limitbreakvalue">
+              <option value=0>+0</option>
+              <option value=1>+1</option>
+              <option value=2>+2</option>
+              <option value=3>+3</option>
+              <option value=4>+4</option>
+            </select>
+            <div id="charname" class="name">
+              <select id="character5name">
+                <option value="none"></option>
+                <option value="abeille">ABEILLE</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
+              </select>
+            </div>
+            <!-- Character Stats -->
+            <table class="stattable">
+              Total Character Stats
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="staticon">
+                  </img>
+                </td>
+                <td class="testtd" id="char5totalhp">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char5totalatk">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char5totaldef">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char5totalspd">
+                </td>
+              </tr>
+            </table>
+            </br>
+            <table class="helltable">
+              <tr>
+                <td class="subtable">
+                  <!-- weapon symbol table -->
+                  Weapon Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char5weaponhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5weaponatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5weapondef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5weaponspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- soul symbol table -->
+                  Soul Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5symbolhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5symbolatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5symboldef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5symbolspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="subtable">
+                  <!-- DB table -->
+                  Destiny Bonus
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5destinyhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5destinyatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5destinydef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5destinyspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- buff table -->
+                  Buff %
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/atkbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char5buffatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/defbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5buffdef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spdbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char5buffspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </br>
+          </div>
+        </td>
+        <!-- Character Six Starts Here -->
+        <td>
+          <div id="chaoscharbox" class="test">
+            </br>
+            <img src="thumbs/character_none_thumb.png" class="charicon">
+            </img>
+            <select id="char6limitbreakvalue">
+              <option value=0>+0</option>
+              <option value=1>+1</option>
+              <option value=2>+2</option>
+              <option value=3>+3</option>
+              <option value=4>+4</option>
+            </select>
+            <div id="charname" class="name">
+              <select id="character6name">
+                <option value="none"></option>
+                <option value="abeille">ABEILLE</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
+              </select>
+            </div>
+            <!-- Character Stats -->
+            <table class="stattable">
+              Total Character Stats
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="staticon">
+                  </img>
+                </td>
+                <td class="testtd" id="char6totalhp">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char6totalatk">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char6totaldef">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char6totalspd">
+                </td>
+              </tr>
+            </table>
+            </br>
+            <table class="helltable">
+              <tr>
+                <td class="subtable">
+                  <!-- weapon symbol table -->
+                  Weapon Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char6weaponhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6weaponatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6weapondef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6weaponspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- soul symbol table -->
+                  Soul Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6symbolhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6symbolatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6symboldef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6symbolspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="subtable">
+                  <!-- DB table -->
+                  Destiny Bonus
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6destinyhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6destinyatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6destinydef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6destinyspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- buff table -->
+                  Buff %
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/atkbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char6buffatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/defbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6buffdef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spdbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char6buffspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </br>
+          </div>
+        </td>
+        <!-- Character Seven Starts Here -->
+        <td>
+          <div id="chaoscharbox" class="test">
+            </br>
+            <img src="thumbs/character_none_thumb.png" class="charicon">
+            </img>
+            <select id="char7limitbreakvalue">
+              <option value=0>+0</option>
+              <option value=1>+1</option>
+              <option value=2>+2</option>
+              <option value=3>+3</option>
+              <option value=4>+4</option>
+            </select>
+            <div id="charname" class="name">
+              <select id="character7name">
+                <option value="none"></option>
+                <option value="abeille">ABEILLE</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
+              </select>
+            </div>
+            <!-- Character Stats -->
+            <table class="stattable">
+              Total Character Stats
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="staticon">
+                  </img>
+                </td>
+                <td class="testtd" id="char7totalhp">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char7totalatk">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char7totaldef">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char7totalspd">
+                </td>
+              </tr>
+            </table>
+            </br>
+            <table class="helltable">
+              <tr>
+                <td class="subtable">
+                  <!-- weapon symbol table -->
+                  Weapon Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char7weaponhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7weaponatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7weapondef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7weaponspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- soul symbol table -->
+                  Soul Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7symbolhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7symbolatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7symboldef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7symbolspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="subtable">
+                  <!-- DB table -->
+                  Destiny Bonus
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7destinyhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7destinyatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7destinydef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7destinyspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- buff table -->
+                  Buff %
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/atkbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char7buffatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/defbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7buffdef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spdbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char7buffspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </br>
+          </div>
+        </td>
+        <!-- Character Eight Starts Here -->
+        <td>
+          <div id="chaoscharbox" class="test">
+            </br>
+            <img src="thumbs/character_none_thumb.png" class="charicon">
+            </img>
+            <select id="char8limitbreakvalue">
+              <option value=0>+0</option>
+              <option value=1>+1</option>
+              <option value=2>+2</option>
+              <option value=3>+3</option>
+              <option value=4>+4</option>
+            </select>
+            <div id="charname" class="name">
+              <select id="character8name">
+                <option value="none"></option>
+                <option value="abeille">ABEILLE</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
+              </select>
+            </div>
+            <!-- Character Stats -->
+            <table class="stattable">
+              Total Character Stats
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="staticon">
+                  </img>
+                </td>
+                <td class="testtd" id="char8totalhp">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char8totalatk">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char8totaldef">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char8totalspd">
+                </td>
+              </tr>
+            </table>
+            </br>
+            <table class="helltable">
+              <tr>
+                <td class="subtable">
+                  <!-- weapon symbol table -->
+                  Weapon Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char8weaponhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8weaponatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8weapondef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8weaponspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- soul symbol table -->
+                  Soul Stats
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8symbolhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8symbolatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8symboldef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8symbolspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="subtable">
+                  <!-- DB table -->
+                  Destiny Bonus
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/hp.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8destinyhp" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/atk.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8destinyatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/def.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8destinydef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spd.png" class="substaticon">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8destinyspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="subtable">
+                  <!-- buff table -->
+                  Buff%
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="icons/atkbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td class="testtd">
+                        <input type="number" id="char8buffatk" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/defbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8buffdef" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="icons/spdbuff.png" class="substaticon2">
+                        </img>
+                      </td>
+                      <td>
+                        <input type="number" id="char8buffspd" class="stattableinput">
+                        </input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </br>
+          </div>
+        </td>
+        <td>
+          <div id="lawcharbox" class="magbox">
+            Mag Stats
+            <table>
+              <tr>
+                <td>
+                  <img src="icons/hp.png" class="substaticon">
+                  </img>
+                </td>
+                <td>
+                  <input type="number" id="chaosmaghp" class="stattableinput">
+                  </input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/atk.png" class="substaticon">
+                  </img>
+                </td>
+                <td>
+                  <input type="number" id="chaosmagatk" class="stattableinput">
+                  </input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/def.png" class="substaticon">
+                  </img>
+                </td>
+                <td>
+                  <input type="number" id="chaosmagdef" class="stattableinput">
+                  </input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="icons/spd.png" class="substaticon">
+                  </img>
+                </td>
+                <td>
+                  <input type="number" id="chaosmagspd" class="stattableinput">
+                  </input>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button id="swap_button" onclick="swap()">Change</button>
+</body>
+
 </html>

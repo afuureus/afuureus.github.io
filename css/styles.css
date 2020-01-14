@@ -1,0 +1,173 @@
+body {
+  font-family: Segoe UI, sans-serif;
+}
+
+.team {
+  width: 1526px;
+  height: 850px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  transition: all 0.3s;
+  border-width: 1px;
+  border-style: solid;
+}
+
+#law {
+  background-color: white;
+  border-color: black;
+}
+
+#chaos {
+  background-color: gray;
+  border-color: black;
+}
+
+.inactive_team {
+  z-index: -1;
+  opacity: 0.5;
+  transform: translate(-50px, -50px);
+}
+
+#swap_button {
+  z-index: 2;
+  position: absolute;
+  top: 40px;
+  left: 210px;
+}
+
+.test {
+  width: 346px;
+  height: 800px;
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.magbox {
+  width: 100px;
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  vertical-align: middle;
+  border-color: black;
+  background-color: white;
+}
+
+.stattable {
+  margin: 0% 20%;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.helltable {
+  margin: 0% 20%;
+}
+
+.subtable {
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.stattableinput {
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.name {
+  width: 60%;
+  height: 3%;
+  margin: 0% 20%;
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  font-weight: 650;
+  vertical-align: middle;
+  opacity: 0.9;
+  background-color: white;
+}
+
+.staticon {
+  width: 30px;
+  height: 30px;
+}
+
+.charicon {
+  width: 40%;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.testtd {
+  width: 5000px;
+}
+
+.substaticon {
+  width: 30px;
+  height: 30px;
+}
+
+.substaticon2 {
+  width: 30px;
+  height: 30px;
+}
+
+#lawcharbox {
+  background-color: white;
+  border-color: black;
+  background-image: url("../bg/ui_card_bg_01.png");
+}
+
+#chaoscharbox {
+  background-color: white;
+  border-color: black;
+  background-image: url("../bg/ui_card_bg_02.png");
+}
+
+#charname {
+  background-color: white;
+  border-color: black;
+}
+
+tr td:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+td {
+  border-width: 0px;
+  border-color: black;
+  border-style: solid;
+}
+
+#save-panel {
+  box-sizing: border-box;
+  position: absolute;
+  left: 70%;
+  padding: 0.5rem;
+  background: white;
+  border: 1px solid black;
+  z-index: 3;
+}
+
+#save-name-input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.save-name-container {
+  height: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}

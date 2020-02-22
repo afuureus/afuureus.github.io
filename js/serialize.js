@@ -98,8 +98,8 @@ function serialize(data) {
 function deserialize(data) {
   try {
     return JSON.parse(data);
-  } catch {
-    console.error("Unable to parse data.");
+  } catch(err) {
+    console.error(err);
   }
   return null;
 }

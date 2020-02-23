@@ -1,6 +1,6 @@
-const VERSION = "0.1.0";
+const VERSION = "0.3.0";
 const TEAMS = ["law", "chaos"];
-const STATS = ["hp", "atk", "def", "spd"];
+const STATS = ["hp", "atk", "def", "spd", "res", "crit", "ele"];
 const FIELDS = ["weapon", "symbol", "destiny", "buff"];
 
 function swap() {
@@ -51,7 +51,9 @@ function loadCharacterData(num, data) {
 function getMagData(team) {
   return STATS.reduce(function (magData, status) {
     const statusNode = document.getElementById(team + "mag" + status);
-    magData[status] = Number(statusNode.value);
+	if (statusNode) {
+        magData[status] = Number(statusNode.value);
+      }
     return magData;
   }, {});
 }

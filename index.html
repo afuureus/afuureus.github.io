@@ -9,7 +9,6 @@
   <script type="text/javascript" src="js/scripts.js" defer></script>
 </head>
 
-
 <body>
   <div id="save-panel">
     <div id="save-name" class="save-name-container hidden"></div>
@@ -20,19 +19,7 @@
     <button id="save-button" onclick="save()">Save</button>
     <button id="load-button" onclick="load()" disabled>Load</button>
     <button id="delete-button" onclick="deleteSave()" disabled>Delete</button>
-	<br>
   </div>
-  <div id="teamscore" class="teamscore">
-	  <table>
-	    <tr>
-		  <td>
-		    TEAM SCORE:
-		  </td>
-		  <td id="totalTeamScore">
-		  </td>
-		</tr>
-	  </table>
-	</div>
   <div id="law" class="team">ロウのパーティ
     <!-- Table to create rows -->
     <table>
@@ -52,145 +39,90 @@
             <div id="charname" class="name">
               <select id="character1name">
                 <option value="none"></option>
-                <option value="10001711">ABEILLE (L)</option>
-				<option value="19101711">ABEILLE-EX (L) [PH]</option>
-                <option value="10001311">AMANE (L)</option>
-                <option value="10000511">ANNA MARIE (L)</option>
-                <option value="10004500">ASTRAEA</option>
-				<option value="10004510">ASTRAEA (N)</option>
-                <option value="19104500">ASTRAEA-EX</option>
-				<option value="19104510">ASTRAEA-EX (N)</option>
-                <option value="10003101">BARNABAS</option>
-				<option value="10003111">BARNABAS (L)</option>
-                <option value="10000901">BERNHARDT</option>
-				<option value="10000901">BERNHARDT (L)</option>
-                <option value="10000811">BOOZER (L)</option>
-                <option value="10006000">CLEMENCE</option>
-				<option value="10006010">CLEMENCE (N)</option>
-                <option value="10000300">DUNCAN</option>
-				<option value="10000310">DUNCAN (N)</option>
-                <option value="10003701">EMIL</option>
-				<option value="10003711">EMIL (L)</option>
-                <option value="10002501">EMMA</option>
-				<option value="10002511">EMMA (L)</option>
-                <option value="10006900">EREN</option>
-				<option value="10006910">EREN (N)</option>
-				<option value="10003001">ERWIN</option>
-				<option value="10003011">ERWIN (L)</option>
-                <option value="10001200">FURAMI</option>
-				<option value="10001210">FURAMI (N)</option>
-                <option value="10401200">FURAMI-SU</option>
-				<option value="10401210">FURAMI-SU (N)</option>
-                <option value="10004000">GENE</option>
-				<option value="10004011">GENE (L)</option>
-                <option value="10003401">GERDA</option>
-				<option value="10003411">GERDA (L)</option>
-                <option value="10703401">GERDA-XMAS</option>
-				<option value="10703411">GERDA-XMAS (L)</option>
-                <option value="10002001">GUSTAV</option>
-				<option value="10002011">GUSTAV (L)</option>
-                <option value="10003501">HERMINA</option>
-				<option value="10003511">HERMINA (L)</option>
-                <option value="10001811">JASPER (L)</option>
-                <option value="19101811">JASPER-EX (L)</option>
-                <option value="10002101">KAEMPFER</option>
-				<option value="10002111">KAEMPFER (L)</option>
-                <option value="10001911">KARIN (L)</option>
-                <option value="10601911">KARIN-HW (L)</option>
-                <option value="10004411">KIBAKI (L)</option>
-                <option value="19104411">KIBAKI-EX (L)</option>
-                <option value="10001611">KILLION (L)</option>
-                <option value="10005800">KNUT</option>
-				<option value="10005810">KNUT (N)</option>
-				<option value="10005811">KNUT (L)</option>
-                <option value="10004601">KYRA</option>
-				<option value="10004611">KYRA (L)</option>
-                <option value="10000400">LANA</option>
-				<option value="10000411">LANA (L)</option>
-                <option value="10007000">LEVI</option>
-				<option value="10007010">LEVI (N)</option>
-                <option value="10005000">LILIMO</option>
-				<option value="10005010">LILIMO (N)</option>
-				<option value="10005011">LILIMO (L)</option>
-				<option value="10007711">LISA (L)</option>
-				<option value="10005611">LIZE (L)</option>
-				<option value="19105611">LIZE-EX (L)</option>
-				<option value="10005200">LOGIA</option>
-				<option value="10005211">LOGIA (L)</option>
-                <option value="10007400">LUTHER</option>
-				<option value="10007411">LUTHER (L)</option>
-                <option value="10002311">LYCAON (L)</option>
-                <option value="10002811">MADOC (L)</option>
-                <option value="10007501">MATOI</option>
-				<option value="10007511">MATOI (L)</option>
-                <option value="10004811">MELDER (L)</option>
-                <option value="10003611">MELISSA (L)</option>
-                <option value="10004211">MESSALA (L)</option>
-                <option value="10007100">MIKASA</option>
-				<option value="10007110">MIKASA (N)</option>
-                <option value="10006300">MINT</option>
-				<option value="10006311">MINT (L)</option>
-                <option value="10001101">NADIA</option>
-				<option value="10001111">NADIA (L)</option>
-                <option value="10005711">NICOLE (L)</option>
-				<option value="10006100">PARAMETER</option>
-				<option value="10006111">PARAMETER (L)</option>
-                <option value="10001401">POPOPURIN</option>
-				<option value="10001411">POPOPURIN (L)</option>
-                <option value="10003800">QUNA</option>
-				<option value="10003811">QUNA (L)</option>
-                <option value="10002711">RACHEL (L)</option>
-                <option value="10001511">RAINER (L)</option>
-                <option value="10000701">ROSALINDE</option>
-				<option value="10000711">ROSALINDE (L)</option>
-                <option value="10800701">ROSALINDE-NY</option>
-				<option value="10800711">ROSALINDE-NY (L)</option>
-                <option value="10100701">ROSALINDE-XMAS</option>
-				<option value="10100711">ROSALINDE-XMAS (L)</option>
-                <option value="10004901">ROXANNE</option>
-				<option value="10004911">ROXANNE (L)</option>
-                <option value="10001011">SANDRA (L)</option>
-                <option value="10000601">SASHA</option>
-				<option value="10000611">SASHA (L)</option>
-                <option value="10002611">SCHENCK (L)</option>
-                <option value="10005900">SHANNON</option>
-				<option value="10005911">SHANNON (L)</option>
-                <option value="10004101">SIEGMUND</option>
-				<option value="10004111">SIEGMUND (L)</option>
-                <option value="10000201">STELLA</option>
-				<option value="10000211">STELLA (L)</option>
-                <option value="19100201">STELLA-EX</option>
-				<option value="19100211">STELLA-EX (L)</option>
-                <option value="10800201">STELLA-M</option>
-				<option value="10800211">STELLA-M (L)</option>
-                <option value="10200201">STELLA-NY</option>
-				<option value="10200211">STELLA-NY (L)</option>
-                <option value="10400201">STELLA-SU</option>
-				<option value="10400211">STELLA-SU (L)</option>
-                <option value="10005501">SVEN</option>
-				<option value="10005511">SVEN (L)</option>
-                <option value="10003200">TANYA</option>
-				<option value="10003210">TANYA (N)</option>
-				<option value="10005111">THEATRE (L) [PH]</option>
-                <option value="10004311">TORBJORN (L)</option>
-                <option value="10004701">TOTONOTTO</option>
-				<option value="10004711">TOTONOTTO (L)</option>
-                <option value="10003911">TSUBAKURO (L)</option>
-                <option value="10002201">TYROL</option>
-				<option value="10002211">TYROL (L)</option>
-				<option value="19102201">TYROL-EX</option>
-				<option value="19102211">TYROL-EX (L)</option>
-                <option value="10000100">ULY</option>
-				<option value="10000111">ULY (N/L)</option>
-				<option value="10000112">ULY (N/C)</option>
-                <option value="10002401">WALTER</option>
-				<option value="10002411">WALTER (L)</option>
-                <option value="10003301">WOLFF</option>
-				<option value="10003311">WOLFF (L)</option>
-                <option value="10005311">WYNDIS (L)</option>
-                <option value="19105311">WYNDIS-EX (L)</option>
-                <option value="10405311">WYNDIS-SU (L)</option>
-                <option value="10002911">ZOLA (L)</option>
+                <option value="abeille">ABEILLE</option>
+				<option value="abeille-ex">ABEILLE-EX [PH]</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+				<option value="erwin">ERWIN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+				<option value="lisa">LISA</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+				<option value="parameter">PARAMETER</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+				<option value="rize-ex">RIZE-EX</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+				<option value="theatre">THEATRE [PH]</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+				<option value="tyrol-ex">TYROL-EX</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
               </select>
             </div>
             <!-- Character Stats -->
@@ -226,14 +158,6 @@
                   </img>
                 </td>
                 <td id="char1totalspd">
-                </td>
-              </tr>
-			  <tr>
-                <td>
-                  <img src="icons/teamscore.png" class="staticon">
-                  </img>
-                </td>
-                <td id="char1teamscore">
                 </td>
               </tr>
             </table>
@@ -284,23 +208,6 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-                      <td>
-                        <img src="icons/crit.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char1weaponcrit" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-					  <td>
-					  <img src="icons/blank.png" class="substaticon">
-					  </td>
-					  <td>
-					  </td>
-					</tr>
                   </table>
                 </td>
                 <td class="subtable">
@@ -344,26 +251,6 @@
                       </td>
                       <td>
                         <input type="number" id="char1symbolspd" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/res.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char1symbolres" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/ele.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char1symbolele" class="stattableinput">
                         </input>
                       </td>
                     </tr>
@@ -451,12 +338,11 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-					  <td>
-					    <img src="icons/blank.png" class="substaticon">
-						</img>
-					  </td>
-					</tr>
+                    <tr>
+                      <td>
+                         
+                      </td>
+                    </tr>
                   </table>
                 </td>
               </tr>
@@ -480,145 +366,90 @@
             <div id="charname" class="name">
               <select id="character2name">
                 <option value="none"></option>
-                <option value="10001711">ABEILLE (L)</option>
-				<option value="19101711">ABEILLE-EX (L) [PH]</option>
-                <option value="10001311">AMANE (L)</option>
-                <option value="10000511">ANNA MARIE (L)</option>
-                <option value="10004500">ASTRAEA</option>
-				<option value="10004510">ASTRAEA (N)</option>
-                <option value="19104500">ASTRAEA-EX</option>
-				<option value="19104510">ASTRAEA-EX (N)</option>
-                <option value="10003101">BARNABAS</option>
-				<option value="10003111">BARNABAS (L)</option>
-                <option value="10000901">BERNHARDT</option>
-				<option value="10000901">BERNHARDT (L)</option>
-                <option value="10000811">BOOZER (L)</option>
-                <option value="10006000">CLEMENCE</option>
-				<option value="10006010">CLEMENCE (N)</option>
-                <option value="10000300">DUNCAN</option>
-				<option value="10000310">DUNCAN (N)</option>
-                <option value="10003701">EMIL</option>
-				<option value="10003711">EMIL (L)</option>
-                <option value="10002501">EMMA</option>
-				<option value="10002511">EMMA (L)</option>
-                <option value="10006900">EREN</option>
-				<option value="10006910">EREN (N)</option>
-				<option value="10003001">ERWIN</option>
-				<option value="10003011">ERWIN (L)</option>
-                <option value="10001200">FURAMI</option>
-				<option value="10001210">FURAMI (N)</option>
-                <option value="10401200">FURAMI-SU</option>
-				<option value="10401210">FURAMI-SU (N)</option>
-                <option value="10004000">GENE</option>
-				<option value="10004011">GENE (L)</option>
-                <option value="10003401">GERDA</option>
-				<option value="10003411">GERDA (L)</option>
-                <option value="10703401">GERDA-XMAS</option>
-				<option value="10703411">GERDA-XMAS (L)</option>
-                <option value="10002001">GUSTAV</option>
-				<option value="10002011">GUSTAV (L)</option>
-                <option value="10003501">HERMINA</option>
-				<option value="10003511">HERMINA (L)</option>
-                <option value="10001811">JASPER (L)</option>
-                <option value="19101811">JASPER-EX (L)</option>
-                <option value="10002101">KAEMPFER</option>
-				<option value="10002111">KAEMPFER (L)</option>
-                <option value="10001911">KARIN (L)</option>
-                <option value="10601911">KARIN-HW (L)</option>
-                <option value="10004411">KIBAKI (L)</option>
-                <option value="19104411">KIBAKI-EX (L)</option>
-                <option value="10001611">KILLION (L)</option>
-                <option value="10005800">KNUT</option>
-				<option value="10005810">KNUT (N)</option>
-				<option value="10005811">KNUT (L)</option>
-                <option value="10004601">KYRA</option>
-				<option value="10004611">KYRA (L)</option>
-                <option value="10000400">LANA</option>
-				<option value="10000411">LANA (L)</option>
-                <option value="10007000">LEVI</option>
-				<option value="10007010">LEVI (N)</option>
-                <option value="10005000">LILIMO</option>
-				<option value="10005010">LILIMO (N)</option>
-				<option value="10005011">LILIMO (L)</option>
-				<option value="10007711">LISA (L)</option>
-				<option value="10005611">LIZE (L)</option>
-				<option value="19105611">LIZE-EX (L)</option>
-				<option value="10005200">LOGIA</option>
-				<option value="10005211">LOGIA (L)</option>
-                <option value="10007400">LUTHER</option>
-				<option value="10007411">LUTHER (L)</option>
-                <option value="10002311">LYCAON (L)</option>
-                <option value="10002811">MADOC (L)</option>
-                <option value="10007501">MATOI</option>
-				<option value="10007511">MATOI (L)</option>
-                <option value="10004811">MELDER (L)</option>
-                <option value="10003611">MELISSA (L)</option>
-                <option value="10004211">MESSALA (L)</option>
-                <option value="10007100">MIKASA</option>
-				<option value="10007110">MIKASA (N)</option>
-                <option value="10006300">MINT</option>
-				<option value="10006311">MINT (L)</option>
-                <option value="10001101">NADIA</option>
-				<option value="10001111">NADIA (L)</option>
-                <option value="10005711">NICOLE (L)</option>
-				<option value="10006100">PARAMETER</option>
-				<option value="10006111">PARAMETER (L)</option>
-                <option value="10001401">POPOPURIN</option>
-				<option value="10001411">POPOPURIN (L)</option>
-                <option value="10003800">QUNA</option>
-				<option value="10003811">QUNA (L)</option>
-                <option value="10002711">RACHEL (L)</option>
-                <option value="10001511">RAINER (L)</option>
-                <option value="10000701">ROSALINDE</option>
-				<option value="10000711">ROSALINDE (L)</option>
-                <option value="10800701">ROSALINDE-NY</option>
-				<option value="10800711">ROSALINDE-NY (L)</option>
-                <option value="10100701">ROSALINDE-XMAS</option>
-				<option value="10100711">ROSALINDE-XMAS (L)</option>
-                <option value="10004901">ROXANNE</option>
-				<option value="10004911">ROXANNE (L)</option>
-                <option value="10001011">SANDRA (L)</option>
-                <option value="10000601">SASHA</option>
-				<option value="10000611">SASHA (L)</option>
-                <option value="10002611">SCHENCK (L)</option>
-                <option value="10005900">SHANNON</option>
-				<option value="10005911">SHANNON (L)</option>
-                <option value="10004101">SIEGMUND</option>
-				<option value="10004111">SIEGMUND (L)</option>
-                <option value="10000201">STELLA</option>
-				<option value="10000211">STELLA (L)</option>
-                <option value="19100201">STELLA-EX</option>
-				<option value="19100211">STELLA-EX (L)</option>
-                <option value="10800201">STELLA-M</option>
-				<option value="10800211">STELLA-M (L)</option>
-                <option value="10200201">STELLA-NY</option>
-				<option value="10200211">STELLA-NY (L)</option>
-                <option value="10400201">STELLA-SU</option>
-				<option value="10400211">STELLA-SU (L)</option>
-                <option value="10005501">SVEN</option>
-				<option value="10005511">SVEN (L)</option>
-                <option value="10003200">TANYA</option>
-				<option value="10003210">TANYA (N)</option>
-				<option value="10005111">THEATRE (L) [PH]</option>
-                <option value="10004311">TORBJORN (L)</option>
-                <option value="10004701">TOTONOTTO</option>
-				<option value="10004711">TOTONOTTO (L)</option>
-                <option value="10003911">TSUBAKURO (L)</option>
-                <option value="10002201">TYROL</option>
-				<option value="10002211">TYROL (L)</option>
-				<option value="19102201">TYROL-EX</option>
-				<option value="19102211">TYROL-EX (L)</option>
-                <option value="10000100">ULY</option>
-				<option value="10000111">ULY (N/L)</option>
-				<option value="10000112">ULY (N/C)</option>
-                <option value="10002401">WALTER</option>
-				<option value="10002411">WALTER (L)</option>
-                <option value="10003301">WOLFF</option>
-				<option value="10003311">WOLFF (L)</option>
-                <option value="10005311">WYNDIS (L)</option>
-                <option value="19105311">WYNDIS-EX (L)</option>
-                <option value="10405311">WYNDIS-SU (L)</option>
-                <option value="10002911">ZOLA (L)</option>
+                <option value="abeille">ABEILLE</option>
+				<option value="abeille-ex">ABEILLE-EX [PH]</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+				<option value="erwin">ERWIN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+				<option value="lisa">LISA</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+				<option value="parameter">PARAMETER</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+				<option value="rize-ex">RIZE-EX</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+				<option value="theatre">THEATRE [PH]</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+				<option value="tyrol-ex">TYROL-EX</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
               </select>
             </div>
             <!-- Character Stats -->
@@ -654,14 +485,6 @@
                   </img>
                 </td>
                 <td id="char2totalspd">
-                </td>
-              </tr>
-			  <tr>
-                <td>
-                  <img src="icons/teamscore.png" class="staticon">
-                  </img>
-                </td>
-                <td id="char2teamscore">
                 </td>
               </tr>
             </table>
@@ -712,22 +535,6 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-					  <td>
-					    <img src="icons/crit.png" class="substaticon">
-						</img>
-					  </td>
-					  <td>
-					    <input type="number" id="char2weaponcrit" class="stattableinput">
-						</input>
-					  </td>
-					</tr>
-					<tr>
-					  <td>
-					    <img src="icons/blank.png" class="substaticon">
-						</img>
-					  </td>
-					</tr>
                   </table>
                 </td>
                 <td class="subtable">
@@ -771,26 +578,6 @@
                       </td>
                       <td>
                         <input type="number" id="char2symbolspd" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/res.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char2symbolres" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/ele.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char2symbolele" class="stattableinput">
                         </input>
                       </td>
                     </tr>
@@ -880,8 +667,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <img src="icons/blank.png" class="substaticon2">
-						</img>
+                         
                       </td>
                     </tr>
                   </table>
@@ -907,145 +693,90 @@
             <div id="charname" class="name">
               <select id="character3name">
                 <option value="none"></option>
-                <option value="10001711">ABEILLE (L)</option>
-				<option value="19101711">ABEILLE-EX (L) [PH]</option>
-                <option value="10001311">AMANE (L)</option>
-                <option value="10000511">ANNA MARIE (L)</option>
-                <option value="10004500">ASTRAEA</option>
-				<option value="10004510">ASTRAEA (N)</option>
-                <option value="19104500">ASTRAEA-EX</option>
-				<option value="19104510">ASTRAEA-EX (N)</option>
-                <option value="10003101">BARNABAS</option>
-				<option value="10003111">BARNABAS (L)</option>
-                <option value="10000901">BERNHARDT</option>
-				<option value="10000901">BERNHARDT (L)</option>
-                <option value="10000811">BOOZER (L)</option>
-                <option value="10006000">CLEMENCE</option>
-				<option value="10006010">CLEMENCE (N)</option>
-                <option value="10000300">DUNCAN</option>
-				<option value="10000310">DUNCAN (N)</option>
-                <option value="10003701">EMIL</option>
-				<option value="10003711">EMIL (L)</option>
-                <option value="10002501">EMMA</option>
-				<option value="10002511">EMMA (L)</option>
-                <option value="10006900">EREN</option>
-				<option value="10006910">EREN (N)</option>
-				<option value="10003001">ERWIN</option>
-				<option value="10003011">ERWIN (L)</option>
-                <option value="10001200">FURAMI</option>
-				<option value="10001210">FURAMI (N)</option>
-                <option value="10401200">FURAMI-SU</option>
-				<option value="10401210">FURAMI-SU (N)</option>
-                <option value="10004000">GENE</option>
-				<option value="10004011">GENE (L)</option>
-                <option value="10003401">GERDA</option>
-				<option value="10003411">GERDA (L)</option>
-                <option value="10703401">GERDA-XMAS</option>
-				<option value="10703411">GERDA-XMAS (L)</option>
-                <option value="10002001">GUSTAV</option>
-				<option value="10002011">GUSTAV (L)</option>
-                <option value="10003501">HERMINA</option>
-				<option value="10003511">HERMINA (L)</option>
-                <option value="10001811">JASPER (L)</option>
-                <option value="19101811">JASPER-EX (L)</option>
-                <option value="10002101">KAEMPFER</option>
-				<option value="10002111">KAEMPFER (L)</option>
-                <option value="10001911">KARIN (L)</option>
-                <option value="10601911">KARIN-HW (L)</option>
-                <option value="10004411">KIBAKI (L)</option>
-                <option value="19104411">KIBAKI-EX (L)</option>
-                <option value="10001611">KILLION (L)</option>
-                <option value="10005800">KNUT</option>
-				<option value="10005810">KNUT (N)</option>
-				<option value="10005811">KNUT (L)</option>
-                <option value="10004601">KYRA</option>
-				<option value="10004611">KYRA (L)</option>
-                <option value="10000400">LANA</option>
-				<option value="10000411">LANA (L)</option>
-                <option value="10007000">LEVI</option>
-				<option value="10007010">LEVI (N)</option>
-                <option value="10005000">LILIMO</option>
-				<option value="10005010">LILIMO (N)</option>
-				<option value="10005011">LILIMO (L)</option>
-				<option value="10007711">LISA (L)</option>
-				<option value="10005611">LIZE (L)</option>
-				<option value="19105611">LIZE-EX (L)</option>
-				<option value="10005200">LOGIA</option>
-				<option value="10005211">LOGIA (L)</option>
-                <option value="10007400">LUTHER</option>
-				<option value="10007411">LUTHER (L)</option>
-                <option value="10002311">LYCAON (L)</option>
-                <option value="10002811">MADOC (L)</option>
-                <option value="10007501">MATOI</option>
-				<option value="10007511">MATOI (L)</option>
-                <option value="10004811">MELDER (L)</option>
-                <option value="10003611">MELISSA (L)</option>
-                <option value="10004211">MESSALA (L)</option>
-                <option value="10007100">MIKASA</option>
-				<option value="10007110">MIKASA (N)</option>
-                <option value="10006300">MINT</option>
-				<option value="10006311">MINT (L)</option>
-                <option value="10001101">NADIA</option>
-				<option value="10001111">NADIA (L)</option>
-                <option value="10005711">NICOLE (L)</option>
-				<option value="10006100">PARAMETER</option>
-				<option value="10006111">PARAMETER (L)</option>
-                <option value="10001401">POPOPURIN</option>
-				<option value="10001411">POPOPURIN (L)</option>
-                <option value="10003800">QUNA</option>
-				<option value="10003811">QUNA (L)</option>
-                <option value="10002711">RACHEL (L)</option>
-                <option value="10001511">RAINER (L)</option>
-                <option value="10000701">ROSALINDE</option>
-				<option value="10000711">ROSALINDE (L)</option>
-                <option value="10800701">ROSALINDE-NY</option>
-				<option value="10800711">ROSALINDE-NY (L)</option>
-                <option value="10100701">ROSALINDE-XMAS</option>
-				<option value="10100711">ROSALINDE-XMAS (L)</option>
-                <option value="10004901">ROXANNE</option>
-				<option value="10004911">ROXANNE (L)</option>
-                <option value="10001011">SANDRA (L)</option>
-                <option value="10000601">SASHA</option>
-				<option value="10000611">SASHA (L)</option>
-                <option value="10002611">SCHENCK (L)</option>
-                <option value="10005900">SHANNON</option>
-				<option value="10005911">SHANNON (L)</option>
-                <option value="10004101">SIEGMUND</option>
-				<option value="10004111">SIEGMUND (L)</option>
-                <option value="10000201">STELLA</option>
-				<option value="10000211">STELLA (L)</option>
-                <option value="19100201">STELLA-EX</option>
-				<option value="19100211">STELLA-EX (L)</option>
-                <option value="10800201">STELLA-M</option>
-				<option value="10800211">STELLA-M (L)</option>
-                <option value="10200201">STELLA-NY</option>
-				<option value="10200211">STELLA-NY (L)</option>
-                <option value="10400201">STELLA-SU</option>
-				<option value="10400211">STELLA-SU (L)</option>
-                <option value="10005501">SVEN</option>
-				<option value="10005511">SVEN (L)</option>
-                <option value="10003200">TANYA</option>
-				<option value="10003210">TANYA (N)</option>
-				<option value="10005111">THEATRE (L) [PH]</option>
-                <option value="10004311">TORBJORN (L)</option>
-                <option value="10004701">TOTONOTTO</option>
-				<option value="10004711">TOTONOTTO (L)</option>
-                <option value="10003911">TSUBAKURO (L)</option>
-                <option value="10002201">TYROL</option>
-				<option value="10002211">TYROL (L)</option>
-				<option value="19102201">TYROL-EX</option>
-				<option value="19102211">TYROL-EX (L)</option>
-                <option value="10000100">ULY</option>
-				<option value="10000111">ULY (N/L)</option>
-				<option value="10000112">ULY (N/C)</option>
-                <option value="10002401">WALTER</option>
-				<option value="10002411">WALTER (L)</option>
-                <option value="10003301">WOLFF</option>
-				<option value="10003311">WOLFF (L)</option>
-                <option value="10005311">WYNDIS (L)</option>
-                <option value="19105311">WYNDIS-EX (L)</option>
-                <option value="10405311">WYNDIS-SU (L)</option>
-                <option value="10002911">ZOLA (L)</option>
+                <option value="abeille">ABEILLE</option>
+				<option value="abeille-ex">ABEILLE-EX [PH]</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+				<option value="erwin">ERWIN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+				<option value="lisa">LISA</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+				<option value="parameter">PARAMETER</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+				<option value="rize-ex">RIZE-EX</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+				<option value="theatre">THEATRE [PH]</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+				<option value="tyrol-ex">TYROL-EX</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
               </select>
             </div>
             <!-- Character Stats -->
@@ -1081,14 +812,6 @@
                   </img>
                 </td>
                 <td id="char3totalspd">
-                </td>
-              </tr>
-			  <tr>
-                <td>
-                  <img src="icons/teamscore.png" class="staticon">
-                  </img>
-                </td>
-                <td id="char3teamscore">
                 </td>
               </tr>
             </table>
@@ -1139,22 +862,6 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-					  <td>
-					    <img src="icons/crit.png" class="substaticon">
-						</img>
-					  </td>
-					  <td>
-					    <input type="number" id="char3weaponcrit" class="stattableinput">
-						</input>
-					  </td>
-					</tr>
-					<tr>
-					  <td>
-					    <img src="icons/blank.png" class="substaticon">
-						</img>
-					  </td>
-					</tr>
                   </table>
                 </td>
                 <td class="subtable">
@@ -1198,26 +905,6 @@
                       </td>
                       <td>
                         <input type="number" id="char3symbolspd" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/res.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char3symbolres" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/ele.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char3symbolele" class="stattableinput">
                         </input>
                       </td>
                     </tr>
@@ -1307,8 +994,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <img src="icons/blank.png" class="substaticon">
-						</img>
+                         
                       </td>
                     </tr>
                   </table>
@@ -1334,145 +1020,90 @@
             <div id="charname" class="name">
               <select id="character4name">
                 <option value="none"></option>
-                <option value="10001711">ABEILLE (L)</option>
-				<option value="19101711">ABEILLE-EX (L) [PH]</option>
-                <option value="10001311">AMANE (L)</option>
-                <option value="10000511">ANNA MARIE (L)</option>
-                <option value="10004500">ASTRAEA</option>
-				<option value="10004510">ASTRAEA (N)</option>
-                <option value="19104500">ASTRAEA-EX</option>
-				<option value="19104510">ASTRAEA-EX (N)</option>
-                <option value="10003101">BARNABAS</option>
-				<option value="10003111">BARNABAS (L)</option>
-                <option value="10000901">BERNHARDT</option>
-				<option value="10000901">BERNHARDT (L)</option>
-                <option value="10000811">BOOZER (L)</option>
-                <option value="10006000">CLEMENCE</option>
-				<option value="10006010">CLEMENCE (N)</option>
-                <option value="10000300">DUNCAN</option>
-				<option value="10000310">DUNCAN (N)</option>
-                <option value="10003701">EMIL</option>
-				<option value="10003711">EMIL (L)</option>
-                <option value="10002501">EMMA</option>
-				<option value="10002511">EMMA (L)</option>
-                <option value="10006900">EREN</option>
-				<option value="10006910">EREN (N)</option>
-				<option value="10003001">ERWIN</option>
-				<option value="10003011">ERWIN (L)</option>
-                <option value="10001200">FURAMI</option>
-				<option value="10001210">FURAMI (N)</option>
-                <option value="10401200">FURAMI-SU</option>
-				<option value="10401210">FURAMI-SU (N)</option>
-                <option value="10004000">GENE</option>
-				<option value="10004011">GENE (L)</option>
-                <option value="10003401">GERDA</option>
-				<option value="10003411">GERDA (L)</option>
-                <option value="10703401">GERDA-XMAS</option>
-				<option value="10703411">GERDA-XMAS (L)</option>
-                <option value="10002001">GUSTAV</option>
-				<option value="10002011">GUSTAV (L)</option>
-                <option value="10003501">HERMINA</option>
-				<option value="10003511">HERMINA (L)</option>
-                <option value="10001811">JASPER (L)</option>
-                <option value="19101811">JASPER-EX (L)</option>
-                <option value="10002101">KAEMPFER</option>
-				<option value="10002111">KAEMPFER (L)</option>
-                <option value="10001911">KARIN (L)</option>
-                <option value="10601911">KARIN-HW (L)</option>
-                <option value="10004411">KIBAKI (L)</option>
-                <option value="19104411">KIBAKI-EX (L)</option>
-                <option value="10001611">KILLION (L)</option>
-                <option value="10005800">KNUT</option>
-				<option value="10005810">KNUT (N)</option>
-				<option value="10005811">KNUT (L)</option>
-                <option value="10004601">KYRA</option>
-				<option value="10004611">KYRA (L)</option>
-                <option value="10000400">LANA</option>
-				<option value="10000411">LANA (L)</option>
-                <option value="10007000">LEVI</option>
-				<option value="10007010">LEVI (N)</option>
-                <option value="10005000">LILIMO</option>
-				<option value="10005010">LILIMO (N)</option>
-				<option value="10005011">LILIMO (L)</option>
-				<option value="10007711">LISA (L)</option>
-				<option value="10005611">LIZE (L)</option>
-				<option value="19105611">LIZE-EX (L)</option>
-				<option value="10005200">LOGIA</option>
-				<option value="10005211">LOGIA (L)</option>
-                <option value="10007400">LUTHER</option>
-				<option value="10007411">LUTHER (L)</option>
-                <option value="10002311">LYCAON (L)</option>
-                <option value="10002811">MADOC (L)</option>
-                <option value="10007501">MATOI</option>
-				<option value="10007511">MATOI (L)</option>
-                <option value="10004811">MELDER (L)</option>
-                <option value="10003611">MELISSA (L)</option>
-                <option value="10004211">MESSALA (L)</option>
-                <option value="10007100">MIKASA</option>
-				<option value="10007110">MIKASA (N)</option>
-                <option value="10006300">MINT</option>
-				<option value="10006311">MINT (L)</option>
-                <option value="10001101">NADIA</option>
-				<option value="10001111">NADIA (L)</option>
-                <option value="10005711">NICOLE (L)</option>
-				<option value="10006100">PARAMETER</option>
-				<option value="10006111">PARAMETER (L)</option>
-                <option value="10001401">POPOPURIN</option>
-				<option value="10001411">POPOPURIN (L)</option>
-                <option value="10003800">QUNA</option>
-				<option value="10003811">QUNA (L)</option>
-                <option value="10002711">RACHEL (L)</option>
-                <option value="10001511">RAINER (L)</option>
-                <option value="10000701">ROSALINDE</option>
-				<option value="10000711">ROSALINDE (L)</option>
-                <option value="10800701">ROSALINDE-NY</option>
-				<option value="10800711">ROSALINDE-NY (L)</option>
-                <option value="10100701">ROSALINDE-XMAS</option>
-				<option value="10100711">ROSALINDE-XMAS (L)</option>
-                <option value="10004901">ROXANNE</option>
-				<option value="10004911">ROXANNE (L)</option>
-                <option value="10001011">SANDRA (L)</option>
-                <option value="10000601">SASHA</option>
-				<option value="10000611">SASHA (L)</option>
-                <option value="10002611">SCHENCK (L)</option>
-                <option value="10005900">SHANNON</option>
-				<option value="10005911">SHANNON (L)</option>
-                <option value="10004101">SIEGMUND</option>
-				<option value="10004111">SIEGMUND (L)</option>
-                <option value="10000201">STELLA</option>
-				<option value="10000211">STELLA (L)</option>
-                <option value="19100201">STELLA-EX</option>
-				<option value="19100211">STELLA-EX (L)</option>
-                <option value="10800201">STELLA-M</option>
-				<option value="10800211">STELLA-M (L)</option>
-                <option value="10200201">STELLA-NY</option>
-				<option value="10200211">STELLA-NY (L)</option>
-                <option value="10400201">STELLA-SU</option>
-				<option value="10400211">STELLA-SU (L)</option>
-                <option value="10005501">SVEN</option>
-				<option value="10005511">SVEN (L)</option>
-                <option value="10003200">TANYA</option>
-				<option value="10003210">TANYA (N)</option>
-				<option value="10005111">THEATRE (L) [PH]</option>
-                <option value="10004311">TORBJORN (L)</option>
-                <option value="10004701">TOTONOTTO</option>
-				<option value="10004711">TOTONOTTO (L)</option>
-                <option value="10003911">TSUBAKURO (L)</option>
-                <option value="10002201">TYROL</option>
-				<option value="10002211">TYROL (L)</option>
-				<option value="19102201">TYROL-EX</option>
-				<option value="19102211">TYROL-EX (L)</option>
-                <option value="10000100">ULY</option>
-				<option value="10000111">ULY (N/L)</option>
-				<option value="10000112">ULY (N/C)</option>
-                <option value="10002401">WALTER</option>
-				<option value="10002411">WALTER (L)</option>
-                <option value="10003301">WOLFF</option>
-				<option value="10003311">WOLFF (L)</option>
-                <option value="10005311">WYNDIS (L)</option>
-                <option value="19105311">WYNDIS-EX (L)</option>
-                <option value="10405311">WYNDIS-SU (L)</option>
-                <option value="10002911">ZOLA (L)</option>
+                <option value="abeille">ABEILLE</option>
+				<option value="abeille-ex">ABEILLE-EX [PH]</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+				<option value="erwin">ERWIN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+				<option value="lisa">LISA</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+				<option value="parameter">PARAMETER</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+				<option value="rize-ex">RIZE-EX</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+				<option value="theatre">THEATRE [PH]</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+				<option value="tyrol-ex">TYROL-EX</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
               </select>
             </div>
             <!-- Character Stats -->
@@ -1508,14 +1139,6 @@
                   </img>
                 </td>
                 <td id="char4totalspd">
-                </td>
-              </tr>
-			  <tr>
-                <td>
-                  <img src="icons/teamscore.png" class="staticon">
-                  </img>
-                </td>
-                <td id="char4teamscore">
                 </td>
               </tr>
             </table>
@@ -1566,22 +1189,6 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-					  <td>
-					    <img src="icons/crit.png" class="substaticon">
-						</img>
-					  </td>
-					  <td>
-					    <input type="number" id="char4weaponcrit" class="stattableinput">
-						</input>
-					  </td>
-					</tr>
-					<tr>
-					  <td>
-					    <img src="icons/blank.png" class="substaticon">
-						</img>
-					  </td>
-					</tr>
                   </table>
                 </td>
                 <td class="subtable">
@@ -1625,26 +1232,6 @@
                       </td>
                       <td>
                         <input type="number" id="char4symbolspd" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/res.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char4symbolres" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/ele.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char4symbolele" class="stattableinput">
                         </input>
                       </td>
                     </tr>
@@ -1734,8 +1321,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <img src="icons/blank.png" class="substaticon">
-						</img>
+                         
                       </td>
                     </tr>
                   </table>
@@ -1789,26 +1375,6 @@
                   </input>
                 </td>
               </tr>
-			  <tr>
-			    <td>
-				  <img src="icons/crit.png" class="substaticon">
-                  </img>
-				</td>
-				<td>
-				  <input type="number" id="lawmagcrit" class="stattableinput">
-				  </input>
-				</td>
-			  </tr>
-			  <tr>
-			    <td>
-				  <img src="icons/res.png" class="substaticon">
-                  </img>
-				</td>
-				<td>
-				  <input type="number" id="lawmagres" class="stattableinput">
-				  </input>
-				</td>
-			  </tr>
             </table>
           </div>
         </td>
@@ -1837,153 +1403,90 @@
             <div id="charname" class="name">
               <select id="character5name">
                 <option value="none"></option>
-				<option value="10001702">ABEILLE</option>
-                <option value="10001712">ABEILLE (C)</option>
-				<option value="19101702">ABEILLE-EX [PH]</option>
-				<option value="19101712">ABEILLE-EX (C) [PH]</option>
-                <option value="10001302">AMANE</option>
-				<option value="10001312">AMANE (C)</option>
-				<option value="10000502">ANNA MARIE</option>
-                <option value="10000512">ANNA MARIE (C)</option>
-                <option value="10004500">ASTRAEA</option>
-				<option value="10004510">ASTRAEA (N)</option>
-				<option value="10004512">ASTRAEA (C)</option>
-                <option value="19104500">ASTRAEA-EX</option>
-				<option value="19104510">ASTRAEA-EX (N)</option>
-				<option value="19104512">ASTRAEA-EX (C)</option>
-				<option value="10003112">BARNABAS (C)</option>
-				<option value="10000912">BERNHARDT (C)</option>
-				<option value="10000802">BOOZER (C)</option>
-                <option value="10000812">BOOZER (C)</option>
-                <option value="10006000">CLEMENCE</option>
-				<option value="10006010">CLEMENCE (N)</option>
-				<option value="10006012">CLEMENCE (C)</option>
-                <option value="10000300">DUNCAN</option>
-				<option value="10000310">DUNCAN (N)</option>
-				<option value="10000312">DUNCAN (C)</option>
-				<option value="10003712">EMIL (C)</option>
-				<option value="10002512">EMMA (C)</option>
-                <option value="10006900">EREN</option>
-				<option value="10006910">EREN (N)</option>
-				<option value="10006912">EREN (C)</option>
-				<option value="10003012">ERWIN (C)</option>
-                <option value="10001200">FURAMI</option>
-				<option value="10001210">FURAMI (N)</option>
-				<option value="10001212">FURAMI (C)</option>
-                <option value="10401200">FURAMI-SU</option>
-				<option value="10401210">FURAMI-SU (N)</option>
-				<option value="10401212">FURAMI-SU (C)</option>
-				<option value="10004012">GENE (C)</option>
-				<option value="10003412">GERDA (C)</option>
-				<option value="10703412">GERDA-XMAS (C)</option>
-				<option value="10002012">GUSTAV (C)</option>
-				<option value="10003512">HERMINA (C)</option>
-				<option value="10001802">JASPER</option>
-                <option value="10001812">JASPER (C)</option>
-				<option value="19101802">JASPER-EX</option>
-                <option value="19101812">JASPER-EX (C)</option>
-				<option value="10002112">KAEMPFER (C)</option>
-				<option value="10001902">KARIN</option>
-                <option value="10001912">KARIN (C)</option>
-				<option value="10601902">KARIN-HW</option>
-                <option value="10601912">KARIN-HW (C)</option>
-                <option value="10004402">KIBAKI</option>
-				<option value="10004412">KIBAKI (C)</option>
-                <option value="19104402">KIBAKI-EX</option>
-				<option value="19104412">KIBAKI-EX (C)</option>
-                <option value="10001602">KILLION</option>
-				<option value="10001612">KILLION (C)</option>
-                <option value="10005800">KNUT</option>
-				<option value="10005810">KNUT (N)</option>
-				<option value="10004612">KYRA (C)</option>
-                <option value="10000400">LANA</option>
-				<option value="10000412">LANA (C)</option>
-                <option value="10007000">LEVI</option>
-				<option value="10007010">LEVI (N)</option>
-				<option value="10007012">LEVI (C)</option>
-                <option value="10005000">LILIMO</option>
-				<option value="10005010">LILIMO (N)</option>
-				<option value="10007702">LISA</option>
-				<option value="10007712">LISA (C)</option>
-				<option value="10005602">LIZE</option>
-				<option value="10005612">LIZE (C)</option>
-				<option value="19105602">LIZE-EX</option>
-				<option value="19105612">LIZE-EX (C)</option>
-				<option value="10005200">LOGIA</option>
-				<option value="10005212">LOGIA (C)</option>
-                <option value="10007400">LUTHER</option>
-				<option value="10007412">LUTHER (C)</option>
-                <option value="10002302">LYCAON</option>
-				<option value="10002312">LYCAON (C)</option>
-                <option value="10002802">MADOC</option>
-				<option value="10002812">MADOC (C)</option>
-				<option value="10007512">MATOI (C)</option>
-				<option value="10004802">MELDER</option>
-                <option value="10004812">MELDER (C)</option>
-                <option value="10003602">MELISSA</option>
-				<option value="10003612">MELISSA (C)</option>
-                <option value="10004202">MESSALA</option>
-				<option value="10004212">MESSALA (C)</option>
-                <option value="10007100">MIKASA</option>
-				<option value="10007110">MIKASA (N)</option>
-				<option value="10007112">MIKASA (C)</option>
-                <option value="10006300">MINT</option>
-				<option value="10006312">MINT (C)</option>
-				<option value="10001112">NADIA (C)</option>
-                <option value="10005702">NICOLE (C)</option>
-				<option value="10005712">NICOLE (C)</option>
-				<option value="10006100">PARAMETER</option>
-				<option value="10006112">PARAMETER (C)</option>
-                <option value="10001412">POPOPURIN (C)</option>
-                <option value="10003800">QUNA</option>
-				<option value="10003812">QUNA (C)</option>
-                <option value="10002702">RACHEL</option>
-				<option value="10002712">RACHEL (C)</option>
-                <option value="10001502">RAINER</option>
-				<option value="10001512">RAINER (C)</option>
-				<option value="10000712">ROSALINDE (C)</option>
-				<option value="10800712">ROSALINDE-NY (C)</option>
-				<option value="10100712">ROSALINDE-XMAS (C)</option>
-				<option value="10004912">ROXANNE (C)</option>
-                <option value="10001002">SANDRA</option>
-				<option value="10001012">SANDRA (C)</option>
-				<option value="10000612">SASHA (C)</option>
-				<option value="10002602">SCHENCK</option>
-                <option value="10002612">SCHENCK (C)</option>
-                <option value="10005900">SHANNON</option>
-				<option value="10005912">SHANNON (C)</option>
-				<option value="10004112">SIEGMUND (C)</option>
-				<option value="10000212">STELLA (C)</option>
-				<option value="19100212">STELLA-EX (C)</option>
-				<option value="10800212">STELLA-M (C)</option>
-				<option value="10200212">STELLA-NY (C)</option>
-				<option value="10400212">STELLA-SU (C)</option>
-				<option value="10005512">SVEN (C)</option>
-                <option value="10003200">TANYA</option>
-				<option value="10003210">TANYA (N)</option>
-				<option value="10003212">TANYA (C)</option>
-				<option value="10005102">THEATRE [PH]</option>
-				<option value="10005112">THEATRE (C) [PH]</option>
-                <option value="10004302">TORBJORN</option>
-				<option value="10004312">TORBJORN (C)</option>
-				<option value="10004712">TOTONOTTO (C)</option>
-                <option value="10003902">TSUBAKURO</option>
-				<option value="10003912">TSUBAKURO (C)</option>
-				<option value="10002212">TYROL (C)</option>
-				<option value="19102212">TYROL-EX (C)</option>
-                <option value="10000100">ULY</option>
-				<option value="10000111">ULY (N/L)</option>
-				<option value="10000112">ULY (N/C)</option>
-				<option value="10002412">WALTER (C)</option>
-				<option value="10003312">WOLFF (C)</option>
-                <option value="10005302">WYNDIS</option>
-				<option value="10005312">WYNDIS (C)</option>
-                <option value="19105302">WYNDIS-EX</option>
-                <option value="19105312">WYNDIS-EX (C)</option>
-                <option value="10405302">WYNDIS-SU</option>
-				<option value="10405312">WYNDIS-SU (C)</option>
-				<option value="10002902">ZOLA</option>
-                <option value="10002912">ZOLA (C)</option>
+                <option value="abeille">ABEILLE</option>
+				<option value="abeille-ex">ABEILLE-EX [PH]</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+				<option value="erwin">ERWIN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+				<option value="lisa">LISA</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+				<option value="parameter">PARAMETER</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+				<option value="rize-ex">RIZE-EX</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+				<option value="theatre">THEATRE [PH]</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+				<option value="tyrol-ex">TYROL-EX</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
               </select>
             </div>
             <!-- Character Stats -->
@@ -2019,14 +1522,6 @@
                   </img>
                 </td>
                 <td id="char5totalspd">
-                </td>
-              </tr>
-			  <tr>
-                <td>
-                  <img src="icons/teamscore.png" class="staticon">
-                  </img>
-                </td>
-                <td id="char5teamscore">
                 </td>
               </tr>
             </table>
@@ -2077,28 +1572,12 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-					  <td>
-					    <img src="icons/crit.png" class="substaticon">
-						</img>
-					  </td>
-					  <td>
-					    <input type="number" id="char5weaponcrit" class="stattableinput">
-						</input>
-					  </td>
-					</tr>
-					<tr>
-					  <td>
-					    <img src="icons/blank.png" class="substaticon">
-						</img>
-					  </td>
-					</tr>
                   </table>
                 </td>
                 <td class="subtable">
                   <!-- soul symbol table -->
+                  Soul Stats
                   <table>
-                    Soul Stats
                     <tr>
                       <td>
                         <img src="icons/hp.png" class="substaticon">
@@ -2136,26 +1615,6 @@
                       </td>
                       <td>
                         <input type="number" id="char5symbolspd" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/res.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char5symbolres" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/ele.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char5symbolele" class="stattableinput">
                         </input>
                       </td>
                     </tr>
@@ -2245,8 +1704,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <img src="icons/blank.png" class="substaticon">
-						</img>
+                         
                       </td>
                     </tr>
                   </table>
@@ -2272,153 +1730,90 @@
             <div id="charname" class="name">
               <select id="character6name">
                 <option value="none"></option>
-				<option value="10001702">ABEILLE</option>
-                <option value="10001712">ABEILLE (C)</option>
-				<option value="19101702">ABEILLE-EX [PH]</option>
-				<option value="19101712">ABEILLE-EX (C) [PH]</option>
-                <option value="10001302">AMANE</option>
-				<option value="10001312">AMANE (C)</option>
-				<option value="10000502">ANNA MARIE</option>
-                <option value="10000512">ANNA MARIE (C)</option>
-                <option value="10004500">ASTRAEA</option>
-				<option value="10004510">ASTRAEA (N)</option>
-				<option value="10004512">ASTRAEA (C)</option>
-                <option value="19104500">ASTRAEA-EX</option>
-				<option value="19104510">ASTRAEA-EX (N)</option>
-				<option value="19104512">ASTRAEA-EX (C)</option>
-				<option value="10003112">BARNABAS (C)</option>
-				<option value="10000912">BERNHARDT (C)</option>
-				<option value="10000802">BOOZER (C)</option>
-                <option value="10000812">BOOZER (C)</option>
-                <option value="10006000">CLEMENCE</option>
-				<option value="10006010">CLEMENCE (N)</option>
-				<option value="10006012">CLEMENCE (C)</option>
-                <option value="10000300">DUNCAN</option>
-				<option value="10000310">DUNCAN (N)</option>
-				<option value="10000312">DUNCAN (C)</option>
-				<option value="10003712">EMIL (C)</option>
-				<option value="10002512">EMMA (C)</option>
-                <option value="10006900">EREN</option>
-				<option value="10006910">EREN (N)</option>
-				<option value="10006912">EREN (C)</option>
-				<option value="10003012">ERWIN (C)</option>
-                <option value="10001200">FURAMI</option>
-				<option value="10001210">FURAMI (N)</option>
-				<option value="10001212">FURAMI (C)</option>
-                <option value="10401200">FURAMI-SU</option>
-				<option value="10401210">FURAMI-SU (N)</option>
-				<option value="10401212">FURAMI-SU (C)</option>
-				<option value="10004012">GENE (C)</option>
-				<option value="10003412">GERDA (C)</option>
-				<option value="10703412">GERDA-XMAS (C)</option>
-				<option value="10002012">GUSTAV (C)</option>
-				<option value="10003512">HERMINA (C)</option>
-				<option value="10001802">JASPER</option>
-                <option value="10001812">JASPER (C)</option>
-				<option value="19101802">JASPER-EX</option>
-                <option value="19101812">JASPER-EX (C)</option>
-				<option value="10002112">KAEMPFER (C)</option>
-				<option value="10001902">KARIN</option>
-                <option value="10001912">KARIN (C)</option>
-				<option value="10601902">KARIN-HW</option>
-                <option value="10601912">KARIN-HW (C)</option>
-                <option value="10004402">KIBAKI</option>
-				<option value="10004412">KIBAKI (C)</option>
-                <option value="19104402">KIBAKI-EX</option>
-				<option value="19104412">KIBAKI-EX (C)</option>
-                <option value="10001602">KILLION</option>
-				<option value="10001612">KILLION (C)</option>
-                <option value="10005800">KNUT</option>
-				<option value="10005810">KNUT (N)</option>
-				<option value="10004612">KYRA (C)</option>
-                <option value="10000400">LANA</option>
-				<option value="10000412">LANA (C)</option>
-                <option value="10007000">LEVI</option>
-				<option value="10007010">LEVI (N)</option>
-				<option value="10007012">LEVI (C)</option>
-                <option value="10005000">LILIMO</option>
-				<option value="10005010">LILIMO (N)</option>
-				<option value="10007702">LISA</option>
-				<option value="10007712">LISA (C)</option>
-				<option value="10005602">LIZE</option>
-				<option value="10005612">LIZE (C)</option>
-				<option value="19105602">LIZE-EX</option>
-				<option value="19105612">LIZE-EX (C)</option>
-				<option value="10005200">LOGIA</option>
-				<option value="10005212">LOGIA (C)</option>
-                <option value="10007400">LUTHER</option>
-				<option value="10007412">LUTHER (C)</option>
-                <option value="10002302">LYCAON</option>
-				<option value="10002312">LYCAON (C)</option>
-                <option value="10002802">MADOC</option>
-				<option value="10002812">MADOC (C)</option>
-				<option value="10007512">MATOI (C)</option>
-				<option value="10004802">MELDER</option>
-                <option value="10004812">MELDER (C)</option>
-                <option value="10003602">MELISSA</option>
-				<option value="10003612">MELISSA (C)</option>
-                <option value="10004202">MESSALA</option>
-				<option value="10004212">MESSALA (C)</option>
-                <option value="10007100">MIKASA</option>
-				<option value="10007110">MIKASA (N)</option>
-				<option value="10007112">MIKASA (C)</option>
-                <option value="10006300">MINT</option>
-				<option value="10006312">MINT (C)</option>
-				<option value="10001112">NADIA (C)</option>
-                <option value="10005702">NICOLE (C)</option>
-				<option value="10005712">NICOLE (C)</option>
-				<option value="10006100">PARAMETER</option>
-				<option value="10006112">PARAMETER (C)</option>
-                <option value="10001412">POPOPURIN (C)</option>
-                <option value="10003800">QUNA</option>
-				<option value="10003812">QUNA (C)</option>
-                <option value="10002702">RACHEL</option>
-				<option value="10002712">RACHEL (C)</option>
-                <option value="10001502">RAINER</option>
-				<option value="10001512">RAINER (C)</option>
-				<option value="10000712">ROSALINDE (C)</option>
-				<option value="10800712">ROSALINDE-NY (C)</option>
-				<option value="10100712">ROSALINDE-XMAS (C)</option>
-				<option value="10004912">ROXANNE (C)</option>
-                <option value="10001002">SANDRA</option>
-				<option value="10001012">SANDRA (C)</option>
-				<option value="10000612">SASHA (C)</option>
-				<option value="10002602">SCHENCK</option>
-                <option value="10002612">SCHENCK (C)</option>
-                <option value="10005900">SHANNON</option>
-				<option value="10005912">SHANNON (C)</option>
-				<option value="10004112">SIEGMUND (C)</option>
-				<option value="10000212">STELLA (C)</option>
-				<option value="19100212">STELLA-EX (C)</option>
-				<option value="10800212">STELLA-M (C)</option>
-				<option value="10200212">STELLA-NY (C)</option>
-				<option value="10400212">STELLA-SU (C)</option>
-				<option value="10005512">SVEN (C)</option>
-                <option value="10003200">TANYA</option>
-				<option value="10003210">TANYA (N)</option>
-				<option value="10003212">TANYA (C)</option>
-				<option value="10005102">THEATRE [PH]</option>
-				<option value="10005112">THEATRE (C) [PH]</option>
-                <option value="10004302">TORBJORN</option>
-				<option value="10004312">TORBJORN (C)</option>
-				<option value="10004712">TOTONOTTO (C)</option>
-                <option value="10003902">TSUBAKURO</option>
-				<option value="10003912">TSUBAKURO (C)</option>
-				<option value="10002212">TYROL (C)</option>
-				<option value="19102212">TYROL-EX (C)</option>
-                <option value="10000100">ULY</option>
-				<option value="10000111">ULY (N/L)</option>
-				<option value="10000112">ULY (N/C)</option>
-				<option value="10002412">WALTER (C)</option>
-				<option value="10003312">WOLFF (C)</option>
-                <option value="10005302">WYNDIS</option>
-				<option value="10005312">WYNDIS (C)</option>
-                <option value="19105302">WYNDIS-EX</option>
-                <option value="19105312">WYNDIS-EX (C)</option>
-                <option value="10405302">WYNDIS-SU</option>
-				<option value="10405312">WYNDIS-SU (C)</option>
-				<option value="10002902">ZOLA</option>
-                <option value="10002912">ZOLA (C)</option>
+                <option value="abeille">ABEILLE</option>
+				<option value="abeille-ex">ABEILLE-EX [PH]</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+				<option value="erwin">ERWIN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+				<option value="lisa">LISA</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+				<option value="parameter">PARAMETER</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+				<option value="rize-ex">RIZE-EX</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+				<option value="theatre">THEATRE [PH]</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+				<option value="tyrol-ex">TYROL-EX</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
               </select>
             </div>
             <!-- Character Stats -->
@@ -2454,14 +1849,6 @@
                   </img>
                 </td>
                 <td id="char6totalspd">
-                </td>
-              </tr>
-			  <tr>
-                <td>
-                  <img src="icons/teamscore.png" class="staticon">
-                  </img>
-                </td>
-                <td id="char6teamscore">
                 </td>
               </tr>
             </table>
@@ -2512,28 +1899,12 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-					  <td>
-					    <img src="icons/crit.png" class="substaticon">
-						</img>
-					  </td>
-					  <td>
-					    <input type="number" id="char6weaponcrit" class="stattableinput">
-						</input>
-					  </td>
-					</tr>
-					<tr>
-					  <td>
-					    <img src="icons/blank.png" class="substaticon">
-						</img>
-					  </td>
-					</tr>
                   </table>
                 </td>
                 <td class="subtable">
                   <!-- soul symbol table -->
+                  Soul Stats
                   <table>
-                    Soul Stats
                     <tr>
                       <td>
                         <img src="icons/hp.png" class="substaticon">
@@ -2571,26 +1942,6 @@
                       </td>
                       <td>
                         <input type="number" id="char6symbolspd" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/res.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char6symbolres" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/ele.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char6symbolele" class="stattableinput">
                         </input>
                       </td>
                     </tr>
@@ -2706,153 +2057,90 @@
             <div id="charname" class="name">
               <select id="character7name">
                 <option value="none"></option>
-				<option value="10001702">ABEILLE</option>
-                <option value="10001712">ABEILLE (C)</option>
-				<option value="19101702">ABEILLE-EX [PH]</option>
-				<option value="19101712">ABEILLE-EX (C) [PH]</option>
-                <option value="10001302">AMANE</option>
-				<option value="10001312">AMANE (C)</option>
-				<option value="10000502">ANNA MARIE</option>
-                <option value="10000512">ANNA MARIE (C)</option>
-                <option value="10004500">ASTRAEA</option>
-				<option value="10004510">ASTRAEA (N)</option>
-				<option value="10004512">ASTRAEA (C)</option>
-                <option value="19104500">ASTRAEA-EX</option>
-				<option value="19104510">ASTRAEA-EX (N)</option>
-				<option value="19104512">ASTRAEA-EX (C)</option>
-				<option value="10003112">BARNABAS (C)</option>
-				<option value="10000912">BERNHARDT (C)</option>
-				<option value="10000802">BOOZER (C)</option>
-                <option value="10000812">BOOZER (C)</option>
-                <option value="10006000">CLEMENCE</option>
-				<option value="10006010">CLEMENCE (N)</option>
-				<option value="10006012">CLEMENCE (C)</option>
-                <option value="10000300">DUNCAN</option>
-				<option value="10000310">DUNCAN (N)</option>
-				<option value="10000312">DUNCAN (C)</option>
-				<option value="10003712">EMIL (C)</option>
-				<option value="10002512">EMMA (C)</option>
-                <option value="10006900">EREN</option>
-				<option value="10006910">EREN (N)</option>
-				<option value="10006912">EREN (C)</option>
-				<option value="10003012">ERWIN (C)</option>
-                <option value="10001200">FURAMI</option>
-				<option value="10001210">FURAMI (N)</option>
-				<option value="10001212">FURAMI (C)</option>
-                <option value="10401200">FURAMI-SU</option>
-				<option value="10401210">FURAMI-SU (N)</option>
-				<option value="10401212">FURAMI-SU (C)</option>
-				<option value="10004012">GENE (C)</option>
-				<option value="10003412">GERDA (C)</option>
-				<option value="10703412">GERDA-XMAS (C)</option>
-				<option value="10002012">GUSTAV (C)</option>
-				<option value="10003512">HERMINA (C)</option>
-				<option value="10001802">JASPER</option>
-                <option value="10001812">JASPER (C)</option>
-				<option value="19101802">JASPER-EX</option>
-                <option value="19101812">JASPER-EX (C)</option>
-				<option value="10002112">KAEMPFER (C)</option>
-				<option value="10001902">KARIN</option>
-                <option value="10001912">KARIN (C)</option>
-				<option value="10601902">KARIN-HW</option>
-                <option value="10601912">KARIN-HW (C)</option>
-                <option value="10004402">KIBAKI</option>
-				<option value="10004412">KIBAKI (C)</option>
-                <option value="19104402">KIBAKI-EX</option>
-				<option value="19104412">KIBAKI-EX (C)</option>
-                <option value="10001602">KILLION</option>
-				<option value="10001612">KILLION (C)</option>
-                <option value="10005800">KNUT</option>
-				<option value="10005810">KNUT (N)</option>
-				<option value="10004612">KYRA (C)</option>
-                <option value="10000400">LANA</option>
-				<option value="10000412">LANA (C)</option>
-                <option value="10007000">LEVI</option>
-				<option value="10007010">LEVI (N)</option>
-				<option value="10007012">LEVI (C)</option>
-                <option value="10005000">LILIMO</option>
-				<option value="10005010">LILIMO (N)</option>
-				<option value="10007702">LISA</option>
-				<option value="10007712">LISA (C)</option>
-				<option value="10005602">LIZE</option>
-				<option value="10005612">LIZE (C)</option>
-				<option value="19105602">LIZE-EX</option>
-				<option value="19105612">LIZE-EX (C)</option>
-				<option value="10005200">LOGIA</option>
-				<option value="10005212">LOGIA (C)</option>
-                <option value="10007400">LUTHER</option>
-				<option value="10007412">LUTHER (C)</option>
-                <option value="10002302">LYCAON</option>
-				<option value="10002312">LYCAON (C)</option>
-                <option value="10002802">MADOC</option>
-				<option value="10002812">MADOC (C)</option>
-				<option value="10007512">MATOI (C)</option>
-				<option value="10004802">MELDER</option>
-                <option value="10004812">MELDER (C)</option>
-                <option value="10003602">MELISSA</option>
-				<option value="10003612">MELISSA (C)</option>
-                <option value="10004202">MESSALA</option>
-				<option value="10004212">MESSALA (C)</option>
-                <option value="10007100">MIKASA</option>
-				<option value="10007110">MIKASA (N)</option>
-				<option value="10007112">MIKASA (C)</option>
-                <option value="10006300">MINT</option>
-				<option value="10006312">MINT (C)</option>
-				<option value="10001112">NADIA (C)</option>
-                <option value="10005702">NICOLE (C)</option>
-				<option value="10005712">NICOLE (C)</option>
-				<option value="10006100">PARAMETER</option>
-				<option value="10006112">PARAMETER (C)</option>
-                <option value="10001412">POPOPURIN (C)</option>
-                <option value="10003800">QUNA</option>
-				<option value="10003812">QUNA (C)</option>
-                <option value="10002702">RACHEL</option>
-				<option value="10002712">RACHEL (C)</option>
-                <option value="10001502">RAINER</option>
-				<option value="10001512">RAINER (C)</option>
-				<option value="10000712">ROSALINDE (C)</option>
-				<option value="10800712">ROSALINDE-NY (C)</option>
-				<option value="10100712">ROSALINDE-XMAS (C)</option>
-				<option value="10004912">ROXANNE (C)</option>
-                <option value="10001002">SANDRA</option>
-				<option value="10001012">SANDRA (C)</option>
-				<option value="10000612">SASHA (C)</option>
-				<option value="10002602">SCHENCK</option>
-                <option value="10002612">SCHENCK (C)</option>
-                <option value="10005900">SHANNON</option>
-				<option value="10005912">SHANNON (C)</option>
-				<option value="10004112">SIEGMUND (C)</option>
-				<option value="10000212">STELLA (C)</option>
-				<option value="19100212">STELLA-EX (C)</option>
-				<option value="10800212">STELLA-M (C)</option>
-				<option value="10200212">STELLA-NY (C)</option>
-				<option value="10400212">STELLA-SU (C)</option>
-				<option value="10005512">SVEN (C)</option>
-                <option value="10003200">TANYA</option>
-				<option value="10003210">TANYA (N)</option>
-				<option value="10003212">TANYA (C)</option>
-				<option value="10005102">THEATRE [PH]</option>
-				<option value="10005112">THEATRE (C) [PH]</option>
-                <option value="10004302">TORBJORN</option>
-				<option value="10004312">TORBJORN (C)</option>
-				<option value="10004712">TOTONOTTO (C)</option>
-                <option value="10003902">TSUBAKURO</option>
-				<option value="10003912">TSUBAKURO (C)</option>
-				<option value="10002212">TYROL (C)</option>
-				<option value="19102212">TYROL-EX (C)</option>
-                <option value="10000100">ULY</option>
-				<option value="10000111">ULY (N/L)</option>
-				<option value="10000112">ULY (N/C)</option>
-				<option value="10002412">WALTER (C)</option>
-				<option value="10003312">WOLFF (C)</option>
-                <option value="10005302">WYNDIS</option>
-				<option value="10005312">WYNDIS (C)</option>
-                <option value="19105302">WYNDIS-EX</option>
-                <option value="19105312">WYNDIS-EX (C)</option>
-                <option value="10405302">WYNDIS-SU</option>
-				<option value="10405312">WYNDIS-SU (C)</option>
-				<option value="10002902">ZOLA</option>
-                <option value="10002912">ZOLA (C)</option>
+                <option value="abeille">ABEILLE</option>
+				<option value="abeille-ex">ABEILLE-EX [PH]</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+				<option value="erwin">ERWIN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+				<option value="lisa">LISA</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+				<option value="parameter">PARAMETER</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+				<option value="rize-ex">RIZE-EX</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+				<option value="theatre">THEATRE [PH]</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+				<option value="tyrol-ex">TYROL-EX</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
               </select>
             </div>
             <!-- Character Stats -->
@@ -2888,14 +2176,6 @@
                   </img>
                 </td>
                 <td id="char7totalspd">
-                </td>
-              </tr>
-			  <tr>
-                <td>
-                  <img src="icons/teamscore.png" class="staticon">
-                  </img>
-                </td>
-                <td id="char7teamscore">
                 </td>
               </tr>
             </table>
@@ -2946,28 +2226,12 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-					  <td>
-					    <img src="icons/crit.png" class="substaticon">
-						</img>
-					  </td>
-					  <td>
-					    <input type="number" id="char7weaponcrit" class="stattableinput">
-						</input>
-					  </td>
-					</tr>
-					<tr>
-					  <td>
-					    <img src="icons/blank.png" class="substaticon">
-						</img>
-					  </td>
-					</tr>
                   </table>
                 </td>
                 <td class="subtable">
                   <!-- soul symbol table -->
+                  Soul Stats
                   <table>
-                    Soul Stats
                     <tr>
                       <td>
                         <img src="icons/hp.png" class="substaticon">
@@ -3005,26 +2269,6 @@
                       </td>
                       <td>
                         <input type="number" id="char7symbolspd" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/res.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char7symbolres" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/ele.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char7symbolele" class="stattableinput">
                         </input>
                       </td>
                     </tr>
@@ -3114,8 +2358,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <img src="icons/blank.png" class="substaticon">
-						</img>
+                         
                       </td>
                     </tr>
                   </table>
@@ -3141,153 +2384,90 @@
             <div id="charname" class="name">
               <select id="character8name">
                 <option value="none"></option>
-				<option value="10001702">ABEILLE</option>
-                <option value="10001712">ABEILLE (C)</option>
-				<option value="19101702">ABEILLE-EX [PH]</option>
-				<option value="19101712">ABEILLE-EX (C) [PH]</option>
-                <option value="10001302">AMANE</option>
-				<option value="10001312">AMANE (C)</option>
-				<option value="10000502">ANNA MARIE</option>
-                <option value="10000512">ANNA MARIE (C)</option>
-                <option value="10004500">ASTRAEA</option>
-				<option value="10004510">ASTRAEA (N)</option>
-				<option value="10004512">ASTRAEA (C)</option>
-                <option value="19104500">ASTRAEA-EX</option>
-				<option value="19104510">ASTRAEA-EX (N)</option>
-				<option value="19104512">ASTRAEA-EX (C)</option>
-				<option value="10003112">BARNABAS (C)</option>
-				<option value="10000912">BERNHARDT (C)</option>
-				<option value="10000802">BOOZER (C)</option>
-                <option value="10000812">BOOZER (C)</option>
-                <option value="10006000">CLEMENCE</option>
-				<option value="10006010">CLEMENCE (N)</option>
-				<option value="10006012">CLEMENCE (C)</option>
-                <option value="10000300">DUNCAN</option>
-				<option value="10000310">DUNCAN (N)</option>
-				<option value="10000312">DUNCAN (C)</option>
-				<option value="10003712">EMIL (C)</option>
-				<option value="10002512">EMMA (C)</option>
-                <option value="10006900">EREN</option>
-				<option value="10006910">EREN (N)</option>
-				<option value="10006912">EREN (C)</option>
-				<option value="10003012">ERWIN (C)</option>
-                <option value="10001200">FURAMI</option>
-				<option value="10001210">FURAMI (N)</option>
-				<option value="10001212">FURAMI (C)</option>
-                <option value="10401200">FURAMI-SU</option>
-				<option value="10401210">FURAMI-SU (N)</option>
-				<option value="10401212">FURAMI-SU (C)</option>
-				<option value="10004012">GENE (C)</option>
-				<option value="10003412">GERDA (C)</option>
-				<option value="10703412">GERDA-XMAS (C)</option>
-				<option value="10002012">GUSTAV (C)</option>
-				<option value="10003512">HERMINA (C)</option>
-				<option value="10001802">JASPER</option>
-                <option value="10001812">JASPER (C)</option>
-				<option value="19101802">JASPER-EX</option>
-                <option value="19101812">JASPER-EX (C)</option>
-				<option value="10002112">KAEMPFER (C)</option>
-				<option value="10001902">KARIN</option>
-                <option value="10001912">KARIN (C)</option>
-				<option value="10601902">KARIN-HW</option>
-                <option value="10601912">KARIN-HW (C)</option>
-                <option value="10004402">KIBAKI</option>
-				<option value="10004412">KIBAKI (C)</option>
-                <option value="19104402">KIBAKI-EX</option>
-				<option value="19104412">KIBAKI-EX (C)</option>
-                <option value="10001602">KILLION</option>
-				<option value="10001612">KILLION (C)</option>
-                <option value="10005800">KNUT</option>
-				<option value="10005810">KNUT (N)</option>
-				<option value="10004612">KYRA (C)</option>
-                <option value="10000400">LANA</option>
-				<option value="10000412">LANA (C)</option>
-                <option value="10007000">LEVI</option>
-				<option value="10007010">LEVI (N)</option>
-				<option value="10007012">LEVI (C)</option>
-                <option value="10005000">LILIMO</option>
-				<option value="10005010">LILIMO (N)</option>
-				<option value="10007702">LISA</option>
-				<option value="10007712">LISA (C)</option>
-				<option value="10005602">LIZE</option>
-				<option value="10005612">LIZE (C)</option>
-				<option value="19105602">LIZE-EX</option>
-				<option value="19105612">LIZE-EX (C)</option>
-				<option value="10005200">LOGIA</option>
-				<option value="10005212">LOGIA (C)</option>
-                <option value="10007400">LUTHER</option>
-				<option value="10007412">LUTHER (C)</option>
-                <option value="10002302">LYCAON</option>
-				<option value="10002312">LYCAON (C)</option>
-                <option value="10002802">MADOC</option>
-				<option value="10002812">MADOC (C)</option>
-				<option value="10007512">MATOI (C)</option>
-				<option value="10004802">MELDER</option>
-                <option value="10004812">MELDER (C)</option>
-                <option value="10003602">MELISSA</option>
-				<option value="10003612">MELISSA (C)</option>
-                <option value="10004202">MESSALA</option>
-				<option value="10004212">MESSALA (C)</option>
-                <option value="10007100">MIKASA</option>
-				<option value="10007110">MIKASA (N)</option>
-				<option value="10007112">MIKASA (C)</option>
-                <option value="10006300">MINT</option>
-				<option value="10006312">MINT (C)</option>
-				<option value="10001112">NADIA (C)</option>
-                <option value="10005702">NICOLE (C)</option>
-				<option value="10005712">NICOLE (C)</option>
-				<option value="10006100">PARAMETER</option>
-				<option value="10006112">PARAMETER (C)</option>
-                <option value="10001412">POPOPURIN (C)</option>
-                <option value="10003800">QUNA</option>
-				<option value="10003812">QUNA (C)</option>
-                <option value="10002702">RACHEL</option>
-				<option value="10002712">RACHEL (C)</option>
-                <option value="10001502">RAINER</option>
-				<option value="10001512">RAINER (C)</option>
-				<option value="10000712">ROSALINDE (C)</option>
-				<option value="10800712">ROSALINDE-NY (C)</option>
-				<option value="10100712">ROSALINDE-XMAS (C)</option>
-				<option value="10004912">ROXANNE (C)</option>
-                <option value="10001002">SANDRA</option>
-				<option value="10001012">SANDRA (C)</option>
-				<option value="10000612">SASHA (C)</option>
-				<option value="10002602">SCHENCK</option>
-                <option value="10002612">SCHENCK (C)</option>
-                <option value="10005900">SHANNON</option>
-				<option value="10005912">SHANNON (C)</option>
-				<option value="10004112">SIEGMUND (C)</option>
-				<option value="10000212">STELLA (C)</option>
-				<option value="19100212">STELLA-EX (C)</option>
-				<option value="10800212">STELLA-M (C)</option>
-				<option value="10200212">STELLA-NY (C)</option>
-				<option value="10400212">STELLA-SU (C)</option>
-				<option value="10005512">SVEN (C)</option>
-                <option value="10003200">TANYA</option>
-				<option value="10003210">TANYA (N)</option>
-				<option value="10003212">TANYA (C)</option>
-				<option value="10005102">THEATRE [PH]</option>
-				<option value="10005112">THEATRE (C) [PH]</option>
-                <option value="10004302">TORBJORN</option>
-				<option value="10004312">TORBJORN (C)</option>
-				<option value="10004712">TOTONOTTO (C)</option>
-                <option value="10003902">TSUBAKURO</option>
-				<option value="10003912">TSUBAKURO (C)</option>
-				<option value="10002212">TYROL (C)</option>
-				<option value="19102212">TYROL-EX (C)</option>
-                <option value="10000100">ULY</option>
-				<option value="10000111">ULY (N/L)</option>
-				<option value="10000112">ULY (N/C)</option>
-				<option value="10002412">WALTER (C)</option>
-				<option value="10003312">WOLFF (C)</option>
-                <option value="10005302">WYNDIS</option>
-				<option value="10005312">WYNDIS (C)</option>
-                <option value="19105302">WYNDIS-EX</option>
-                <option value="19105312">WYNDIS-EX (C)</option>
-                <option value="10405302">WYNDIS-SU</option>
-				<option value="10405312">WYNDIS-SU (C)</option>
-				<option value="10002902">ZOLA</option>
-                <option value="10002912">ZOLA (C)</option>
+                <option value="abeille">ABEILLE</option>
+				<option value="abeille-ex">ABEILLE-EX [PH]</option>
+                <option value="amane">AMANE</option>
+                <option value="annamarie">ANNAMARIE</option>
+                <option value="astraea">ASTRAEA</option>
+                <option value="astraea-ex">ASTRAEA-EX</option>
+                <option value="barnabas">BARNABAS</option>
+                <option value="bernhardt">BERNHARDT</option>
+                <option value="boozer">BOOZER</option>
+                <option value="clemence">CLEMENCE</option>
+                <option value="duncan">DUNCAN</option>
+                <option value="emil">EMIL</option>
+                <option value="emma">EMMA</option>
+                <option value="eren">EREN</option>
+				<option value="erwin">ERWIN</option>
+                <option value="furami">FURAMI</option>
+                <option value="furami-su">FURAMI-SU</option>
+                <option value="gene">GENE</option>
+                <option value="gerda">GERDA</option>
+                <option value="gerda-xmas">GERDA-XMAS</option>
+                <option value="gustav">GUSTAV</option>
+                <option value="hermina">HERMINA</option>
+                <option value="jasper">JASPER</option>
+                <option value="jasper-ex">JASPER-EX</option>
+                <option value="kaempfer">KAEMPFER</option>
+                <option value="karin">KARIN</option>
+                <option value="karin-hw">KARIN-HW</option>
+                <option value="kibaki">KIBAKI</option>
+                <option value="kibaki-ex">KIBAKI-EX</option>
+                <option value="killion">KILLION</option>
+                <option value="knut">KNUT</option>
+                <option value="kyra">KYRA</option>
+                <option value="lana">LANA</option>
+                <option value="levi">LEVI</option>
+                <option value="lilimo">LILIMO</option>
+				<option value="lisa">LISA</option>
+                <option value="luther">LUTHER</option>
+                <option value="lycaon">LYCAON</option>
+                <option value="madoc">MADOC</option>
+                <option value="matoi">MATOI</option>
+                <option value="melder">MELDER</option>
+                <option value="melissa">MELISSA</option>
+                <option value="messara">MESSARA</option>
+                <option value="mikasa">MIKASA</option>
+                <option value="mint">MINT</option>
+                <option value="nadia">NADIA</option>
+                <option value="nicole">NICOLE</option>
+				<option value="parameter">PARAMETER</option>
+                <option value="popopurin">POPOPURIN</option>
+                <option value="quna">QUNA</option>
+                <option value="rachel">RACHEL</option>
+                <option value="rainer">RAINER</option>
+                <option value="rize">RIZE</option>
+				<option value="rize-ex">RIZE-EX</option>
+                <option value="rogia">ROGIA</option>
+                <option value="rosalinde">ROSALINDE</option>
+                <option value="rosalinde-ny">ROSALINDE-NY</option>
+                <option value="rosalinde-xmas">ROSALINDE-XMAS</option>
+                <option value="roxanne">ROXANNE</option>
+                <option value="sandra">SANDRA</option>
+                <option value="sasha">SASHA</option>
+                <option value="schenck">SCHENCK</option>
+                <option value="shannon">SHANNON</option>
+                <option value="siegmund">SIEGMUND</option>
+                <option value="stella">STELLA</option>
+                <option value="stella-ex">STELLA-EX</option>
+                <option value="stella-m">STELLA-M</option>
+                <option value="stella-ny">STELLA-NY</option>
+                <option value="stella-su">STELLA-SU</option>
+                <option value="sven">SVEN</option>
+                <option value="tanya">TANYA</option>
+				<option value="theatre">THEATRE [PH]</option>
+                <option value="torbjorn">TORBJORN</option>
+                <option value="totonotto">TOTONOTTO</option>
+                <option value="tsubakuro">TSUBAKURO</option>
+                <option value="tyrol">TYROL</option>
+				<option value="tyrol-ex">TYROL-EX</option>
+                <option value="uly">ULY</option>
+                <option value="walter">WALTER</option>
+                <option value="wolff">WOLFF</option>
+                <option value="wyndis">WYNDIS</option>
+                <option value="wyndis-ex">WYNDIS-EX</option>
+                <option value="wyndis-su">WYNDIS-SU</option>
+                <option value="zora">ZORA</option>
               </select>
             </div>
             <!-- Character Stats -->
@@ -3323,14 +2503,6 @@
                   </img>
                 </td>
                 <td id="char8totalspd">
-                </td>
-              </tr>
-			  <tr>
-                <td>
-                  <img src="icons/teamscore.png.png" class="staticon">
-                  </img>
-                </td>
-                <td id="char8teamscore">
                 </td>
               </tr>
             </table>
@@ -3381,28 +2553,12 @@
                         </input>
                       </td>
                     </tr>
-					<tr>
-					  <td>
-					    <img src="icons/crit.png" class="substaticon">
-						</img>
-					  </td>
-					  <td>
-					    <input type="number" id="char8weaponcrit" class="stattableinput">
-						</input>
-					  </td>
-					</tr>
-					<tr>
-					  <td>
-					    <img src="icons/blank.png" class="substaticon">
-						</img>
-					  </td>
-					</tr>
                   </table>
                 </td>
                 <td class="subtable">
                   <!-- soul symbol table -->
+                  Soul Stats
                   <table>
-                    Soul Stats
                     <tr>
                       <td>
                         <img src="icons/hp.png" class="substaticon">
@@ -3440,26 +2596,6 @@
                       </td>
                       <td>
                         <input type="number" id="char8symbolspd" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/res.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char8symbolres" class="stattableinput">
-                        </input>
-                      </td>
-                    </tr>
-					<tr>
-                      <td>
-                        <img src="icons/ele.png" class="substaticon">
-                        </img>
-                      </td>
-                      <td>
-                        <input type="number" id="char8symbolele" class="stattableinput">
                         </input>
                       </td>
                     </tr>
@@ -3549,8 +2685,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <img src="icons/blank.png" class="substaticon">
-						</img>
+                         
                       </td>
                     </tr>
                   </table>
@@ -3603,26 +2738,6 @@
                   <input type="number" id="chaosmagspd" class="stattableinput">
                   </input>
                 </td>
-              </tr>
-			  <tr>
-			    <td>
-				  <img src="icons/crit.png" class="substaticon">
-                  </img>
-				</td>
-				<td>
-				  <input type="number" id="chaosmagcrit" class="stattableinput">
-				  </input>
-				</td>
-			  </tr>
-			  <tr>
-			    <td>
-				  <img src="icons/res.png" class="substaticon">
-                  </img>
-				</td>
-				<td>
-				  <input type="number" id="chaosmagres" class="stattableinput">
-				  </input>
-				</td>
               </tr>
             </table>
           </div>

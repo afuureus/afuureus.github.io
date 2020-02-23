@@ -90,7 +90,7 @@ function deleteSave() {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  const STATS = ["hp", "atk", "def", "spd", "crit", "res"];
+  const STATS = ["hp", "atk", "def", "spd", "res", "crit", "ele"];
   const FIELDS = ["weapon", "symbol", "destiny"];
 
   for (let num = 1; num <= 8; num++) {
@@ -99,9 +99,21 @@ window.addEventListener("DOMContentLoaded", function () {
     const team = getTeam(num);
 
     nameNode.addEventListener("change", changeCharacter);
-
+	
+    // `totalNode` is the total field of that status.
+    // `fieldNodes` are input fields based on `FIELDS` (weapon, symbol, destiny) because they share the same id naming convention.
+    // `buffNode` needs to be separated because it is calculated as % multi instead.
+    // `magNode` needs to be separated because its id naming convention is different from other fields.
+	
     for (const status of STATS) {
       const totalNode = document.getElementById("char" + num + "total" + status);
+	  	  
+      // We can actually skip the entire calculation if there is nothing to update.
+      // This might change later if there exists something else to update.
+      if (totalNode === null) {
+        continue;
+      }
+
       const fieldNodes = FIELDS.map(function (field) {
         return document.getElementById("char" + num + field + status);
       });
@@ -114,16 +126,16 @@ window.addEventListener("DOMContentLoaded", function () {
       for (const node of targetNodes) {
         node.addEventListener("change", function () {
           if (nameNode.value !== "none") {
-			if (characterStats.hasOwnProperty(nameNode.value)) {
             const base = characterStats[nameNode.value].stats[limitbreakvalueNode.value][status];
             const add = fieldNodes
               .concat(magNode)
+			  .filter(Boolean)
               .map(function (fieldNode) { return Number(fieldNode.value); })
               .reduce(function (sum, value) { return sum + value; }, 0);
             const multi = buffNode ? ((Number(buffNode.value) + 100) / 100) : 1;
             totalNode.textContent = (base + add) * multi;
-			}
-		  }
+			document.getElementById("char"+num+"teamscore").textContent= calculateTeamScore(num);
+          }
         });
       }
     }

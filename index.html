@@ -9,6 +9,7 @@
   <script type="text/javascript" src="js/scripts.js" defer></script>
 </head>
 
+
 <body>
   <div id="save-panel">
     <div id="save-name" class="save-name-container hidden"></div>
@@ -21,7 +22,15 @@
     <button id="delete-button" onclick="deleteSave()" disabled>Delete</button>
 	<br>
 	<div id="teamscore" class="teamscore">
-	  TEAM SCORE:
+	  <!--<table>
+	    <tr>
+		  <td>
+		    TEAM SCORE:
+		  </td>
+		  <td id="totalTeamScore">
+		  </td>
+		</tr>
+	  </table> -->
 	</div>
   </div>
   <div id="law" class="team">ロウのパーティ
@@ -31,7 +40,7 @@
         <td>
           <div id="lawcharbox" class="test">
             </br>
-            <img src="thumbs/character_00000000_thumb.png" class="charicon">
+            <img src="thumbs/character_none_thumb.png" class="charicon">
             </img>
             <select id="char1limitbreakvalue">
               <option value=0>+0</option>
@@ -42,7 +51,7 @@
             </select>
             <div id="charname" class="name">
               <select id="character1name">
-                <option value="00000000"></option>
+                <option value="none"></option>
                 <option value="10001711">ABEILLE (L)</option>
 				<option value="19101711">ABEILLE-EX (L) [PH]</option>
                 <option value="10001311">AMANE (L)</option>
@@ -217,6 +226,14 @@
                   </img>
                 </td>
                 <td id="char1totalspd">
+                </td>
+              </tr>
+			  <tr>
+                <td>
+                  <img src="icons/teamscore.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char1teamscore">
                 </td>
               </tr>
             </table>
@@ -451,7 +468,7 @@
         <td>
           <div id="lawcharbox" class="test">
             </br>
-            <img src="thumbs/character_00000000_thumb.png" class="charicon">
+            <img src="thumbs/character_none_thumb.png" class="charicon">
             </img>
             <select id="char2limitbreakvalue">
               <option value=0>+0</option>
@@ -462,7 +479,7 @@
             </select>
             <div id="charname" class="name">
               <select id="character2name">
-                <option value="00000000"></option>
+                <option value="none"></option>
                 <option value="10001711">ABEILLE (L)</option>
 				<option value="19101711">ABEILLE-EX (L) [PH]</option>
                 <option value="10001311">AMANE (L)</option>
@@ -637,6 +654,14 @@
                   </img>
                 </td>
                 <td id="char2totalspd">
+                </td>
+              </tr>
+			  <tr>
+                <td>
+                  <img src="icons/teamscore.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char2teamscore">
                 </td>
               </tr>
             </table>
@@ -870,7 +895,7 @@
         <td>
           <div id="lawcharbox" class="test">
             </br>
-            <img src="thumbs/character_00000000_thumb.png" class="charicon">
+            <img src="thumbs/character_none_thumb.png" class="charicon">
             </img>
             <select id="char3limitbreakvalue">
               <option value=0>+0</option>
@@ -881,7 +906,7 @@
             </select>
             <div id="charname" class="name">
               <select id="character3name">
-                <option value="00000000"></option>
+                <option value="none"></option>
                 <option value="10001711">ABEILLE (L)</option>
 				<option value="19101711">ABEILLE-EX (L) [PH]</option>
                 <option value="10001311">AMANE (L)</option>
@@ -1056,6 +1081,14 @@
                   </img>
                 </td>
                 <td id="char3totalspd">
+                </td>
+              </tr>
+			  <tr>
+                <td>
+                  <img src="icons/teamscore.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char3teamscore">
                 </td>
               </tr>
             </table>
@@ -1289,7 +1322,7 @@
         <td>
           <div id="lawcharbox" class="test">
             </br>
-            <img src="thumbs/character_00000000_thumb.png" class="charicon">
+            <img src="thumbs/character_none_thumb.png" class="charicon">
             </img>
             <select id="char4limitbreakvalue">
               <option value=0>+0</option>
@@ -1300,7 +1333,7 @@
             </select>
             <div id="charname" class="name">
               <select id="character4name">
-                <option value="00000000"></option>
+                <option value="none"></option>
                 <option value="10001711">ABEILLE (L)</option>
 				<option value="19101711">ABEILLE-EX (L) [PH]</option>
                 <option value="10001311">AMANE (L)</option>
@@ -1475,6 +1508,14 @@
                   </img>
                 </td>
                 <td id="char4totalspd">
+                </td>
+              </tr>
+			  <tr>
+                <td>
+                  <img src="icons/teamscore.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char4teamscore">
                 </td>
               </tr>
             </table>
@@ -1784,7 +1825,7 @@
         <td>
           <div id="chaoscharbox" class="test">
             </br>
-            <img src="thumbs/character_00000000_thumb.png" class="charicon">
+            <img src="thumbs/character_none_thumb.png" class="charicon">
             </img>
             <select id="char5limitbreakvalue">
               <option value=0>+0</option>
@@ -1795,7 +1836,7 @@
             </select>
             <div id="charname" class="name">
               <select id="character5name">
-                <option value="00000000"></option>
+                <option value="none"></option>
 				<option value="10001702">ABEILLE</option>
                 <option value="10001712">ABEILLE (C)</option>
 				<option value="19101702">ABEILLE-EX [PH]</option>
@@ -1978,6 +2019,14 @@
                   </img>
                 </td>
                 <td id="char5totalspd">
+                </td>
+              </tr>
+			  <tr>
+                <td>
+                  <img src="icons/teamscore.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char5teamscore">
                 </td>
               </tr>
             </table>
@@ -2211,7 +2260,7 @@
         <td>
           <div id="chaoscharbox" class="test">
             </br>
-            <img src="thumbs/character_00000000_thumb.png" class="charicon">
+            <img src="thumbs/character_none_thumb.png" class="charicon">
             </img>
             <select id="char6limitbreakvalue">
               <option value=0>+0</option>
@@ -2222,7 +2271,7 @@
             </select>
             <div id="charname" class="name">
               <select id="character6name">
-                <option value="00000000"></option>
+                <option value="none"></option>
 				<option value="10001702">ABEILLE</option>
                 <option value="10001712">ABEILLE (C)</option>
 				<option value="19101702">ABEILLE-EX [PH]</option>
@@ -2405,6 +2454,14 @@
                   </img>
                 </td>
                 <td id="char6totalspd">
+                </td>
+              </tr>
+			  <tr>
+                <td>
+                  <img src="icons/teamscore.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char6teamscore">
                 </td>
               </tr>
             </table>
@@ -2637,7 +2694,7 @@
         <td>
           <div id="chaoscharbox" class="test">
             </br>
-            <img src="thumbs/character_00000000_thumb.png" class="charicon">
+            <img src="thumbs/character_none_thumb.png" class="charicon">
             </img>
             <select id="char7limitbreakvalue">
               <option value=0>+0</option>
@@ -2648,7 +2705,7 @@
             </select>
             <div id="charname" class="name">
               <select id="character7name">
-                <option value="00000000"></option>
+                <option value="none"></option>
 				<option value="10001702">ABEILLE</option>
                 <option value="10001712">ABEILLE (C)</option>
 				<option value="19101702">ABEILLE-EX [PH]</option>
@@ -2831,6 +2888,14 @@
                   </img>
                 </td>
                 <td id="char7totalspd">
+                </td>
+              </tr>
+			  <tr>
+                <td>
+                  <img src="icons/teamscore.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char7teamscore">
                 </td>
               </tr>
             </table>
@@ -3064,7 +3129,7 @@
         <td>
           <div id="chaoscharbox" class="test">
             </br>
-            <img src="thumbs/character_00000000_thumb.png" class="charicon">
+            <img src="thumbs/character_none_thumb.png" class="charicon">
             </img>
             <select id="char8limitbreakvalue">
               <option value=0>+0</option>
@@ -3075,7 +3140,7 @@
             </select>
             <div id="charname" class="name">
               <select id="character8name">
-                <option value="00000000"></option>
+                <option value="none"></option>
 				<option value="10001702">ABEILLE</option>
                 <option value="10001712">ABEILLE (C)</option>
 				<option value="19101702">ABEILLE-EX [PH]</option>
@@ -3258,6 +3323,14 @@
                   </img>
                 </td>
                 <td id="char8totalspd">
+                </td>
+              </tr>
+			  <tr>
+                <td>
+                  <img src="icons/teamscore.png.png" class="staticon">
+                  </img>
+                </td>
+                <td id="char8teamscore">
                 </td>
               </tr>
             </table>
@@ -3537,7 +3610,7 @@
                   </img>
 				</td>
 				<td>
-				  <input type="number" id="lawmagcrit" class="stattableinput">
+				  <input type="number" id="chaosmagcrit" class="stattableinput">
 				  </input>
 				</td>
 			  </tr>
@@ -3547,7 +3620,7 @@
                   </img>
 				</td>
 				<td>
-				  <input type="number" id="lawmagres" class="stattableinput">
+				  <input type="number" id="chaosmagres" class="stattableinput">
 				  </input>
 				</td>
               </tr>

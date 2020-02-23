@@ -1,6 +1,6 @@
 const VERSION = "0.2.0";
 const TEAMS = ["law", "chaos"];
-const STATS = ["hp", "atk", "def", "spd", "crit", "res"];
+const STATS = ["hp", "atk", "def", "spd", "res", "crit", "ele"];
 const FIELDS = ["weapon", "symbol", "destiny", "buff"];
 
 function swap() {
@@ -13,6 +13,19 @@ function getActiveTeam() {
     return "chaos";
   }
   return "law";
+}
+
+function calculateTeamScore(num) {
+  const critTeamScore = ((Number(document.getElementById(getTeam(num)+"magcrit").value) + Number(document.getElementById("char"+num+"weaponcrit").value))*25)
+  const resTeamScore = ((Number(document.getElementById(getTeam(num)+"magres").value) + Number(document.getElementById("char"+num+"symbolres").value))*25)
+  const eleTeamScore = (Number(document.getElementById("char"+num+"symbolele").value)*75)
+  const teamScore = (((Number(document.getElementById("char"+num+"totalatk").textContent) + Number(document.getElementById("char"+num+"totaldef").textContent) + Number(document.getElementById("char"+num+"totalspd").textContent)))*5) + ((Number(document.getElementById("char"+num+"totalhp").textContent))/4) + critTeamScore + resTeamScore + eleTeamScore;
+  return teamScore;
+}
+
+function calculateTeam(num) {
+  const teamSc = document.getElementById("char"+num+"totalatk").textContent;
+  return teamSc;
 }
 
 function getCharacterData(num) {
@@ -51,7 +64,9 @@ function loadCharacterData(num, data) {
 function getMagData(team) {
   return STATS.reduce(function (magData, status) {
     const statusNode = document.getElementById(team + "mag" + status);
-    magData[status] = Number(statusNode.value);
+	if (statusNode) {
+        magData[status] = Number(statusNode.value);
+      }
     return magData;
   }, {});
 }

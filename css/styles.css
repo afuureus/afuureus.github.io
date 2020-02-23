@@ -4,7 +4,7 @@ body {
 
 .team {
   width: 1526px;
-  height: 915px;
+  height: 850px;
   position: absolute;
   top: 50px;
   left: 50px;
@@ -38,7 +38,7 @@ body {
 
 .test {
   width: 346px;
-  height: 880px;
+  height: 800px;
   border-width: 1px;
   border-style: solid;
   text-align: center;
@@ -164,17 +164,6 @@ td {
   width: 100%;
 }
 
-#teamscore {
-  box-sizing: border-box;
-  position: absolute;
-  left: 70%;
-  padding: 0.5rem;
-  margin-top: 4.2rem;
-  background: white;
-  border: 1px solid black;
-  width: 271px;
-  z-index: 3;
-}
 .save-name-container {
   height: 1.5rem;
 }

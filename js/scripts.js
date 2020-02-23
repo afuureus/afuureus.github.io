@@ -90,7 +90,7 @@ function deleteSave() {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  const STATS = ["hp", "atk", "def", "spd"];
+  const STATS = ["hp", "atk", "def", "spd", "crit", "res"];
   const FIELDS = ["weapon", "symbol", "destiny"];
 
   for (let num = 1; num <= 8; num++) {
@@ -114,6 +114,7 @@ window.addEventListener("DOMContentLoaded", function () {
       for (const node of targetNodes) {
         node.addEventListener("change", function () {
           if (nameNode.value !== "none") {
+			if (characterStats.hasOwnProperty(nameNode.value)) {
             const base = characterStats[nameNode.value].stats[limitbreakvalueNode.value][status];
             const add = fieldNodes
               .concat(magNode)
@@ -121,7 +122,8 @@ window.addEventListener("DOMContentLoaded", function () {
               .reduce(function (sum, value) { return sum + value; }, 0);
             const multi = buffNode ? ((Number(buffNode.value) + 100) / 100) : 1;
             totalNode.textContent = (base + add) * multi;
-          }
+			}
+		  }
         });
       }
     }

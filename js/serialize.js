@@ -1,6 +1,6 @@
-const VERSION = "0.1.0";
+const VERSION = "0.2.0";
 const TEAMS = ["law", "chaos"];
-const STATS = ["hp", "atk", "def", "spd"];
+const STATS = ["hp", "atk", "def", "spd", "crit", "res"];
 const FIELDS = ["weapon", "symbol", "destiny", "buff"];
 
 function swap() {
@@ -98,8 +98,8 @@ function serialize(data) {
 function deserialize(data) {
   try {
     return JSON.parse(data);
-  } catch {
-    console.error("Unable to parse data.");
+  } catch(err) {
+    console.error(err);
   }
   return null;
 }

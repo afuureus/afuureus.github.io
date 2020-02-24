@@ -1,5 +1,9 @@
 body {
   font-family: Segoe UI, sans-serif;
+  background-image: url("../bg/bg002_01.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 .team {
@@ -11,6 +15,7 @@ body {
   transition: all 0.3s;
   border-width: 1px;
   border-style: solid;
+  opacity: 0.9;
 }
 
 #law {
@@ -25,7 +30,7 @@ body {
 
 .inactive_team {
   z-index: -1;
-  opacity: 0.5;
+  opacity: 0.3;
   transform: translate(-50px, -50px);
 }
 
@@ -157,6 +162,7 @@ td {
   background: white;
   border: 1px solid black;
   z-index: 3;
+  opacity: 0.95;
 }
 
 #save-name-input {
@@ -174,6 +180,7 @@ td {
   border: 1px solid black;
   width: 271px;
   z-index: 3;
+  opacity: 0.95;
 }
 .save-name-container {
   height: 1.5rem;

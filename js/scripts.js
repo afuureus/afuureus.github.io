@@ -224,7 +224,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const urlSearchParams = new URLSearchParams(window.location.search);
   if (urlSearchParams.has("build")) {
     const build = urlSearchParams.get("build");
-    const format = urlSearchParams.get("format") || undefined;
+    const format = urlSearchParams.get("format").toLowerCase() || undefined;
     loadSaveData(decode(build, format));
   }
 });

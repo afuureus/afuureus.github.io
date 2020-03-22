@@ -1,4 +1,4 @@
-const VERSION = "0.3.0";
+var VERSION = "0.3.0";
 const TEAMS = ["law", "chaos"];
 const STATS = ["hp", "atk", "def", "spd", "res", "crit", "ele"];
 const FIELDS = ["weapon", "symbol", "destiny", "buff"];

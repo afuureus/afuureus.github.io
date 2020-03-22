@@ -16,6 +16,9 @@ function decode(text, format = "msgpack") {
   if (format === "json") {
     return decodeJSON(text);
   }
+  if (format === "nnstjp") {
+    return decodeNNSTJP(text);
+  }
   console.error("Unsupported decoding format.");
   return {};
 }
@@ -55,6 +58,35 @@ function decodeMessagePack(text) {
     );
   } catch (error) {
     console.error("Unable to parse msgpack.", error);
+  }
+  return {};
+}
+
+function decodeNNSTJP(text) {
+  const nnstjp = decodeJSON(text);
+  try {
+    return {
+      version: VERSION,
+      activeTeam: nnstjp.Party === "01" ? "law" : "chaos",
+      characters: nnstjp.CharacterID.map(function (id, index) {
+        if (id === "100000 00") {
+          id = "none";
+        }
+        return {
+          name: id.replace(" ", ""),
+          limitbreakvalue: nnstjp.CharacterLB[index],
+          weapon: {hp: 0, atk: 0, def: 0, spd: Number(nnstjp.WeaponSPD[index]), crit: 0},
+          symbol: {hp: 0, atk: 0, def: 0, spd: Number(nnstjp.SoulSPD[index]), res: 0, ele: 0},
+          destiny: {hp: 0, atk: 0, def: 0, spd: 0},
+          buff: {atk: 0, def: 0, spd: Number(nnstjp.SupportSPD[index])}
+        };
+      }),
+      mags: nnstjp.IdoMagSPD.map(function (speed, index) {
+        return {hp: 0, atk: 0, def: 0, spd: speed, res: 0, crit: 0};
+      })
+    };
+  } catch (error) {
+    console.error("Unable to parse NNSTJP.", error);
   }
   return {};
 }

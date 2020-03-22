@@ -157,7 +157,7 @@ td {
 #panel-container {
   box-sizing: border-box;
   position: absolute;
-  left: 70%;
+  left: 75%;
   z-index: 3;
 }
 
@@ -177,6 +177,20 @@ td {
 
 .save-name-container {
   height: 1.5rem;
+}
+
+#toast {
+  opacity: 1;
+}
+
+#toast.transparent {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 1s;
+}
+
+.float-right {
+  float: right;
 }
 
 .hidden {

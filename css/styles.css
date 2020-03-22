@@ -154,15 +154,20 @@ td {
   border-style: solid;
 }
 
-#save-panel {
+#panel-container {
   box-sizing: border-box;
   position: absolute;
   left: 70%;
+  z-index: 3;
+}
+
+.panel {
+  display: block;
   padding: 0.5rem;
   background: white;
   border: 1px solid black;
-  z-index: 3;
   opacity: 0.95;
+  margin-bottom: 0.1rem;
 }
 
 #save-name-input {
@@ -170,18 +175,6 @@ td {
   width: 100%;
 }
 
-#teamscore {
-  box-sizing: border-box;
-  position: absolute;
-  left: 70%;
-  padding: 0.5rem;
-  margin-top: 4.2rem;
-  background: white;
-  border: 1px solid black;
-  width: 271px;
-  z-index: 3;
-  opacity: 0.95;
-}
 .save-name-container {
   height: 1.5rem;
 }

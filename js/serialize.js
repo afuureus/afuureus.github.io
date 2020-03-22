@@ -94,14 +94,9 @@ function loadSaveData(data) {
 }
 
 function serialize(data) {
-  return JSON.stringify(data);
+  return encode(data, "json");
 }
 
-function deserialize(data) {
-  try {
-    return JSON.parse(data);
-  } catch(err) {
-    console.error(err);
-  }
-  return null;
+function deserialize(text) {
+  return decode(text, "json");
 }

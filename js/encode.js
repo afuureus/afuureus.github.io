@@ -63,7 +63,7 @@ function decodeMessagePack(text) {
 }
 
 function decodeNNSTJP(text) {
-  const nnstjp = decodeJSON(text);
+  const nnstjp = decodeJSON(text.replace(/^(https?:\/\/)?nnstjp\.github\.io\/Idola\/(index\.html)?\?/, ""));
   try {
     return {
       version: VERSION,

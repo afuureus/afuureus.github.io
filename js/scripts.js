@@ -169,4 +169,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
   saveSelect.addEventListener("change", updateSaveNames);
   updateSaveNames();
+
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  if (urlSearchParams.has("build")) {
+    const build = urlSearchParams.get("build");
+    const format = urlSearchParams.get("format") || undefined;
+    loadSaveData(decode(build, format));
+  }
 });

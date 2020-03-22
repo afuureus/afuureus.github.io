@@ -75,7 +75,7 @@ function getSaveData() {
 
 function loadSaveData(data) {
   if (data.version !== VERSION) {
-    console.error("Save version not supported.");
+    console.error("Invalid data or save version not supported.");
     return;
   }
   try {

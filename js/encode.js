@@ -41,15 +41,20 @@ function encodeMessagePack(data) {
 }
 
 function decodeMessagePack(text) {
-  return MessagePack.decode(
-    new Uint8Array(
-      window.atob(
-        (text + '==='.slice((text.length + 3) % 4)) // add = padding
-          .replace(/-/g, '+') // replace - with +
-          .replace(/_/g, '/') // replace _ with /
+  try {
+    return MessagePack.decode(
+      new Uint8Array(
+        window.atob(
+          (text + '==='.slice((text.length + 3) % 4)) // add = padding
+            .replace(/-/g, '+') // replace - with +
+            .replace(/_/g, '/') // replace _ with /
+        )
+          .split("")
+          .map(function(c) { return c.charCodeAt(0); })
       )
-        .split("")
-        .map(function(c) { return c.charCodeAt(0); })
-    )
-  );
+    );
+  } catch (error) {
+    console.error("Unable to parse msgpack.", error);
+  }
+  return {};
 }

@@ -1,4 +1,6 @@
-function encode(data, format = "msgpack") {
+var DEFAULT_FORMAT = "msgpack";
+
+function encode(data, format = DEFAULT_FORMAT) {
   if (format === "msgpack") {
     return encodeMessagePack(data);
   }
@@ -9,7 +11,7 @@ function encode(data, format = "msgpack") {
   return "";
 }
 
-function decode(text, format = "msgpack") {
+function decode(text, format = DEFAULT_FORMAT) {
   if (format === "msgpack") {
     return decodeMessagePack(text);
   }

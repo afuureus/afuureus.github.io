@@ -145,6 +145,7 @@ function exportBuild() {
   const urlSearchParams = new URLSearchParams();
   const build = encode(getSaveData());
   urlSearchParams.set("build", build);
+  urlSearchParams.set("format", DEFAULT_FORMAT);
   history.pushState({}, "", "?" + urlSearchParams.toString());
   if (navigator.clipboard) {
     try {

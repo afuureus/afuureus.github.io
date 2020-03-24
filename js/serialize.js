@@ -1,4 +1,4 @@
-const VERSION = "0.3.0";
+var VERSION = "0.3.0";
 const TEAMS = ["law", "chaos"];
 const STATS = ["hp", "atk", "def", "spd", "res", "crit", "ele"];
 const FIELDS = ["weapon", "symbol", "destiny", "buff"];
@@ -75,7 +75,7 @@ function getSaveData() {
 
 function loadSaveData(data) {
   if (data.version !== VERSION) {
-    console.error("Save version not supported.");
+    console.error("Invalid data or save version not supported.");
     return;
   }
   try {
@@ -94,14 +94,9 @@ function loadSaveData(data) {
 }
 
 function serialize(data) {
-  return JSON.stringify(data);
+  return encode(data, "json");
 }
 
-function deserialize(data) {
-  try {
-    return JSON.parse(data);
-  } catch(err) {
-    console.error(err);
-  }
-  return null;
+function deserialize(text) {
+  return decode(text, "json");
 }

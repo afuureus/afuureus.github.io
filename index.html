@@ -5,35 +5,35 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" href="css/styles.css" />
   <script type="text/javascript" src="js/lb.js" defer></script>
+  <script src="https://unpkg.com/@msgpack/msgpack" crossorigin defer></script> <!-- Used in encode.js -->
+  <script type="text/javascript" src="js/encode.js" defer></script>
   <script type="text/javascript" src="js/serialize.js" defer></script>
+  <script src="https://unpkg.com/url-search-params-polyfill" crossorigin defer></script> <!-- URLSearchParams polyfill for IE -->
   <script type="text/javascript" src="js/scripts.js" defer></script>
   <title>IDOLA STATUS TOOL</title>
 </head>
 
 
 <body>
-  <div id="save-panel">
-    <div id="save-name" class="save-name-container hidden"></div>
-    <div id="save-name-input-container" class="save-name-container"><input type="text" id="save-name-input" autocomplete="off" /></div>
-    <select id="save-select">
-      <option value="" selected>Create new</option>
-    </select>
-    <button id="save-button" onclick="save()">Save</button>
-    <button id="load-button" onclick="load()" disabled>Load</button>
-    <button id="delete-button" onclick="deleteSave()" disabled>Delete</button>
-	<br>
+  <div id="panel-container">
+    <div class="panel">
+      <div id="save-name" class="save-name-container hidden"></div>
+      <div id="save-name-input-container" class="save-name-container"><input type="text" id="save-name-input" autocomplete="off" /></div>
+      <select id="save-select">
+        <option value="" selected>Create new</option>
+      </select>
+      <button id="save-button" onclick="save()">Save</button>
+      <button id="load-button" onclick="load()" disabled>Load</button>
+      <button id="delete-button" onclick="deleteSave()" disabled>Delete</button>
+    <br>
+    </div>
+    <div id="teamscore" class="panel">
+      TEAM SCORE:
+      <span id="totalTeamScore"></span>
+      <button id="export-button" class="float-right" onclick="exportBuild()">Export</button>
+    </div>
+    <div id="toast" class="panel hidden"></div>
   </div>
-  <div id="teamscore" class="teamscore">
-	  <table>
-	    <tr>
-		  <td>
-		    TEAM SCORE:
-		  </td>
-		  <td id="totalTeamScore">
-		  </td>
-		</tr>
-	  </table>
-	</div>
   <div id="law" class="team">ロウのパーティ
     <!-- Table to create rows -->
     <table>

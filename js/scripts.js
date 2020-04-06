@@ -1,3 +1,39 @@
+let TOAST_TRANSITION_TIMER = null;
+let TOAST_HIDE_TIMER = null;
+
+function resetToast(toast) {
+  toast.classList.remove("transparent");
+  toast.classList.remove("hidden");
+}
+
+function showToast(text) {
+  if (TOAST_TRANSITION_TIMER) {
+    window.clearTimeout(TOAST_TRANSITION_TIMER);
+    TOAST_TRANSITION_TIMER = null;
+  }
+  if (TOAST_HIDE_TIMER) {
+    window.clearTimeout(TOAST_HIDE_TIMER);
+    TOAST_HIDE_TIMER = null;
+  }
+
+  const toast = document.getElementById("toast");
+  toast.textContent = text;
+  resetToast(toast);
+  TOAST_TRANSITION_TIMER = window.setTimeout(
+    function () {
+      toast.classList.add("transparent");
+    },
+    2000
+  );
+  TOAST_HIDE_TIMER = window.setTimeout(
+    function () {
+      toast.classList.add("hidden");
+      toast.classList.remove("transparent");
+    },
+    4000
+  );
+}
+
 function changeCharacter(event) {
   var imgNode = event.target.parentNode.parentNode.getElementsByClassName("charicon")[0];
   imgNode.setAttribute("src", "thumbs/character_" + event.target.value + "_thumb.png");
@@ -11,19 +47,19 @@ function getTeam(num) {
 }
 
 function calculateTeamScore(num) {
-  const critTeamScore = ((Number(document.getElementById("char"+num+"weaponcrit").value))*25);
-  const resTeamScore = ((Number(document.getElementById("char"+num+"symbolres").value))*25);
-  const eleTeamScore = (Number(document.getElementById("char"+num+"symbolele").value)*75);
-  const atkTeamScore = (((characterStats[document.getElementById("character"+num+"name").value]["stats"][document.getElementById("char"+num+"limitbreakvalue").value]["atk"]) + Number(document.getElementById("char"+num+"weaponatk").value) + Number(document.getElementById("char"+num+"symbolatk").value) + Number(document.getElementById("char"+num+"destinyatk").value) + Number(document.getElementById(getTeam(num)+"magatk").value))*5);
-  const defTeamScore = (((characterStats[document.getElementById("character"+num+"name").value]["stats"][document.getElementById("char"+num+"limitbreakvalue").value]["def"]) + Number(document.getElementById("char"+num+"weapondef").value) + Number(document.getElementById("char"+num+"symboldef").value) + Number(document.getElementById("char"+num+"destinydef").value) + Number(document.getElementById(getTeam(num)+"magdef").value))*5);
-  const spdTeamScore = (((characterStats[document.getElementById("character"+num+"name").value]["stats"][document.getElementById("char"+num+"limitbreakvalue").value]["spd"]) + Number(document.getElementById("char"+num+"weaponspd").value) + Number(document.getElementById("char"+num+"symbolspd").value) + Number(document.getElementById("char"+num+"destinyspd").value) + Number(document.getElementById(getTeam(num)+"magspd").value))*5);
-  const hpTeamScore = (((characterStats[document.getElementById("character"+num+"name").value]["stats"][document.getElementById("char"+num+"limitbreakvalue").value]["hp"]) + Number(document.getElementById("char"+num+"weaponhp").value) + Number(document.getElementById("char"+num+"symbolhp").value) + Number(document.getElementById("char"+num+"destinyhp").value) + Number(document.getElementById(getTeam(num)+"maghp").value))/4);
+  const critTeamScore = ((Number(document.getElementById("char" + num + "weaponcrit").value)) * 25);
+  const resTeamScore = ((Number(document.getElementById("char" + num + "symbolres").value)) * 25);
+  const eleTeamScore = (Number(document.getElementById("char" + num + "symbolele").value) * 75);
+  const atkTeamScore = (((characterStats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["atk"]) + Number(document.getElementById("char" + num + "weaponatk").value) + Number(document.getElementById("char" + num + "symbolatk").value) + Number(document.getElementById("char" + num + "destinyatk").value) + Number(document.getElementById(getTeam(num) + "magatk").value)) * 5);
+  const defTeamScore = (((characterStats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["def"]) + Number(document.getElementById("char" + num + "weapondef").value) + Number(document.getElementById("char" + num + "symboldef").value) + Number(document.getElementById("char" + num + "destinydef").value) + Number(document.getElementById(getTeam(num) + "magdef").value)) * 5);
+  const spdTeamScore = (((characterStats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["spd"]) + Number(document.getElementById("char" + num + "weaponspd").value) + Number(document.getElementById("char" + num + "symbolspd").value) + Number(document.getElementById("char" + num + "destinyspd").value) + Number(document.getElementById(getTeam(num) + "magspd").value)) * 5);
+  const hpTeamScore = (((characterStats[document.getElementById("character" + num + "name").value]["stats"][document.getElementById("char" + num + "limitbreakvalue").value]["hp"]) + Number(document.getElementById("char" + num + "weaponhp").value) + Number(document.getElementById("char" + num + "symbolhp").value) + Number(document.getElementById("char" + num + "destinyhp").value) + Number(document.getElementById(getTeam(num) + "maghp").value)) / 4);
   const teamScore = atkTeamScore + defTeamScore + spdTeamScore + hpTeamScore + critTeamScore + resTeamScore + eleTeamScore;
   return teamScore;
 }
 
 function calculateTotalTeamScore() {
-	document.getElementById("totalTeamScore").textContent= Number(document.getElementById("char1teamscore").textContent) + Number(document.getElementById("char2teamscore").textContent) + Number(document.getElementById("char3teamscore").textContent) + Number(document.getElementById("char4teamscore").textContent) + Number(document.getElementById("char5teamscore").textContent) + Number(document.getElementById("char6teamscore").textContent) + Number(document.getElementById("char7teamscore").textContent) + Number(document.getElementById("char8teamscore").textContent) + (Number(document.getElementById("chaosmagres").value)*25) + (Number(document.getElementById("chaosmagcrit").value)*25) + (Number(document.getElementById("lawmagres").value)*25) + (Number(document.getElementById("lawmagcrit").value)*25);
+  document.getElementById("totalTeamScore").textContent = Number(document.getElementById("char1teamscore").textContent) + Number(document.getElementById("char2teamscore").textContent) + Number(document.getElementById("char3teamscore").textContent) + Number(document.getElementById("char4teamscore").textContent) + Number(document.getElementById("char5teamscore").textContent) + Number(document.getElementById("char6teamscore").textContent) + Number(document.getElementById("char7teamscore").textContent) + Number(document.getElementById("char8teamscore").textContent) + (Number(document.getElementById("chaosmagres").value) * 25) + (Number(document.getElementById("chaosmagcrit").value) * 25) + (Number(document.getElementById("lawmagres").value) * 25) + (Number(document.getElementById("lawmagcrit").value) * 25);
 }
 
 function createOptionElement(key) {
@@ -105,6 +141,22 @@ function deleteSave() {
   updateSaveNames();
 }
 
+function exportBuild() {
+  const urlSearchParams = new URLSearchParams();
+  const build = encode(getSaveData());
+  urlSearchParams.set("build", build);
+  urlSearchParams.set("format", DEFAULT_FORMAT);
+  history.pushState({}, "", "?" + urlSearchParams.toString());
+  if (navigator.clipboard) {
+    try {
+      navigator.clipboard.writeText(window.location.href);
+      showToast("URL exported to clipboard.");
+    } catch (error) {
+      console.error("Cannot write to clipboard.", error);
+    }
+  }
+}
+
 window.addEventListener("DOMContentLoaded", function () {
   const STATS = ["hp", "atk", "def", "spd", "res", "crit", "ele"];
   const FIELDS = ["weapon", "symbol", "destiny"];
@@ -115,15 +167,15 @@ window.addEventListener("DOMContentLoaded", function () {
     const team = getTeam(num);
 
     nameNode.addEventListener("change", changeCharacter);
-	
+
     // `totalNode` is the total field of that status.
     // `fieldNodes` are input fields based on `FIELDS` (weapon, symbol, destiny) because they share the same id naming convention.
     // `buffNode` needs to be separated because it is calculated as % multi instead.
     // `magNode` needs to be separated because its id naming convention is different from other fields.
-	
+
     for (const status of STATS) {
       const totalNode = document.getElementById("char" + num + "total" + status);
-	  const fieldNodes = FIELDS.map(function (field) {
+      const fieldNodes = FIELDS.map(function (field) {
         return document.getElementById("char" + num + field + status);
       });
       const buffNode = document.getElementById("char" + num + "buff" + status);
@@ -138,15 +190,15 @@ window.addEventListener("DOMContentLoaded", function () {
             const base = characterStats[nameNode.value].stats[limitbreakvalueNode.value][status];
             const add = fieldNodes
               .concat(magNode)
-			  .filter(Boolean)
+              .filter(Boolean)
               .map(function (fieldNode) { return Number(fieldNode.value); })
               .reduce(function (sum, value) { return sum + value; }, 0);
             const multi = buffNode ? ((Number(buffNode.value) + 100) / 100) : 1;
             if (totalNode) {
               totalNode.textContent = (base + add) * multi;
             }
-            document.getElementById("char"+num+"teamscore").textContent= calculateTeamScore(num);
-			calculateTotalTeamScore();
+            document.getElementById("char" + num + "teamscore").textContent = calculateTeamScore(num);
+            calculateTotalTeamScore();
           }
         });
       }
@@ -169,4 +221,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
   saveSelect.addEventListener("change", updateSaveNames);
   updateSaveNames();
+
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  if (urlSearchParams.has("build")) {
+    const build = urlSearchParams.get("build");
+    const format = urlSearchParams.get("format").toLowerCase() || undefined;
+    loadSaveData(decode(build, format));
+  }
 });
